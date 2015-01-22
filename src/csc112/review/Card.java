@@ -6,20 +6,29 @@ import java.util.Random;
 
 /**
  * Card.java
- * 
- * Class for an object representation of a standard playing Card, with a face and suit
- * 
+ * Class for an object representation of a standard playing Card, with a face
+ * and suit
+ *
  * @author Tim Miller
- * 
  */
 public class Card
 {
+	/**
+	 * Number of faces (this should probably be an enum too)
+	 */
+	private static final int	NUM_FACES	= 13;
+	
+	/**
+	 * Number of suits (this should be an enum)
+	 */
+	private static final int	NUM_SUITS	= 4;
+
 	public static Collection<Card> getFullDeck()
 	{
-		Collection<Card> d = new HashSet<>();
-		for(int suit = 1;suit <= NUM_SUITS;suit++)
+		final Collection<Card> d = new HashSet<>();
+		for (int suit = 1; suit <= Card.NUM_SUITS; suit++)
 		{
-			for(int face = 1;face <= NUM_FACES;face++)
+			for (int face = 1; face <= Card.NUM_FACES; face++)
 			{
 				d.add(new Card(face, suit));
 			}
@@ -28,34 +37,24 @@ public class Card
 	}
 	
 	/**
-	 * Number of suits (this should be an enum)
-	 */
-	private static final int	NUM_SUITS	= 4;
-
-	/**
-	 * Number of faces (this should probably be an enum too)
-	 */
-	private static final int	NUM_FACES	= 13;
-	
-	/**
 	 * The face
 	 */
-	private final int			face;
+	private final int	face;
 
 	/**
 	 * The face represented by a string
 	 */
-	private String				faceName;
+	private String		faceName;
 
 	/**
 	 * The suit
 	 */
-	private final int			suit;
+	private final int	suit;
 
 	/**
 	 * The suit represented by a string
 	 */
-	private String				suitName;
+	private String		suitName;
 
 	/**
 	 * Default constructor, returning an object with a random face and suit
@@ -68,9 +67,11 @@ public class Card
 
 	/**
 	 * Constructor returning an object with a specified face and suit
-	 * 
-	 * @param face the face
-	 * @param suit the suit
+	 *
+	 * @param face
+	 *            the face
+	 * @param suit
+	 *            the suit
 	 */
 	private Card(final int face, final int suit)
 	{
@@ -81,11 +82,11 @@ public class Card
 	}
 
 	/**
-	 * @return the name of the card image 
+	 * @return the name of the card image
 	 */
 	public String getCardName()
 	{
-		return "";	//TODO
+		return "";	// TODO
 	}
 
 	/**
@@ -104,6 +105,16 @@ public class Card
 	{
 		return this.suit;
 
+	}
+
+	/**
+	 * Returns a string representation of the object, in the format
+	 * {@link faceName} + " of " + {@link suitName}
+	 */
+	@Override
+	public String toString()
+	{
+		return this.faceName + " of " + this.suitName;
 	}
 
 	private void setFaceName()
@@ -144,14 +155,5 @@ public class Card
 				this.suitName = "Spades";
 				break;
 		}
-	}
-
-	/**
-	 * Returns a string representation of the object, in the format {@link faceName} + " of " + {@link suitName}
-	 */
-	@Override
-	public String toString()
-	{
-		return this.faceName + " of " + this.suitName;
 	}
 }
