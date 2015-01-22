@@ -4,6 +4,8 @@ package movies;
 // Movies.java Author: Lewis/Loftus
 //
 // Demonstrates the use of an array of objects.
+//
+// http://studenthome.sunyocc.edu/~pagelj/csc111/c8.html
 // ********************************************************************
 
 public class Movies
