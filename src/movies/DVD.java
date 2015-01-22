@@ -12,7 +12,31 @@ public class DVD
 {
 	private final boolean	bluRay;
 
+	/**
+	 * @return the bluRay
+	 */
+	public boolean isBluRay()
+	{
+		return bluRay;
+	}
+
 	private final double	cost;
+
+	/**
+	 * @return the director
+	 */
+	public String getDirector()
+	{
+		return director;
+	}
+
+	/**
+	 * @return the year
+	 */
+	public int getYear()
+	{
+		return year;
+	}
 
 	private final String	title, director;
 
