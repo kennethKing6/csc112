@@ -1,50 +1,55 @@
 package movies;
 
-// ********************************************************************
-// DVD.java Author: Lewis/Loftus
-//
-// Represents a DVD video disc.
-// ********************************************************************
-
 import java.text.NumberFormat;
 
+/**
+ * DVD.java<br>
+ * Jan 23, 2015<br>
+ *
+ * @author Tim Miller
+ */
 public class DVD
 {
+	/**
+	 * Is it a blu-ray disk (seriously, who uses blu-ray? The same film for way
+	 * more money,? No thank you.
+	 */
 	private final boolean	bluRay;
 
 	/**
-	 * @return the bluRay
+	 * The retail cost
 	 */
-	public boolean isBluRay()
-	{
-		return bluRay;
-	}
-
 	private final double	cost;
+	
+	/**
+	 * The director of the file
+	 */
+	private final String	director;
 
 	/**
-	 * @return the director
+	 * The title of the filme
 	 */
-	public String getDirector()
-	{
-		return director;
-	}
+	private final String	title;
 
 	/**
-	 * @return the year
+	 * The publication year
 	 */
-	public int getYear()
-	{
-		return year;
-	}
-
-	private final String	title, director;
-
 	private final int		year;
 
-	// -----------------------------------------------------------------
-	// Creates a new DVD with the specified information.
-	// -----------------------------------------------------------------
+	/**
+	 * Standard constructor for a DVD
+	 *
+	 * @param title
+	 *            the title
+	 * @param director
+	 *            the director
+	 * @param year
+	 *            the year
+	 * @param cost
+	 *            the cost
+	 * @param bluRay
+	 *            whether or not it is a blu ray
+	 */
 	public DVD(final String title, final String director, final int year,
 			final double cost,
 			final boolean bluRay)
@@ -56,9 +61,49 @@ public class DVD
 		this.bluRay = bluRay;
 	}
 
-	// -----------------------------------------------------------------
-	// Returns a string description of this DVD.
-	// -----------------------------------------------------------------
+	/**
+	 * @return the cost
+	 */
+	public double getCost()
+	{
+		return this.cost;
+	}
+
+	/**
+	 * @return the director
+	 */
+	public String getDirector()
+	{
+		return this.director;
+	}
+
+	/**
+	 * @return the title
+	 */
+	public String getTitle()
+	{
+		return this.title;
+	}
+
+	/**
+	 * @return the year
+	 */
+	public int getYear()
+	{
+		return this.year;
+	}
+	
+	/**
+	 * @return the bluRay
+	 */
+	public boolean isBluRay()
+	{
+		return this.bluRay;
+	}
+	
+	/**
+	 * Returns a string representation of the object
+	 */
 	@Override
 	public String toString()
 	{
@@ -75,15 +120,5 @@ public class DVD
 		}
 
 		return description;
-	}
-	
-	public String getTitle()
-	{
-		return title;
-	}
-	
-	public double getCost()
-	{
-		return cost;
 	}
 }

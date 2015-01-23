@@ -1,14 +1,11 @@
 package movies;
 
-// ********************************************************************
-// DVDCollection.java Author: Lewis/Loftus
-//
-// Represents a collection of DVD movies.
-// ********************************************************************
-
 import java.text.NumberFormat;
+import java.util.Arrays;
+import java.util.Collection;
+import java.util.Iterator;
 
-public class DVDCollection
+public class DVDCollection implements Collection<DVD>
 {
 	private DVD[]	collection;
 
@@ -16,9 +13,9 @@ public class DVDCollection
 
 	private double	totalCost;
 
-	// -----------------------------------------------------------------
-	// Constructor: Creates an initially empty collection.
-	// -----------------------------------------------------------------
+	/**
+	 * Standard constructor for a simple collection of DVD's
+	 */
 	public DVDCollection()
 	{
 		this.collection = new DVD[100];
@@ -26,10 +23,18 @@ public class DVDCollection
 		this.totalCost = 0.0;
 	}
 
-	// -----------------------------------------------------------------
-	// Adds a DVD to the collection, increasing the size of the
-	// collection array if necessary.
-	// -----------------------------------------------------------------
+	@Override
+	public boolean add(final DVD e)
+	{
+		throw new UnsupportedOperationException();
+	}
+	
+	@Override
+	public boolean addAll(final Collection<? extends DVD> c)
+	{
+		throw new UnsupportedOperationException();
+	}
+
 	public void addDVD(final String title, final String director,
 			final int year,
 			final double cost, final boolean bluRay)
@@ -44,48 +49,147 @@ public class DVDCollection
 		this.totalCost += cost;
 		this.count++;
 	}
-	
-	public void subDVD(String title)
+
+	@Override
+	public void clear()
 	{
-		// j will count the number of CD's in the newly sized collection
-	      int j = 0;
-	      // i will count the current number of CD's
-	      int i;
-	      // create a temporary array of CD objects 
-	      // which will become the newly sized collection
-	      DVD [] temp = new DVD[collection.length];
-	       
-	      for(i=0; i<count; i++)
-	      {
-	         // look for a match
-	         if(title.compareTo(collection[i].getTitle()) != 0)
-	         {
-	            // if there is no match, copy from the old to the new
-	            temp[j] = collection[i];
-	            j++;
-	         }
-	         else
-	         {  
-	            // if there is a match, do not copy from the old to the new
-	            // but update the total value
-	            totalCost -= collection[i].getCost();
-	         }
-	      }
-	     
-	      // check to see if there was a match and a deletion from the collection
-	      if (i != j) 
-	      {
-	          count--;
-	          System.out.println("\nCD deleted\n");
-	          collection = temp;
-	      }
-	      else
-	          System.out.println("\nCD not found\n");
+		for(DVD d:collection)
+		{
+			d.getDirector();
+			d = null;
+		}
+	}
+	
+	public int collectionLength()
+	{
+		return this.collection.length;
+	}
+	
+	@Override
+	public boolean contains(final Object o)
+	{
+		throw new UnsupportedOperationException();
 	}
 
-	// -----------------------------------------------------------------
-	// Returns a report describing the DVD collection.
-	// -----------------------------------------------------------------
+	@Override
+	public boolean containsAll(final Collection<?> c)
+	{
+		throw new UnsupportedOperationException();
+	}
+	
+	@Override
+	public boolean isEmpty()
+	{
+		return false;
+	}
+	
+	@Override
+	public Iterator<DVD> iterator()
+	{
+		return Arrays.asList(collection).iterator();
+	}
+	
+	@Override
+	public boolean remove(final Object o)
+	{
+		if (o instanceof String)
+		{
+			final String s = (String) o;
+			return this.subDVD(s);
+		}
+		else
+		{
+			return false;
+		}
+	}
+	
+	@Override
+	public boolean removeAll(final Collection<?> c)
+	{
+		for(Object o:c)
+		{
+			if(o instanceof String)
+			{
+				String s = (String) o;
+				return this.subDVD(s);
+			}
+			else if (o instanceof DVD)
+			{
+				DVD d = (DVD) o;
+				return this.remove(d);
+			}
+			else return false;
+		}
+		return false;
+	}
+	
+	@Override
+	public boolean retainAll(final Collection<?> c)
+	{
+		throw new UnsupportedOperationException();
+	}
+	
+	@Override
+	public int size()
+	{
+		return collection.length;
+	}
+	
+	public boolean subDVD(final String title)
+	{
+		try
+		{
+			int j = 0;
+			int i;
+			final DVD[] temp = new DVD[this.collection.length];
+
+			for (i = 0; i < this.count; i++)
+			{
+				if (title.compareTo(this.collection[i].getTitle()) != 0)
+				{
+					temp[j] = this.collection[i];
+					j++;
+				}
+				else
+				{
+					this.totalCost -= this.collection[i].getCost();
+				}
+			}
+
+			if (i != j)
+			{
+				this.count--;
+				System.out.println("\nCD deleted\n");
+				this.collection = temp;
+			}
+			else
+			{
+				System.out.println("\nCD not found\n");
+				return false;
+			}
+			return true;
+		}
+		catch (final Exception e)
+		{
+			e.printStackTrace();
+			return false;
+		}
+	}
+	
+	@Override
+	public DVD[] toArray()
+	{
+		final DVD[] dest = new DVD[100];
+		System.arraycopy(this.collection, 0, dest, 0, this.collection.length);
+		return dest;
+	}
+	
+	@Override
+	public <T> T[] toArray(final T[] a)
+	{
+		throw new UnsupportedOperationException();
+	}
+	
 	@Override
 	public String toString()
 	{
@@ -107,12 +211,46 @@ public class DVDCollection
 
 		return report;
 	}
+	
+	public double totalValue()
+	{
+		return this.totalCost;
+	}
+	
+	public void updCD(final String title, final String director,
+			final int year, final double value, final boolean bluray)
+	{
+		int i;
+		int flag = 0;
+		final DVD[] temp = new DVD[this.collection.length];
 
-	// -----------------------------------------------------------------
-	// Increases the capacity of the collection by creating a
-	// larger array and copying the existing collection into it.
-	// -----------------------------------------------------------------
-	private void increaseSize()
+		for (i = 0; i < this.count; i++)
+		{
+			if (title.compareTo(this.collection[i].getTitle()) != 0)
+			{
+				temp[i] = this.collection[i];
+			}
+			else
+			{
+				temp[i] = new DVD(title, director, year, value, bluray);
+				this.totalCost -= this.collection[i].getCost();
+				this.totalCost += value;
+				flag = 1;
+			}
+		}
+
+		if (flag == 1)
+		{
+			System.out.println("\nCollection Updated\n");
+			this.collection = temp;
+		}
+		else
+		{
+			System.out.println("\nCD not found\n");
+		}
+	}
+	
+	protected void increaseSize()
 	{
 		final DVD[] temp = new DVD[this.collection.length * 2];
 
