@@ -217,7 +217,7 @@ public class DVDCollection implements Collection<DVD>
 		return this.totalCost;
 	}
 	
-	public void updCD(final String title, final String director,
+	public void updDVD(final String title, final String director,
 			final int year, final double value, final boolean bluray)
 	{
 		int i;
