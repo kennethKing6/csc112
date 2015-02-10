@@ -1,57 +1,79 @@
 package xyz.voxio.csc112.employees;
 
-//********************************************************************
-//  Hourly.java       Author: Lewis/Loftus
+// ********************************************************************
+// Hourly.java Author: Lewis/Loftus
 //
-//  Represents an employee that gets paid by the hour.
-//********************************************************************
+// Represents an employee that gets paid by the hour.
+// ********************************************************************
 
 public class Hourly extends Employee
 {
-   private int hoursWorked;
+	public static double timeAndHalf(double time)
+	{
+		return time * 1.5;
+	}
 
-   //-----------------------------------------------------------------
-   //  Constructor: Sets up this hourly employee using the specified
-   //  information.
-   //-----------------------------------------------------------------
-   public Hourly (String eName, String eAddress, String ePhone,
-                  String socSecNumber, double rate)
-   {
-      super (eName, eAddress, ePhone, socSecNumber, rate);
+	private int				hoursWorked;
+	private final double	overtimeRate;
 
-      hoursWorked = 0;
-   }
+	private int				overtimeWorked;
 
-   //-----------------------------------------------------------------
-   //  Adds the specified number of hours to this employee's
-   //  accumulated hours.
-   //-----------------------------------------------------------------
-   public void addHours (int moreHours)
-   {
-      hoursWorked += moreHours;
-   }
+	public Hourly(String string, String string2, String string3,
+			String string4, double rate)
+	{
+		this(string, string2, string3, string4, rate, Hourly.timeAndHalf(rate));
+	}
 
-   //-----------------------------------------------------------------
-   //  Computes and returns the pay for this hourly employee.
-   //-----------------------------------------------------------------
-   public double pay()
-   {
-      double payment = payRate * hoursWorked;
+	// -----------------------------------------------------------------
+	// Constructor: Sets up this hourly employee using the specified
+	// information.
+	// -----------------------------------------------------------------
+	public Hourly(String eName, String eAddress, String ePhone,
+			String socSecNumber, double rate, double overtimeRate)
+	{
+		super(eName, eAddress, ePhone, socSecNumber, rate);
+		this.overtimeRate = overtimeRate;
+		this.overtimeWorked = 0;
+		this.hoursWorked = 0;
+	}
 
-      hoursWorked = 0;
+	// -----------------------------------------------------------------
+	// Adds the specified number of hours to this employee's
+	// accumulated hours.
+	// -----------------------------------------------------------------
+	public void addHours(int moreHours)
+	{
+		this.hoursWorked += moreHours;
+	}
 
-      return payment;
-   }
+	public void addOvertime(int hours)
+	{
+		this.overtimeWorked += hours;
+	}
 
-   //-----------------------------------------------------------------
-   //  Returns information about this hourly employee as a string.
-   //-----------------------------------------------------------------
-   public String toString()
-   {
-      String result = super.toString();
+	// -----------------------------------------------------------------
+	// Computes and returns the pay for this hourly employee.
+	// -----------------------------------------------------------------
+	@Override
+	public double pay()
+	{
+		final double payment = this.payRate * this.hoursWorked
+				+ this.overtimeRate * this.overtimeWorked;
+		this.hoursWorked = 0;
+		this.overtimeWorked = 0;
+		return payment;
+	}
 
-      result += "\nCurrent hours: " + hoursWorked;
+	// -----------------------------------------------------------------
+	// Returns information about this hourly employee as a string.
+	// -----------------------------------------------------------------
+	@Override
+	public String toString()
+	{
+		String result = super.toString();
 
-      return result;
-   }
+		result += "\nCurrent hours: " + this.hoursWorked;
+
+		return result;
+	}
 }

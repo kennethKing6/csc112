@@ -1,20 +1,20 @@
 package xyz.voxio.csc112.employees;
 
-//********************************************************************
-//  Firm.java       Author: Lewis/Loftus
+// ********************************************************************
+// Firm.java Author: Lewis/Loftus
 //
-//  Demonstrates polymorphism via inheritance.
-//********************************************************************
+// Demonstrates polymorphism via inheritance.
+// ********************************************************************
 
 public class Firm
 {
-   //-----------------------------------------------------------------
-   //  Creates a staff of employees for a firm and pays them.
-   //-----------------------------------------------------------------
-   public static void main (String[] args)
-   {
-      Staff personnel = new Staff();
+	// -----------------------------------------------------------------
+	// Creates a staff of employees for a firm and pays them.
+	// -----------------------------------------------------------------
+	public static void main(String[] args)
+	{
+		final Staff personnel = new Staff();
 
-      personnel.payday();
-   }
+		personnel.payday();
+	}
 }

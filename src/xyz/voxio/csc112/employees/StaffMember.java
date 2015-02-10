@@ -1,44 +1,45 @@
 package xyz.voxio.csc112.employees;
 
-//********************************************************************
-//  StaffMember.java       Author: Lewis/Loftus
+// ********************************************************************
+// StaffMember.java Author: Lewis/Loftus
 //
-//  Represents a generic staff member.
-//********************************************************************
+// Represents a generic staff member.
+// ********************************************************************
 
 abstract public class StaffMember
 {
-   protected String name;
-   protected String address;
-   protected String phone;
+	protected String	address;
+	protected String	name;
+	protected String	phone;
 
-   //-----------------------------------------------------------------
-   //  Constructor: Sets up this staff member using the specified
-   //  information.
-   //-----------------------------------------------------------------
-   public StaffMember (String eName, String eAddress, String ePhone)
-   {
-      name = eName;
-      address = eAddress;
-      phone = ePhone;
-   }
+	// -----------------------------------------------------------------
+	// Constructor: Sets up this staff member using the specified
+	// information.
+	// -----------------------------------------------------------------
+	public StaffMember(String eName, String eAddress, String ePhone)
+	{
+		this.name = eName;
+		this.address = eAddress;
+		this.phone = ePhone;
+	}
 
-   //-----------------------------------------------------------------
-   //  Returns a string including the basic employee information.
-   //-----------------------------------------------------------------
-   public String toString()
-   {
-      String result = "Name: " + name + "\n";
+	// -----------------------------------------------------------------
+	// Derived classes must define the pay method for each type of
+	// employee.
+	// -----------------------------------------------------------------
+	public abstract double pay();
 
-      result += "Address: " + address + "\n";
-      result += "Phone: " + phone;
+	// -----------------------------------------------------------------
+	// Returns a string including the basic employee information.
+	// -----------------------------------------------------------------
+	@Override
+	public String toString()
+	{
+		String result = "Name: " + this.name + "\n";
 
-      return result;
-   }
+		result += "Address: " + this.address + "\n";
+		result += "Phone: " + this.phone;
 
-   //-----------------------------------------------------------------
-   //  Derived classes must define the pay method for each type of
-   //  employee.
-   //-----------------------------------------------------------------
-   public abstract double pay();
+		return result;
+	}
 }

@@ -1,46 +1,48 @@
 package xyz.voxio.csc112.employees;
 
-//********************************************************************
-//  Employee.java       Author: Lewis/Loftus
+// ********************************************************************
+// Employee.java Author: Lewis/Loftus
 //
-//  Represents a general paid employee.
-//********************************************************************
+// Represents a general paid employee.
+// ********************************************************************
 
 public class Employee extends StaffMember
 {
-   protected String socialSecurityNumber;
-   protected double payRate;
-   
-   //-----------------------------------------------------------------
-   //  Constructor: Sets up this employee with the specified
-   //  information.
-   //-----------------------------------------------------------------
-   public Employee (String eName, String eAddress, String ePhone,
-                    String socSecNumber, double rate)
-   {
-      super (eName, eAddress, ePhone);
+	protected double	payRate;
+	protected String	socialSecurityNumber;
 
-      socialSecurityNumber = socSecNumber;
-      payRate = rate;
-   }
+	// -----------------------------------------------------------------
+	// Constructor: Sets up this employee with the specified
+	// information.
+	// -----------------------------------------------------------------
+	public Employee(String eName, String eAddress, String ePhone,
+			String socSecNumber, double rate)
+	{
+		super(eName, eAddress, ePhone);
 
-   //-----------------------------------------------------------------
-   //  Returns information about an employee as a string.
-   //-----------------------------------------------------------------
-   public String toString()
-   {
-      String result = super.toString();
+		this.socialSecurityNumber = socSecNumber;
+		this.payRate = rate;
+	}
 
-      result += "\nSocial Security Number: " + socialSecurityNumber;
+	// -----------------------------------------------------------------
+	// Returns the pay rate for this employee.
+	// -----------------------------------------------------------------
+	@Override
+	public double pay()
+	{
+		return this.payRate;
+	}
 
-      return result;
-   }
+	// -----------------------------------------------------------------
+	// Returns information about an employee as a string.
+	// -----------------------------------------------------------------
+	@Override
+	public String toString()
+	{
+		String result = super.toString();
 
-   //-----------------------------------------------------------------
-   //  Returns the pay rate for this employee.
-   //-----------------------------------------------------------------
-   public double pay()
-   {
-      return payRate;
-   }
+		result += "\nSocial Security Number: " + this.socialSecurityNumber;
+
+		return result;
+	}
 }

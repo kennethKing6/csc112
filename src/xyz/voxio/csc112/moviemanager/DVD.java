@@ -11,11 +11,12 @@ import java.text.NumberFormat;
 public class DVD
 {
 	/**
-	 * Is it a blu-ray disk (seriously, who uses blu-ray? Do I want the same film for way
+	 * Is it a blu-ray disk (seriously, who uses blu-ray? Do I want the same
+	 * film for way
 	 * more money? No thank you.
 	 */
 	private final boolean	bluray;
-	
+
 	/**
 	 * The retail cost
 	 */
@@ -25,17 +26,17 @@ public class DVD
 	 * The director of the file
 	 */
 	private final String	director;
-	
+
 	/**
 	 * The title of the filme
 	 */
 	private final String	title;
-	
+
 	/**
 	 * The publication year
 	 */
-	private final int	  year;
-	
+	private final int		year;
+
 	/**
 	 * Standard constructor for a DVD
 	 *
@@ -51,8 +52,7 @@ public class DVD
 	 *            whether or not it is a blu ray
 	 */
 	public DVD(final String title, final String director, final int year,
-	        final double cost,
-	        final boolean bluRay)
+			final double cost, final boolean bluRay)
 	{
 		this.title = title;
 		this.director = director;
@@ -74,16 +74,17 @@ public class DVD
 	 *            the cost
 	 * @param bluRay
 	 *            whether or not it is a blu ray
-	 * @throws NumberFormatException if the year or cost aren't valid
+	 * @throws NumberFormatException
+	 *             if the year or cost aren't valid
 	 */
 	public DVD(final String title, final String director, final String year,
-	        final String cost, final String bluRay)
-	        throws NumberFormatException
+			final String cost, final String bluRay)
+			throws NumberFormatException
 	{
 		this(title, director, Integer.parseInt(year), Double.parseDouble(cost),
-		        Boolean.parseBoolean(bluRay));
+				Boolean.parseBoolean(bluRay));
 	}
-	
+
 	/**
 	 * @return the bluRay
 	 */
@@ -91,7 +92,7 @@ public class DVD
 	{
 		return this.bluray;
 	}
-	
+
 	/**
 	 * @return the cost
 	 */
@@ -99,7 +100,7 @@ public class DVD
 	{
 		return this.cost;
 	}
-	
+
 	/**
 	 * @return the director
 	 */
@@ -107,7 +108,7 @@ public class DVD
 	{
 		return this.director;
 	}
-	
+
 	/**
 	 * @return the year
 	 */
@@ -125,7 +126,8 @@ public class DVD
 	}
 
 	/**
-	 * @return a string representation of the object, formatted for use in the 'list' command
+	 * @return a string representation of the object, formatted for use in the
+	 *         'list' command
 	 */
 	public String toListString()
 	{
@@ -148,7 +150,7 @@ public class DVD
 		final NumberFormat fmt = NumberFormat.getCurrencyInstance();
 		String description = "";
 		description += this.title + "\n" + this.director + "\n" + this.year
-		        + "\n" + fmt.format(this.cost) + "\n" + this.bluray;
+				+ "\n" + fmt.format(this.cost) + "\n" + this.bluray;
 		return description;
 	}
 }
