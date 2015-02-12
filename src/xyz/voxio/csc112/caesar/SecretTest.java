@@ -1,25 +1,31 @@
 package xyz.voxio.csc112.caesar;
 
-//********************************************************************
-//  SecretTest.java       Java Foundations
+import java.util.Scanner;
+
+// ********************************************************************
+// SecretTest.java Java Foundations
 //
-//  Demonstrates the use of a formal interface.
-//********************************************************************
+// Demonstrates the use of a formal interface.
+// ********************************************************************
 
 public class SecretTest
 {
-   //-----------------------------------------------------------------
-   //  Creates a Secret object and exercises its encryption.
-   //-----------------------------------------------------------------
-   public static void main(String[] args)
-   {
-      Secret hush = new Secret("Wil Wheaton is my hero!");
-      System.out.println(hush);
+	// -----------------------------------------------------------------
+	// Creates a Secret object and exercises its encryption.
+	// -----------------------------------------------------------------
+	public static void main(String[] args)
+	{
+		final Scanner scan = new Scanner(System.in);
+		System.out.println("Enter some text please");
+		final Secret hush = new Secret(scan.nextLine());
 
-      hush.encrypt();
-      System.out.println(hush);
+		System.out.println(hush);
 
-      hush.decrypt();
-      System.out.println(hush);
-   }
+		hush.encrypt();
+		System.out.println(hush);
+
+		hush.decrypt();
+		System.out.println(hush);
+		scan.close();
+	}
 }

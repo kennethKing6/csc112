@@ -1,79 +1,88 @@
 package xyz.voxio.csc112.caesar;
 
-//********************************************************************
-//  Secret.java       Java Foundations
+// ********************************************************************
+// Secret.java Java Foundations
 //
-//  Represents a secret message that can be encrypted and decrypted.
-//********************************************************************
+// Represents a secret message that can be encrypted and decrypted.
+// ********************************************************************
 
 import java.util.Random;
 
 public class Secret implements Encryptable
 {
-   private String message;
-   private boolean encrypted;
-   private int shift;
-   private Random generator;
+	private boolean			encrypted;
+	private final Random	generator;
+	private String			message;
+	private final int		shift;
 
-   //-----------------------------------------------------------------
-   //  Constructor: Stores the original message and establishes
-   //  a value for the encryption shift.
-   //-----------------------------------------------------------------
-   public Secret(String msg)
-   {
-      message = msg;
-      encrypted = false;
-      generator = new Random();
-      shift = generator.nextInt(10) + 5;
-   }
+	// -----------------------------------------------------------------
+	// Constructor: Stores the original message and establishes
+	// a value for the encryption shift.
+	// -----------------------------------------------------------------
+	public Secret(String msg)
+	{
+		this.message = msg;
+		this.encrypted = false;
+		this.generator = new Random();
+		this.shift = this.generator.nextInt(10) + 5;
+	}
 
-   //-----------------------------------------------------------------
-   //  Encrypts this secret using a Caesar cipher. Has no effect if
-   //  this secret is already encrypted.
-   //-----------------------------------------------------------------
-   public void encrypt()
-   {
-      if (!encrypted)
-      {
-         String masked = "";
-         for (int index=0; index < message.length(); index++)
-            masked = masked + (char)(message.charAt(index)+shift);
-         message = masked;
-         encrypted = true;
-      }
-   }
+	// -----------------------------------------------------------------
+	// Decrypts and returns this secret. Has no effect if this
+	// secret is not currently encrypted.
+	// -----------------------------------------------------------------
+	@Override
+	public String decrypt()
+	{
+		if (this.encrypted)
+		{
+			String unmasked = "";
+			for (int index = 0; index < this.message.length(); index++)
+			{
+				unmasked = unmasked
+						+ (char) (this.message.charAt(index) - this.shift);
+			}
+			this.message = unmasked;
+			this.encrypted = false;
+		}
 
-   //-----------------------------------------------------------------
-   //  Decrypts and returns this secret. Has no effect if this
-   //  secret is not currently encrypted.
-   //-----------------------------------------------------------------
-   public String decrypt()
-   {
-      if (encrypted)
-      {
-         String unmasked = "";
-         for (int index=0; index < message.length(); index++)
-            unmasked = unmasked + (char)(message.charAt(index)-shift);
-         message = unmasked;
-         encrypted = false;
-      }
+		return this.message;
+	}
 
-      return message;
-   }
+	// -----------------------------------------------------------------
+	// Encrypts this secret using a Caesar cipher. Has no effect if
+	// this secret is already encrypted.
+	// -----------------------------------------------------------------
+	@Override
+	public void encrypt()
+	{
+		if (!this.encrypted)
+		{
+			String masked = "";
+			for (int index = 0; index < this.message.length(); index++)
+			{
+				masked = masked
+						+ (char) (this.message.charAt(index) + this.shift);
+			}
+			this.message = masked;
+			this.encrypted = true;
+		}
+	}
 
-   //-----------------------------------------------------------------
-   //  Returns true if this secret is currently encrypted.
-   //-----------------------------------------------------------------
-   public boolean isEncrypted()
-   {
-      return encrypted;
-   }
+	// -----------------------------------------------------------------
+	// Returns true if this secret is currently encrypted.
+	// -----------------------------------------------------------------
+	public boolean isEncrypted()
+	{
+		return this.encrypted;
+	}
 
-   //-----------------------------------------------------------------
-   //  Returns this secret (may be encrypted).
-   //-----------------------------------------------------------------
-   public String toString()
-   {
-      return message;
-   }
+	// -----------------------------------------------------------------
+	// Returns this secret (may be encrypted).
+	// -----------------------------------------------------------------
+	@Override
+	public String toString()
+	{
+		return this.message;
+	}
 }

@@ -79,7 +79,7 @@ public class DVD
 	 */
 	public DVD(final String title, final String director, final String year,
 			final String cost, final String bluRay)
-					throws NumberFormatException
+			throws NumberFormatException
 	{
 		this(title, director, Integer.parseInt(year), Double.parseDouble(cost),
 				Boolean.parseBoolean(bluRay));
