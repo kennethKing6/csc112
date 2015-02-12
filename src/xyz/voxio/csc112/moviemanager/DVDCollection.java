@@ -446,16 +446,16 @@ public class DVDCollection implements Collection<DVD>
 	{
 		String string = "Title\tDirector\tYear\tCost\tBluray\n===================================================\n";
 		loop: for (final DVD d : this.collection)
+		{
+			try
 			{
-				try
-				{
-					string += d.toListString();
-				}
-				catch (final NullPointerException e)
-				{
-					break loop;
-				}
+				string += d.toListString();
 			}
+			catch (final NullPointerException e)
+			{
+				break loop;
+			}
+		}
 		return string;
 	}
 
@@ -497,7 +497,7 @@ public class DVDCollection implements Collection<DVD>
 	 */
 	public void updDVD(final String title, final String director,
 			final int year, final double cost, final boolean bluRay)
-			throws Exception
+					throws Exception
 	{
 		int i;
 		int flag = 0;
@@ -543,7 +543,7 @@ public class DVDCollection implements Collection<DVD>
 	 */
 	public void updDVD(final String title, final String director,
 			final String year, final String cost, final String bluRay)
-			throws Exception
+					throws Exception
 	{
 		this.updDVD(title, director, Integer.parseInt(year),
 				Double.parseDouble(cost), Boolean.parseBoolean(bluRay));

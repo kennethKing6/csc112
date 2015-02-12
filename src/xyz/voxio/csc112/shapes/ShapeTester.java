@@ -60,7 +60,7 @@ public class ShapeTester
 								radius = scan.nextDouble();
 								height = scan.nextDouble();
 								System.out
-										.println(new Cylinder(radius, height));
+								.println(new Cylinder(radius, height));
 							}
 		}
 		scan.close();

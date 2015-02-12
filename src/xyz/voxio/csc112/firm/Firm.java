@@ -1,4 +1,4 @@
-package xyz.voxio.csc112.employees;
+package xyz.voxio.csc112.firm;
 
 // ********************************************************************
 // Firm.java Author: Lewis/Loftus

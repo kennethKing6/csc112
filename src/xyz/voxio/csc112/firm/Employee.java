@@ -1,4 +1,4 @@
-package xyz.voxio.csc112.employees;
+package xyz.voxio.csc112.firm;
 
 // ********************************************************************
 // Employee.java Author: Lewis/Loftus
@@ -22,6 +22,12 @@ public class Employee extends StaffMember
 
 		this.socialSecurityNumber = socSecNumber;
 		this.payRate = rate;
+	}
+
+	@Override
+	public int vacation()
+	{
+		return 2;
 	}
 
 	// -----------------------------------------------------------------

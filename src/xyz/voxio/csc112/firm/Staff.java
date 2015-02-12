@@ -1,4 +1,4 @@
-package xyz.voxio.csc112.employees;
+package xyz.voxio.csc112.firm;
 
 // ********************************************************************
 // Staff.java Author: Lewis/Loftus
@@ -42,13 +42,21 @@ public class Staff
 	public void payday()
 	{
 		double amount;
+		int vacation;
 
 		for (final StaffMember element : this.staffList)
 		{
-			System.out.println(element);
+			System.out.println(element.toString());
 
 			amount = element.pay();  // polymorphic
-
+			vacation = element.vacation();
+			
+			
+			if(vacation>0)
+			{
+				System.out.println("Had " + vacation + " week(s) vacation");
+			}
+			
 			if (amount == 0.0)
 			{
 				System.out.println("Thanks!");

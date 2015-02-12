@@ -37,7 +37,7 @@ public class Cylinder extends Circle
 
 	/**
 	 * It's actually the surface area
-	 * 
+	 *
 	 * @return the surface area
 	 */
 	@Override

@@ -1,4 +1,4 @@
-package xyz.voxio.csc112.employees;
+package xyz.voxio.csc112.firm;
 
 // ********************************************************************
 // Executive.java Author: Lewis/Loftus
@@ -28,6 +28,12 @@ public class Executive extends Employee
 	public void awardBonus(double execBonus)
 	{
 		this.bonus = execBonus;
+	}
+
+	@Override
+	public int vacation()
+	{
+		return 3;
 	}
 
 	// -----------------------------------------------------------------

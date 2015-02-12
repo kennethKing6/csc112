@@ -1,4 +1,4 @@
-package xyz.voxio.csc112.employees;
+package xyz.voxio.csc112.firm;
 
 // ********************************************************************
 // Hourly.java Author: Lewis/Loftus
@@ -8,14 +8,15 @@ package xyz.voxio.csc112.employees;
 
 public class Hourly extends Employee
 {
+
 	public static double timeAndHalf(double time)
 	{
 		return time * 1.5;
 	}
 
 	private int				hoursWorked;
-	private final double	overtimeRate;
 
+	private final double	overtimeRate;
 	private int				overtimeWorked;
 
 	public Hourly(String string, String string2, String string3,
@@ -49,6 +50,12 @@ public class Hourly extends Employee
 	public void addOvertime(int hours)
 	{
 		this.overtimeWorked += hours;
+	}
+
+	@Override
+	public int vacation()
+	{
+		return 1;
 	}
 
 	// -----------------------------------------------------------------

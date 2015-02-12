@@ -1,4 +1,4 @@
-package xyz.voxio.csc112.employees;
+package xyz.voxio.csc112.firm;
 
 // ********************************************************************
 // Volunteer.java Author: Lewis/Loftus
@@ -15,6 +15,12 @@ public class Volunteer extends StaffMember
 	public Volunteer(String eName, String eAddress, String ePhone)
 	{
 		super(eName, eAddress, ePhone);
+	}
+
+	@Override
+	public int vacation()
+	{
+		return 0;
 	}
 
 	// -----------------------------------------------------------------
