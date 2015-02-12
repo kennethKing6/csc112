@@ -2,9 +2,9 @@ package xyz.voxio.csc112.caesar;
 
 import java.util.Scanner;
 
-
 /**
  * Test class for Secret.class
+ *
  * @author Tim Miller - Feb 12, 2015
  */
 public class SecretTest
@@ -28,10 +28,11 @@ public class SecretTest
 			hush.decrypt();
 			System.out.println(hush);
 			
-			System.out.println("Would you like to encrypt another message? (Enter 'y' for yes, press any other key to exit");
+			System.out
+			.println("Would you like to encrypt another message? (Enter 'y' for yes, press any other key to exit");
 			again = scan.nextLine();
 		}
-		while(again.equalsIgnoreCase("y"));
+		while (again.equalsIgnoreCase("y"));
 		scan.close();
 	}
 }

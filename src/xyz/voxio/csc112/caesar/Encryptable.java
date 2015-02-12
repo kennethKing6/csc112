@@ -2,8 +2,7 @@ package xyz.voxio.csc112.caesar;
 
 /**
  * @author Tim Miller - Feb 12, 2015
- * 
- * interface representing an encryptable object
+ *         interface representing an encryptable object
  */
 public interface Encryptable
 {

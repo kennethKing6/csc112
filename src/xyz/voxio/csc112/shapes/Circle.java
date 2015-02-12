@@ -11,9 +11,9 @@ import java.text.DecimalFormat;
 public class Circle extends Shape
 {
 	protected static DecimalFormat	form	= new DecimalFormat("0.##");
-
+	
 	private final double			radius;
-
+	
 	/**
 	 * @param rad
 	 *            the radius of the circle
@@ -22,19 +22,19 @@ public class Circle extends Shape
 	{
 		this.radius = rad;
 	}
-
+	
 	@Override
 	public double computeArea()
 	{
 		return Math.PI * Math.pow(this.radius, 2);
 	}
-
+	
 	@Override
 	public double computePerimeter()
 	{
 		return Math.PI * 2 * this.radius;
 	}
-
+	
 	/**
 	 * @return the radius
 	 */
@@ -42,7 +42,7 @@ public class Circle extends Shape
 	{
 		return this.radius;
 	}
-
+	
 	@Override
 	public String toString()
 	{

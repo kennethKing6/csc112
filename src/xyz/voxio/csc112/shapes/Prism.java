@@ -9,7 +9,7 @@ package xyz.voxio.csc112.shapes;
 public class Prism extends Rectangle
 {
 	private final double	height;
-
+	
 	// ---------------------------------------------------------------------------
 	// Sets up the prism by entering its width, height and length.
 	// ---------------------------------------------------------------------------
@@ -18,17 +18,17 @@ public class Prism extends Rectangle
 		super(wid, len);
 		this.height = hei;
 	}
-
+	
 	// ---------------------------------------------------------------------------
 	// Returns the calculated value of the surface area.
 	// ---------------------------------------------------------------------------
 	@Override
 	public double computeArea()
 	{
-		return 2 * super.computeArea() + 2 * this.width * this.height + 2
-				* this.length * this.height;
+		return (2 * super.computeArea()) + (2 * this.width * this.height)
+				+ (2 * this.length * this.height);
 	}
-
+	
 	// ---------------------------------------------------------------------------
 	// Returns the calculated value of the volume.
 	// ---------------------------------------------------------------------------
@@ -36,7 +36,7 @@ public class Prism extends Rectangle
 	{
 		return super.computeArea() * this.height;
 	}
-
+	
 	// ---------------------------------------------------------------------------
 	// Returns the double value of the length.
 	// ---------------------------------------------------------------------------
@@ -44,7 +44,7 @@ public class Prism extends Rectangle
 	{
 		return this.height;
 	}
-
+	
 	// ---------------------------------------------------------------------------
 	// Returns pertinent information about the prism.
 	// ---------------------------------------------------------------------------

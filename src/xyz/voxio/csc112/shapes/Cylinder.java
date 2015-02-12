@@ -10,12 +10,12 @@ import java.text.DecimalFormat;
  */
 public class Cylinder extends Circle
 {
-
+	
 	protected static DecimalFormat	form	= new DecimalFormat("0.##");
-
+	
 	private final double			height;
 	private final double			radius;
-
+	
 	/**
 	 * @param radius
 	 *            the radius
@@ -28,13 +28,13 @@ public class Cylinder extends Circle
 		this.radius = radius;
 		this.height = height;
 	}
-
+	
 	@Override
 	public double computeArea()
 	{
 		return Math.PI * Math.pow(this.radius, 2) * this.height;
 	}
-
+	
 	/**
 	 * It's actually the surface area
 	 *
@@ -43,21 +43,21 @@ public class Cylinder extends Circle
 	@Override
 	public double computePerimeter()
 	{
-		return 2 * Math.PI * Math.pow(this.radius, 2) + 2 * Math.PI
-				* this.radius * this.height;
+		return (2 * Math.PI * Math.pow(this.radius, 2))
+				+ (2 * Math.PI * this.radius * this.height);
 	}
-
+	
 	public double getHeight()
 	{
 		return this.height;
 	}
-
+	
 	@Override
 	public double getRadius()
 	{
 		return this.radius;
 	}
-
+	
 	@Override
 	public String toString()
 	{

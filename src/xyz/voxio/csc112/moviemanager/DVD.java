@@ -16,27 +16,27 @@ public class DVD
 	 * more money? No thank you.
 	 */
 	private final boolean	bluray;
-
+	
 	/**
 	 * The retail cost
 	 */
 	private final double	cost;
-
+	
 	/**
 	 * The director of the file
 	 */
 	private final String	director;
-
+	
 	/**
 	 * The title of the filme
 	 */
 	private final String	title;
-
+	
 	/**
 	 * The publication year
 	 */
 	private final int		year;
-
+	
 	/**
 	 * Standard constructor for a DVD
 	 *
@@ -60,7 +60,7 @@ public class DVD
 		this.cost = cost;
 		this.bluray = bluRay;
 	}
-
+	
 	/**
 	 * Standard constructor for a DVD, using string which are parsed to values
 	 *
@@ -79,12 +79,12 @@ public class DVD
 	 */
 	public DVD(final String title, final String director, final String year,
 			final String cost, final String bluRay)
-			throws NumberFormatException
+					throws NumberFormatException
 	{
 		this(title, director, Integer.parseInt(year), Double.parseDouble(cost),
 				Boolean.parseBoolean(bluRay));
 	}
-
+	
 	/**
 	 * @return the bluRay
 	 */
@@ -92,7 +92,7 @@ public class DVD
 	{
 		return this.bluray;
 	}
-
+	
 	/**
 	 * @return the cost
 	 */
@@ -100,7 +100,7 @@ public class DVD
 	{
 		return this.cost;
 	}
-
+	
 	/**
 	 * @return the director
 	 */
@@ -108,7 +108,7 @@ public class DVD
 	{
 		return this.director;
 	}
-
+	
 	/**
 	 * @return the year
 	 */
@@ -116,7 +116,7 @@ public class DVD
 	{
 		return this.year;
 	}
-
+	
 	/**
 	 * @return the title
 	 */
@@ -124,7 +124,7 @@ public class DVD
 	{
 		return this.title;
 	}
-
+	
 	/**
 	 * @return a string representation of the object, formatted for use in the
 	 *         'list' command
@@ -140,7 +140,7 @@ public class DVD
 		string += br + "\n";
 		return string;
 	}
-
+	
 	/**
 	 * Returns a string representation of the object
 	 */

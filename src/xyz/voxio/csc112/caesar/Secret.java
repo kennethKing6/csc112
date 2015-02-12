@@ -4,6 +4,7 @@ import java.util.Random;
 
 /**
  * Class for secrets, encryptable and decryptable, using a caesar cypher
+ *
  * @author Tim Miller - Feb 12, 2015
  */
 public class Secret implements Encryptable
@@ -14,7 +15,8 @@ public class Secret implements Encryptable
 	private final int		shift;
 
 	/**
-	 * @param msg the message to encrypt
+	 * @param msg
+	 *            the message to encrypt
 	 */
 	public Secret(String msg)
 	{
@@ -24,7 +26,8 @@ public class Secret implements Encryptable
 		this.shift = this.generator.nextInt(10) + 5;
 	}
 
-	/* (non-Javadoc)
+	/*
+	 * (non-Javadoc)
 	 * @see xyz.voxio.csc112.caesar.Encryptable#decrypt()
 	 */
 	@Override
@@ -45,7 +48,8 @@ public class Secret implements Encryptable
 		return this.message;
 	}
 
-	/* (non-Javadoc)
+	/*
+	 * (non-Javadoc)
 	 * @see xyz.voxio.csc112.caesar.Encryptable#encrypt()
 	 */
 	@Override
@@ -72,7 +76,8 @@ public class Secret implements Encryptable
 		return this.encrypted;
 	}
 
-	/* (non-Javadoc)
+	/*
+	 * (non-Javadoc)
 	 * @see java.lang.Object#toString()
 	 */
 	@Override

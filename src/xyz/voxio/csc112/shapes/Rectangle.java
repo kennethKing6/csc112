@@ -13,7 +13,7 @@ public class Rectangle extends Shape
 	protected static DecimalFormat	form	= new DecimalFormat("0.##");
 	protected double				length;
 	protected double				width;
-
+	
 	// ---------------------------------------------------------------------------
 	// Sets up the rectangle by entering its width and length.
 	// ---------------------------------------------------------------------------
@@ -22,7 +22,7 @@ public class Rectangle extends Shape
 		this.width = wid;
 		this.length = len;
 	}
-
+	
 	// ---------------------------------------------------------------------------
 	// Returns the calculated value of the area.
 	// ---------------------------------------------------------------------------
@@ -31,7 +31,7 @@ public class Rectangle extends Shape
 	{
 		return this.length * this.width;
 	}
-
+	
 	// ---------------------------------------------------------------------------
 	// Returns the calculated value of the perimeter.
 	// ---------------------------------------------------------------------------
@@ -40,7 +40,7 @@ public class Rectangle extends Shape
 	{
 		return 2 * (this.length + this.width);
 	}
-
+	
 	// ---------------------------------------------------------------------------
 	// Returns the double value of the length.
 	// ---------------------------------------------------------------------------
@@ -48,7 +48,7 @@ public class Rectangle extends Shape
 	{
 		return this.length;
 	}
-
+	
 	// ---------------------------------------------------------------------------
 	// Returns the double value of the width.
 	// ---------------------------------------------------------------------------
@@ -56,7 +56,7 @@ public class Rectangle extends Shape
 	{
 		return this.width;
 	}
-
+	
 	// ---------------------------------------------------------------------------
 	// Returns pertinent information about the rectangle.
 	// ---------------------------------------------------------------------------

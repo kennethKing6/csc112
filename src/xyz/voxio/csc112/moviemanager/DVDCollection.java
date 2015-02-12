@@ -21,7 +21,7 @@ public class DVDCollection implements Collection<DVD>
 	private DVD[]	collection;
 	private int		count;
 	private double	totalCost;
-
+	
 	/**
 	 * Default constructor
 	 */
@@ -31,7 +31,7 @@ public class DVDCollection implements Collection<DVD>
 		this.count = 0;
 		this.totalCost = 0.0;
 	}
-
+	
 	@Override
 	public boolean add(final DVD dvd)
 	{
@@ -52,7 +52,7 @@ public class DVDCollection implements Collection<DVD>
 			return false;
 		}
 	}
-
+	
 	/**
 	 * @param title
 	 *            the title
@@ -72,13 +72,13 @@ public class DVDCollection implements Collection<DVD>
 		{
 			this.increaseSize();
 		}
-
+		
 		this.collection[this.count] = new DVD(title, director, year, cost,
 				bluRay);
 		this.totalCost += cost;
 		this.count++;
 	}
-
+	
 	@Override
 	public boolean addAll(final Collection<? extends DVD> c)
 	{
@@ -96,7 +96,7 @@ public class DVDCollection implements Collection<DVD>
 			return false;
 		}
 	}
-
+	
 	/**
 	 * @param targetTitle
 	 *            the title to search for
@@ -108,25 +108,24 @@ public class DVDCollection implements Collection<DVD>
 		int max = this.count;
 		int mid = 0;
 		boolean found = false;
-
-		while (!found && min <= max)
+		
+		while (!found && (min <= max))
 		{
 			mid = (min + max) / 2;
 			if (this.collection[mid].title().compareTo(targetTitle) == 0)
 			{
 				found = true;
 			}
+			else if (this.collection[mid].title().compareTo(targetTitle) > 0)
+			{
+				max = mid - 1;
+			}
 			else
-				if (this.collection[mid].title().compareTo(targetTitle) > 0)
-				{
-					max = mid - 1;
-				}
-				else
-				{
-					min = mid + 1;
-				}
+			{
+				min = mid + 1;
+			}
 		}
-
+		
 		if (found)
 		{
 			return this.collection[mid];
@@ -136,25 +135,25 @@ public class DVDCollection implements Collection<DVD>
 			return null;
 		}
 	}
-
+	
 	@Override
 	public void clear()
 	{
 		this.collection = new DVD[1];
 	}
-
+	
 	@Override
 	public boolean contains(final Object o)
 	{
 		return false;
 	}
-
+	
 	@Override
 	public boolean containsAll(final Collection<?> c)
 	{
 		return false;
 	}
-
+	
 	/**
 	 * @return the size of the collection
 	 */
@@ -162,7 +161,7 @@ public class DVDCollection implements Collection<DVD>
 	{
 		return this.collection.length;
 	}
-
+	
 	/**
 	 * @param title
 	 *            the title of the dvd
@@ -174,10 +173,7 @@ public class DVDCollection implements Collection<DVD>
 		{
 			try
 			{
-				if (d.title().equalsIgnoreCase(title))
-				{
-					return d;
-				}
+				if (d.title().equalsIgnoreCase(title)) { return d; }
 			}
 			catch (final NullPointerException e)
 			{
@@ -186,22 +182,22 @@ public class DVDCollection implements Collection<DVD>
 		}
 		return null;
 	}
-
+	
 	/**
 	 * Increase the array size
 	 */
 	private void increaseSize()
 	{
 		final DVD[] temp = new DVD[this.collection.length * 2];
-
+		
 		for (int dvd = 0; dvd < this.collection.length; dvd++)
 		{
 			temp[dvd] = this.collection[dvd];
 		}
-
+		
 		this.collection = temp;
 	}
-
+	
 	@Override
 	public boolean isEmpty()
 	{
@@ -209,23 +205,22 @@ public class DVDCollection implements Collection<DVD>
 		{
 			return false;
 		}
+		else if (this.collection[0] == null)
+		{
+			return false;
+		}
 		else
-			if (this.collection[0] == null)
-			{
-				return false;
-			}
-			else
-			{
-				return true;
-			}
+		{
+			return true;
+		}
 	}
-
+	
 	@Override
 	public Iterator<DVD> iterator()
 	{
 		return Arrays.asList(this.collection).iterator();
 	}
-
+	
 	@Override
 	public boolean remove(final Object o)
 	{
@@ -246,7 +241,7 @@ public class DVDCollection implements Collection<DVD>
 			return false;
 		}
 	}
-
+	
 	@Override
 	public boolean removeAll(final Collection<?> c)
 	{
@@ -270,29 +265,29 @@ public class DVDCollection implements Collection<DVD>
 		}
 		return true;
 	}
-
+	
 	@Override
 	public boolean retainAll(final Collection<?> c)
 	{
 		return false;		// Lol, who even uses this
 	}
-
+	
 	public void scannerReadFile(final File file)
 	{
 		try
 		{
 			Scanner fileScan, recordScan;
-
+			
 			String title, director, record;
 			double cost;
 			int year;
 			boolean bluRay;
-
+			
 			this.count = 0;
 			this.totalCost = 0.0;
-
+			
 			fileScan = new Scanner(file);
-
+			
 			while (fileScan.hasNext())
 			{
 				if (this.collection.length == 0)
@@ -303,11 +298,11 @@ public class DVDCollection implements Collection<DVD>
 				{
 					this.increaseSize();
 				}
-
+				
 				record = fileScan.nextLine();
 				recordScan = new Scanner(record);
 				recordScan.useDelimiter("/");
-
+				
 				title = recordScan.next();
 				director = recordScan.next();
 				year = recordScan.nextInt();
@@ -317,7 +312,7 @@ public class DVDCollection implements Collection<DVD>
 						cost, bluRay);
 				this.totalCost += cost;
 				this.count++;
-
+				
 			}
 			fileScan.close();
 		}
@@ -326,20 +321,20 @@ public class DVDCollection implements Collection<DVD>
 			e.printStackTrace();
 		}
 	}
-
+	
 	/**
 	 * Sort by the director
 	 */
 	public void selectionSortByDirector()
 	{
 		int min;
-
+		
 		DVD temp;
-
-		for (int index = 0; index < this.count - 1; index++)
+		
+		for (int index = 0; index < (this.count - 1); index++)
 		{
 			min = index;
-
+			
 			for (int scan = index + 1; scan < this.count; scan++)
 			{
 				if (this.collection[scan].director().compareTo(
@@ -348,26 +343,26 @@ public class DVDCollection implements Collection<DVD>
 					min = scan;
 				}
 			}
-
+			
 			temp = this.collection[min];
 			this.collection[min] = this.collection[index];
 			this.collection[index] = temp;
 		}
 	}
-
+	
 	/**
 	 * Sort by title
 	 */
 	public void selectionSortByTitle()
 	{
 		int min;
-
+		
 		DVD temp;
-
-		for (int index = 0; index < this.count - 1; index++)
+		
+		for (int index = 0; index < (this.count - 1); index++)
 		{
 			min = index;
-
+			
 			for (int scan = index + 1; scan < this.count; scan++)
 			{
 				if (this.collection[scan].title().compareTo(
@@ -376,19 +371,19 @@ public class DVDCollection implements Collection<DVD>
 					min = scan;
 				}
 			}
-
+			
 			temp = this.collection[min];
 			this.collection[min] = this.collection[index];
 			this.collection[index] = temp;
 		}
 	}
-
+	
 	@Override
 	public int size()
 	{
 		return this.collection.length;
 	}
-
+	
 	/**
 	 * @param title
 	 *            The title
@@ -398,9 +393,9 @@ public class DVDCollection implements Collection<DVD>
 	{
 		int j = 0;
 		int i;
-
+		
 		final DVD[] temp = new DVD[this.currentSize()];
-
+		
 		for (i = 0; i < this.count; i++)
 		{
 			if (title.equalsIgnoreCase(this.collection[i].title()))
@@ -413,7 +408,7 @@ public class DVDCollection implements Collection<DVD>
 				j++;
 			}
 		}
-
+		
 		if (i != j)
 		{
 			this.count--;
@@ -424,9 +419,9 @@ public class DVDCollection implements Collection<DVD>
 		{
 			return false;
 		}
-
+		
 	}
-
+	
 	@Override
 	public Object[] toArray()
 	{
@@ -434,14 +429,14 @@ public class DVDCollection implements Collection<DVD>
 		System.arraycopy(this.collection, 0, dest, 0, this.collection.length);
 		return dest;
 	}
-
+	
 	@Override
 	public <T> T[] toArray(final T[] a)
 	{
 		System.arraycopy(this.collection, 0, a, 0, this.collection.length);
 		return a;
 	}
-
+	
 	public String toListString()
 	{
 		String string = "Title\tDirector\tYear\tCost\tBluray\n===================================================\n";
@@ -458,29 +453,29 @@ public class DVDCollection implements Collection<DVD>
 		}
 		return string;
 	}
-
+	
 	@Override
 	public String toString()
 	{
 		final NumberFormat fmt = NumberFormat.getCurrencyInstance();
-
+		
 		String report = "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n";
 		report += "My DVD Collection\n\n";
-
+		
 		report += "Number of DVDs: " + this.count + "\n";
 		report += "Total cost: " + fmt.format(this.totalCost) + "\n";
 		report += "Average cost: " + fmt.format(this.totalCost / this.count);
-
+		
 		report += "\n\nDVD List:\n\n";
-
+		
 		for (int dvd = 0; dvd < this.count; dvd++)
 		{
 			report += this.collection[dvd].toString() + "\n";
 		}
-
+		
 		return report;
 	}
-
+	
 	/**
 	 * @param title
 	 *            the title
@@ -497,12 +492,12 @@ public class DVDCollection implements Collection<DVD>
 	 */
 	public void updDVD(final String title, final String director,
 			final int year, final double cost, final boolean bluRay)
-			throws Exception
+					throws Exception
 	{
 		int i;
 		int flag = 0;
 		final DVD[] temp = new DVD[this.currentSize()];
-
+		
 		for (i = 0; i < this.count; i++)
 		{
 			if (title.equalsIgnoreCase(this.collection[i].title()))
@@ -511,22 +506,22 @@ public class DVDCollection implements Collection<DVD>
 				this.totalCost -= this.collection[i].cost();
 				this.totalCost += cost;
 				flag = 1;
-
+				
 			}
 			else
 			{
-
+				
 				temp[i] = this.collection[i];
 			}
 		}
-
+		
 		if (flag == 1)
 		{
 			this.collection = temp;
 		}
 		throw new Exception("DVD not found");
 	}
-
+	
 	/**
 	 * @param title
 	 *            the title
@@ -543,12 +538,12 @@ public class DVDCollection implements Collection<DVD>
 	 */
 	public void updDVD(final String title, final String director,
 			final String year, final String cost, final String bluRay)
-			throws Exception
+					throws Exception
 	{
 		this.updDVD(title, director, Integer.parseInt(year),
 				Double.parseDouble(cost), Boolean.parseBoolean(bluRay));
 	}
-
+	
 	/**
 	 * @param file
 	 *            the file to write to
@@ -558,11 +553,11 @@ public class DVDCollection implements Collection<DVD>
 		try
 		{
 			final FileWriter fw = new FileWriter(file, false);
-
+			
 			final BufferedWriter bw = new BufferedWriter(fw);
-
+			
 			String s;
-
+			
 			for (int i = 0; i < this.count; i++)
 			{
 				s = "";
@@ -573,11 +568,11 @@ public class DVDCollection implements Collection<DVD>
 				s += this.collection[i].bluray() + "\r\n";
 				bw.write(s);
 			}
-
+			
 			bw.flush();
 			bw.close();
 		}
-
+		
 		catch (final IOException e)
 		{
 			e.printStackTrace();

@@ -24,29 +24,29 @@ public final class MovieManager
 	 * The default endline for the system
 	 */
 	public static final String	END_LINE	= System.getProperty("line.separator");
-
+	
 	/**
 	 * The file to write and read to and from
 	 */
 	public static final File	FILE		= new File("dvds.txt");
-
+	
 	private static MovieManager	instance;
-
+	
 	/**
 	 * The prompt
 	 */
 	public static final String	PROMPT		= ">>";
-
+	
 	/**
 	 * The scanner
 	 */
 	public static final Scanner	scan		= new Scanner(System.in);
-
+	
 	static
 	{
 		MovieManager.scan.useDelimiter("\n");
 	}
-
+	
 	/**
 	 * @return the instance of the class
 	 */
@@ -59,14 +59,14 @@ public final class MovieManager
 		}
 		return MovieManager.instance;
 	}
-
+	
 	public static void main(final String[] args)
 	{
 		MovieManager.instance = new MovieManager();
 		MovieManager.instance().initialize();
 		MovieManager.instance().start();
 	}
-
+	
 	public static void openWebpage(final String string)
 	{
 		try
@@ -78,24 +78,24 @@ public final class MovieManager
 			e.printStackTrace();
 		}
 	}
-
+	
 	public static void openWebpage(final URI uri)
 	{
 		final Desktop desktop = Desktop.isDesktopSupported() ? Desktop
 				.getDesktop() : null;
-				if (desktop != null && desktop.isSupported(Desktop.Action.BROWSE))
-				{
-					try
-					{
-						desktop.browse(uri);
-					}
-					catch (final Exception e)
-					{
-						e.printStackTrace();
-					}
-				}
+		if ((desktop != null) && desktop.isSupported(Desktop.Action.BROWSE))
+		{
+			try
+			{
+				desktop.browse(uri);
+			}
+			catch (final Exception e)
+			{
+				e.printStackTrace();
+			}
+		}
 	}
-
+	
 	public static void openWebpage(final URL url)
 	{
 		try
@@ -107,7 +107,7 @@ public final class MovieManager
 			e.printStackTrace();
 		}
 	}
-
+	
 	public static String stripNewline(String string)
 	{
 		if (string.endsWith("\n") || string.endsWith("\r"))
@@ -120,11 +120,11 @@ public final class MovieManager
 			return string;
 		}
 	}
-
+	
 	public DVDCollection	col		= new DVDCollection();
-
+	
 	private final Set<Task>	taskSet	= new HashSet<Task>();
-
+	
 	/**
 	 * @param i
 	 *            exit code
@@ -134,7 +134,7 @@ public final class MovieManager
 		System.out.println("Goodbye!");
 		System.exit(0);
 	}
-
+	
 	/**
 	 * @return the input
 	 */
@@ -158,7 +158,7 @@ public final class MovieManager
 		str = MovieManager.stripNewline(str);
 		return str;
 	}
-
+	
 	/**
 	 * Initialize the array
 	 */
@@ -166,41 +166,41 @@ public final class MovieManager
 	{
 		this.taskSet.add(new Task("menu", "Displays the available commands",
 				new TaskRunnable()
+		{
+			@Override
+			public void run(final String... args)
+			{
+				for (final Task t : MovieManager.this.taskSet)
 				{
-					@Override
-					public void run(final String... args)
-					{
-						for (final Task t : MovieManager.this.taskSet)
-						{
-							System.out.println(t.name() + "\t\t\t" + t.desc());
-						}
-					}
-				}));
+					System.out.println(t.name() + "\t\t\t" + t.desc());
+				}
+			}
+		}));
 		this.taskSet.add(new Task("quit", "Quits the application",
 				new TaskRunnable()
-				{
-					@Override
-					public void run(final String... args)
-					{
-						MovieManager.this.exit(0);
-					}
-				}));
+		{
+			@Override
+			public void run(final String... args)
+			{
+				MovieManager.this.exit(0);
+			}
+		}));
 		this.taskSet.add(new Task("help", "Displays a simple help text",
 				new TaskRunnable()
-				{
-					@Override
-					public void run(final String... args)
-					{
-						System.out
-								.println("Use 'menu' for a list of tasks, or 'quit' to quit, or 'help' to see this text again!");
-					}
-				}));
+		{
+			@Override
+			public void run(final String... args)
+			{
+				System.out
+				.println("Use 'menu' for a list of tasks, or 'quit' to quit, or 'help' to see this text again!");
+			}
+		}));
 		this.taskSet.add(new Task("exit", "Alias for quit", new TaskRunnable()
 		{
 			@Override
 			public void run(final String... args)
 			{
-
+				
 				MovieManager.this.exit(0);
 			}
 		}));
@@ -251,133 +251,133 @@ public final class MovieManager
 		}));
 		this.taskSet.add(new Task("display", "Display a DVD",
 				new TaskRunnable()
+		{
+			@Override
+			public void run(final String... args)
+			{
+				final String title = MovieManager.this.getInput(
+						"title: ", MovieManager.scan, false);
+				final DVD dvd = MovieManager.this.col.getDVD(title);
+				if (dvd == null)
 				{
-					@Override
-					public void run(final String... args)
-					{
-						final String title = MovieManager.this.getInput(
-								"title: ", MovieManager.scan, false);
-						final DVD dvd = MovieManager.this.col.getDVD(title);
-						if (dvd == null)
-						{
-							System.out.println("DVD not found");
-							return;
-						}
-						else
-						{
-							System.out.println(dvd.toString());
-						}
-					}
-				}));
+					System.out.println("DVD not found");
+					return;
+				}
+				else
+				{
+					System.out.println(dvd.toString());
+				}
+			}
+		}));
 		this.taskSet.add(new Task("list", "Display a list of the DVD's",
 				new TaskRunnable()
-				{
-					@Override
-					public void run(final String... args)
-					{
-						System.out.println(MovieManager.this.col.toListString());
-					}
-				}));
+		{
+			@Override
+			public void run(final String... args)
+			{
+				System.out.println(MovieManager.this.col.toListString());
+			}
+		}));
 		this.taskSet.add(new Task("repo",
 				"Open the source repo in the web browser", new TaskRunnable()
-				{
-					@Override
-					public void run(final String... args)
-					{
-						MovieManager
-								.openWebpage("https://github.com/Commador/MovieManager");
-					}
-				}));
+		{
+			@Override
+			public void run(final String... args)
+			{
+				MovieManager
+				.openWebpage("https://github.com/Commador/MovieManager");
+			}
+		}));
 		this.taskSet.add(new Task("write",
 				"Write the current data to a file (dvds.txt)",
 				new TaskRunnable()
+		{
+			@Override
+			public void run(final String... args)
+			{
+				try
 				{
-					@Override
-					public void run(final String... args)
-					{
-						try
-						{
-							MovieManager.this.col
-									.writeToFile(MovieManager.FILE);
-						}
-						catch (final Exception e)
-						{
-							e.printStackTrace();
-							System.out
-									.println("Sorry, an error occurred, the data was not written successfully");
-							return;
-						}
-						System.out.println("Data written successfully");
-					}
-				}));
+					MovieManager.this.col
+					.writeToFile(MovieManager.FILE);
+				}
+				catch (final Exception e)
+				{
+					e.printStackTrace();
+					System.out
+					.println("Sorry, an error occurred, the data was not written successfully");
+					return;
+				}
+				System.out.println("Data written successfully");
+			}
+		}));
 		this.taskSet.add(new Task("issues",
 				"Open the issue tracker in the web browser", new TaskRunnable()
-				{
-					@Override
-					public void run(final String... args)
-					{
-						MovieManager
-								.openWebpage("https://github.com/Commador/MovieManager/issues");
-					}
-				}));
+		{
+			@Override
+			public void run(final String... args)
+			{
+				MovieManager
+				.openWebpage("https://github.com/Commador/MovieManager/issues");
+			}
+		}));
 		this.taskSet.add(new Task("read",
 				"Read the data from a file (dvds.txt)", new TaskRunnable()
+		{
+			@Override
+			public void run(final String... args)
+			{
+				try
 				{
-					@Override
-					public void run(final String... args)
-					{
-						try
-						{
-							MovieManager.this.col
-									.scannerReadFile(MovieManager.FILE);
-						}
-						catch (final Exception e)
-						{
-							e.printStackTrace();
-							System.out
-									.println("Sorry, an error occurred, the data was not read successfully");
-							return;
-						}
-						System.out
-								.println("Data read successfully\nUse list to see the data");
-					}
-				}));
+					MovieManager.this.col
+					.scannerReadFile(MovieManager.FILE);
+				}
+				catch (final Exception e)
+				{
+					e.printStackTrace();
+					System.out
+					.println("Sorry, an error occurred, the data was not read successfully");
+					return;
+				}
+				System.out
+				.println("Data read successfully\nUse list to see the data");
+			}
+		}));
 		this.taskSet.add(new Task("sortdirector",
 				"Sort the list by the director", new TaskRunnable()
+		{
+			@Override
+			public void run(final String... args)
+			{
+				try
 				{
-					@Override
-					public void run(final String... args)
-					{
-						try
-						{
-							MovieManager.this.col.selectionSortByDirector();
-						}
-						catch (final Exception e)
-						{
-							e.printStackTrace();
-							System.out
-									.println("Sorry, an error occurred, sort was unsuccessful");
-						}
-					}
-				}));
+					MovieManager.this.col.selectionSortByDirector();
+				}
+				catch (final Exception e)
+				{
+					e.printStackTrace();
+					System.out
+					.println("Sorry, an error occurred, sort was unsuccessful");
+				}
+			}
+		}));
 		this.taskSet.add(new Task("sorttitle", "Sort the list by the title",
 				new TaskRunnable()
+		{
+			@Override
+			public void run(final String... args)
+			{
+				try
 				{
-					@Override
-					public void run(final String... args)
-					{
-						try
-						{
-							MovieManager.this.col.selectionSortByTitle();
-						}
-						catch (final Exception e)
-						{
-							e.printStackTrace();
-							System.out
-									.println("Sorry, an error occurred, sort was unsuccessful");
-						}
-					}
-				}));
+					MovieManager.this.col.selectionSortByTitle();
+				}
+				catch (final Exception e)
+				{
+					e.printStackTrace();
+					System.out
+					.println("Sorry, an error occurred, sort was unsuccessful");
+				}
+			}
+		}));
 		this.taskSet.add(new Task("update", "Update a DVD", new TaskRunnable()
 		{
 			@Override
@@ -396,7 +396,7 @@ public final class MovieManager
 				try
 				{
 					MovieManager.this.col
-							.updDVD(title, dir, year, cost, bluray);
+					.updDVD(title, dir, year, cost, bluray);
 				}
 				catch (final Exception e)
 				{
@@ -408,7 +408,7 @@ public final class MovieManager
 			}
 		}));
 	}
-
+	
 	/**
 	 * @param name
 	 *            the name of the task
@@ -431,7 +431,7 @@ public final class MovieManager
 			System.out.println("The command " + name + " could not be found");
 		}
 	}
-
+	
 	/**
 	 * Start the program
 	 */

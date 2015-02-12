@@ -18,7 +18,7 @@ public class Task
 	{
 		public abstract void run(String... args);
 	}
-
+	
 	/**
 	 * Task.java<br>
 	 * Feb 5, 2015<br>
@@ -28,44 +28,44 @@ public class Task
 	public class TaskThread extends Thread
 	{
 		public final String[]	args;
-
+		
 		public final Task		task;
-
+		
 		public TaskThread(final Task task, final String[] args)
 		{
 			this.args = args;
 			this.task = task;
-
+			
 		}
-
+		
 		@Override
 		public void run()
 		{
 			this.task.run.run();
 		}
-
+		
 		@Override
 		public void start()
 		{
 			super.start();
 		}
 	}
-
+	
 	/**
 	 * The description for the task
 	 */
 	private final String		desc;
-
+	
 	/**
 	 * The name of the task
 	 */
 	private final String		name;
-
+	
 	/**
 	 * The runnable object for the task
 	 */
 	private final TaskRunnable	run;
-
+	
 	/**
 	 * @param name
 	 *            the name
@@ -78,14 +78,11 @@ public class Task
 	{
 		this.name = name == null ? "" : name;
 		this.desc = desc == null ? "" : desc;
-		if (run == null)
-		{
-			throw new NullPointerException("Runnable for task " + this.name
-					+ "was null");
-		}
+		if (run == null) { throw new NullPointerException("Runnable for task "
+				+ this.name + "was null"); }
 		this.run = run;
 	}
-
+	
 	/**
 	 * @param name
 	 *            the name
@@ -96,7 +93,7 @@ public class Task
 	{
 		this(name, "", run);
 	}
-
+	
 	/**
 	 * @return the description
 	 */
@@ -104,7 +101,7 @@ public class Task
 	{
 		return this.desc;
 	}
-
+	
 	/**
 	 * @return the name
 	 */
@@ -112,7 +109,7 @@ public class Task
 	{
 		return this.name;
 	}
-
+	
 	/**
 	 * @param args
 	 *            the args
