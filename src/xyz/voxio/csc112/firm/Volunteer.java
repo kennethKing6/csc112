@@ -6,6 +6,7 @@ package xyz.voxio.csc112.firm;
 // Represents a staff member that works as a volunteer.
 // ********************************************************************
 
+// +vacation()
 public class Volunteer extends StaffMember
 {
 	// -----------------------------------------------------------------
@@ -17,12 +18,6 @@ public class Volunteer extends StaffMember
 		super(eName, eAddress, ePhone);
 	}
 
-	@Override
-	public int vacation()
-	{
-		return 0;
-	}
-
 	// -----------------------------------------------------------------
 	// Returns a zero pay value for this volunteer.
 	// -----------------------------------------------------------------
@@ -30,5 +25,11 @@ public class Volunteer extends StaffMember
 	public double pay()
 	{
 		return 0.0;
+	}
+
+	@Override
+	public int vacation()
+	{
+		return 0;
 	}
 }

@@ -6,6 +6,7 @@ package xyz.voxio.csc112.firm;
 // Represents an executive staff member, who can earn a bonus.
 // ********************************************************************
 
+// +vacation()
 public class Executive extends Employee
 {
 	private double	bonus;
@@ -30,12 +31,6 @@ public class Executive extends Employee
 		this.bonus = execBonus;
 	}
 
-	@Override
-	public int vacation()
-	{
-		return 3;
-	}
-
 	// -----------------------------------------------------------------
 	// Computes and returns the pay for an executive, which is the
 	// regular employee payment plus a one-time bonus.
@@ -48,5 +43,11 @@ public class Executive extends Employee
 		this.bonus = 0;
 
 		return payment;
+	}
+
+	@Override
+	public int vacation()
+	{
+		return 3;
 	}
 }

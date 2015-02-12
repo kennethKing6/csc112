@@ -6,6 +6,7 @@ package xyz.voxio.csc112.firm;
 // Represents a generic staff member.
 // ********************************************************************
 
+// +vacation()
 abstract public class StaffMember
 {
 	protected String	address;
@@ -22,11 +23,6 @@ abstract public class StaffMember
 		this.address = eAddress;
 		this.phone = ePhone;
 	}
-
-	/**
-	 * @return the number of vacation weeks the staffmember gets
-	 */
-	public abstract int vacation();
 
 	// -----------------------------------------------------------------
 	// Derived classes must define the pay method for each type of
@@ -47,4 +43,9 @@ abstract public class StaffMember
 
 		return result;
 	}
+
+	/**
+	 * @return the number of vacation weeks the staffmember gets
+	 */
+	public abstract int vacation();
 }

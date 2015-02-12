@@ -6,6 +6,7 @@ package xyz.voxio.csc112.firm;
 // Represents a general paid employee.
 // ********************************************************************
 
+// +vacation()
 public class Employee extends StaffMember
 {
 	protected double	payRate;
@@ -22,12 +23,6 @@ public class Employee extends StaffMember
 
 		this.socialSecurityNumber = socSecNumber;
 		this.payRate = rate;
-	}
-
-	@Override
-	public int vacation()
-	{
-		return 2;
 	}
 
 	// -----------------------------------------------------------------
@@ -50,5 +45,11 @@ public class Employee extends StaffMember
 		result += "\nSocial Security Number: " + this.socialSecurityNumber;
 
 		return result;
+	}
+
+	@Override
+	public int vacation()
+	{
+		return 2;
 	}
 }

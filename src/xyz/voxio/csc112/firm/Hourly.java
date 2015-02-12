@@ -6,6 +6,7 @@ package xyz.voxio.csc112.firm;
 // Represents an employee that gets paid by the hour.
 // ********************************************************************
 
+// +vacation()
 public class Hourly extends Employee
 {
 
@@ -52,12 +53,6 @@ public class Hourly extends Employee
 		this.overtimeWorked += hours;
 	}
 
-	@Override
-	public int vacation()
-	{
-		return 1;
-	}
-
 	// -----------------------------------------------------------------
 	// Computes and returns the pay for this hourly employee.
 	// -----------------------------------------------------------------
@@ -82,5 +77,11 @@ public class Hourly extends Employee
 		result += "\nCurrent hours: " + this.hoursWorked;
 
 		return result;
+	}
+
+	@Override
+	public int vacation()
+	{
+		return 1;
 	}
 }

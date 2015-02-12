@@ -50,13 +50,12 @@ public class Staff
 
 			amount = element.pay();  // polymorphic
 			vacation = element.vacation();
-			
-			
-			if(vacation>0)
+
+			if (vacation > 0)
 			{
 				System.out.println("Had " + vacation + " week(s) vacation");
 			}
-			
+
 			if (amount == 0.0)
 			{
 				System.out.println("Thanks!");

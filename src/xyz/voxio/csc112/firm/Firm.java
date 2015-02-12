@@ -6,6 +6,7 @@ package xyz.voxio.csc112.firm;
 // Demonstrates polymorphism via inheritance.
 // ********************************************************************
 
+// +vacation()
 public class Firm
 {
 	// -----------------------------------------------------------------
