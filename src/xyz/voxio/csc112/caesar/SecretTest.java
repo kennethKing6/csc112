@@ -6,27 +6,32 @@ import java.util.Scanner;
 /**
  * Test class for Secret.class
  * @author Tim Miller - Feb 12, 2015
- * 
  */
 public class SecretTest
 {
 	public static void main(String[] args)
 	{
-		//Take in input, generate secret
-		final Scanner scan = new Scanner(System.in);
-		System.out.println("Enter some text please");
-		final Secret hush = new Secret(scan.nextLine());
+		Scanner scan = null;
+		String again = null;
 
-		//Print out the original text
-		System.out.println(hush);
+		do
+		{
+			scan = new Scanner(System.in);
+			System.out.println("Enter some text please:");
+			final Secret hush = new Secret(scan.nextLine());
 
-		//Print out the encrypted text
-		hush.encrypt();
-		System.out.println(hush);
+			System.out.println(hush);
 
-		//Print the original text
-		hush.decrypt();
-		System.out.println(hush);
+			hush.encrypt();
+			System.out.println(hush);
+
+			hush.decrypt();
+			System.out.println(hush);
+			
+			System.out.println("Would you like to encrypt another message? (Enter 'y' for yes, press any other key to exit");
+			again = scan.nextLine();
+		}
+		while(again.equalsIgnoreCase("y"));
 		scan.close();
 	}
 }
