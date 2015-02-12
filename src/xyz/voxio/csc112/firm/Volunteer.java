@@ -1,32 +1,33 @@
 package xyz.voxio.csc112.firm;
 
-// ********************************************************************
-// Volunteer.java Author: Lewis/Loftus
-//
-// Represents a staff member that works as a volunteer.
-// ********************************************************************
-
-// +vacation()
+/**
+ * A class for a volunteer staff member
+ * @author Tim Miller - Feb 12, 2015
+ */
 public class Volunteer extends StaffMember
 {
-	// -----------------------------------------------------------------
-	// Constructor: Sets up this volunteer using the specified
-	// information.
-	// -----------------------------------------------------------------
+	/**
+	 * @param eName the name
+	 * @param eAddress the address
+	 * @param ePhone the phone
+	 */
 	public Volunteer(String eName, String eAddress, String ePhone)
 	{
 		super(eName, eAddress, ePhone);
 	}
 
-	// -----------------------------------------------------------------
-	// Returns a zero pay value for this volunteer.
-	// -----------------------------------------------------------------
+	/* (non-Javadoc)
+	 * @see xyz.voxio.csc112.firm.StaffMember#pay()
+	 */
 	@Override
 	public double pay()
 	{
 		return 0.0;
 	}
 
+	/* (non-Javadoc)
+	 * @see xyz.voxio.csc112.firm.StaffMember#vacation()
+	 */
 	@Override
 	public int vacation()
 	{

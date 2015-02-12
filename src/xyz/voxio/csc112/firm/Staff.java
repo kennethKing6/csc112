@@ -1,18 +1,18 @@
 package xyz.voxio.csc112.firm;
 
-// ********************************************************************
-// Staff.java Author: Lewis/Loftus
-//
-// Represents the personnel staff of a particular business.
-// ********************************************************************
 
+/**
+ * Simple collection of StaffMembers
+ * @author Tim Miller - Feb 12, 2015
+ * 
+ */
 public class Staff
 {
 	private final StaffMember[]	staffList;
 
-	// -----------------------------------------------------------------
-	// Constructor: Sets up the list of staff members.
-	// -----------------------------------------------------------------
+	/**
+	 * Default constructor
+	 */
 	public Staff()
 	{
 		this.staffList = new StaffMember[6];
@@ -36,9 +36,9 @@ public class Staff
 		((Hourly) this.staffList[3]).addHours(40);
 	}
 
-	// -----------------------------------------------------------------
-	// Pays all staff members.
-	// -----------------------------------------------------------------
+	/**
+	 * Pays the staffmembers
+	 */
 	public void payday()
 	{
 		double amount;

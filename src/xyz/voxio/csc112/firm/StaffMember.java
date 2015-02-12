@@ -1,22 +1,22 @@
 package xyz.voxio.csc112.firm;
 
-// ********************************************************************
-// StaffMember.java Author: Lewis/Loftus
-//
-// Represents a generic staff member.
-// ********************************************************************
-
-// +vacation()
+/**
+ * Abstract class for a staffmember at a firm
+ * @author Tim Miller - Feb 12, 2015
+ * 
+ */
 abstract public class StaffMember
 {
 	protected String	address;
 	protected String	name;
 	protected String	phone;
 
-	// -----------------------------------------------------------------
-	// Constructor: Sets up this staff member using the specified
-	// information.
-	// -----------------------------------------------------------------
+	/**
+	 * Default constructor for a staff member
+	 * @param eName their name
+	 * @param eAddress their address
+	 * @param ePhone their phone number
+	 */
 	public StaffMember(String eName, String eAddress, String ePhone)
 	{
 		this.name = eName;
@@ -24,15 +24,14 @@ abstract public class StaffMember
 		this.phone = ePhone;
 	}
 
-	// -----------------------------------------------------------------
-	// Derived classes must define the pay method for each type of
-	// employee.
-	// -----------------------------------------------------------------
+	/**
+	 * @return the amount the staffmember is to be payed
+	 */
 	public abstract double pay();
 
-	// -----------------------------------------------------------------
-	// Returns a string including the basic employee information.
-	// -----------------------------------------------------------------
+	/* (non-Javadoc)
+	 * @see java.lang.Object#toString()
+	 */
 	@Override
 	public String toString()
 	{

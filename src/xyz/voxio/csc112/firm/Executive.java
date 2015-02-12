@@ -1,20 +1,20 @@
 package xyz.voxio.csc112.firm;
 
-// ********************************************************************
-// Executive.java Author: Lewis/Loftus
-//
-// Represents an executive staff member, who can earn a bonus.
-// ********************************************************************
-
-// +vacation()
+/**
+ * Class for executive of a firm
+ * @author Tim Miller - Feb 12, 2015
+ */
 public class Executive extends Employee
 {
 	private double	bonus;
 
-	// -----------------------------------------------------------------
-	// Constructor: Sets up this executive with the specified
-	// information.
-	// -----------------------------------------------------------------
+	/**
+	 * @param eName exec name
+	 * @param eAddress exec address
+	 * @param ePhone exec phone number
+	 * @param socSecNumber exec ss number
+	 * @param rate exec payrate
+	 */
 	public Executive(String eName, String eAddress, String ePhone,
 			String socSecNumber, double rate)
 	{
@@ -23,18 +23,17 @@ public class Executive extends Employee
 		this.bonus = 0;  // bonus has yet to be awarded
 	}
 
-	// -----------------------------------------------------------------
-	// Awards the specified bonus to this executive.
-	// -----------------------------------------------------------------
+	/**
+	 * @param execBonus the bonus to be awarded
+	 */
 	public void awardBonus(double execBonus)
 	{
-		this.bonus = execBonus;
+		this.bonus += execBonus;		//I changed = to +=
 	}
 
-	// -----------------------------------------------------------------
-	// Computes and returns the pay for an executive, which is the
-	// regular employee payment plus a one-time bonus.
-	// -----------------------------------------------------------------
+	/* (non-Javadoc)
+	 * @see xyz.voxio.csc112.firm.Employee#pay()
+	 */
 	@Override
 	public double pay()
 	{
@@ -45,6 +44,9 @@ public class Executive extends Employee
 		return payment;
 	}
 
+	/* (non-Javadoc)
+	 * @see xyz.voxio.csc112.firm.Employee#vacation()
+	 */
 	@Override
 	public int vacation()
 	{

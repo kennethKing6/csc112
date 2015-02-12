@@ -1,35 +1,40 @@
 package xyz.voxio.csc112.firm;
 
-// ********************************************************************
-// Hourly.java Author: Lewis/Loftus
-//
-// Represents an employee that gets paid by the hour.
-// ********************************************************************
 
-// +vacation()
+/**
+ * Class for an employee who is paid an hourly wage
+ * @author Tim Miller - Feb 12, 2015
+ * 
+ */
 public class Hourly extends Employee
 {
-
-	public static double timeAndHalf(double time)
-	{
-		return time * 1.5;
-	}
 
 	private int				hoursWorked;
 
 	private final double	overtimeRate;
 	private int				overtimeWorked;
 
-	public Hourly(String string, String string2, String string3,
-			String string4, double rate)
+	/**
+	 * @param eName employee name
+	 * @param eAddress employee address
+	 * @param ePhone employee phone number
+	 * @param socSecNumber employee ss number
+	 * @param rate employee hourly pay rate
+	 */
+	public Hourly(String eName, String eAddress, String ePhone,
+			String socSecNumber, double rate)
 	{
-		this(string, string2, string3, string4, rate, Hourly.timeAndHalf(rate));
+		this(eName, eAddress, ePhone, socSecNumber, rate, (double) (rate * 1.5));
 	}
 
-	// -----------------------------------------------------------------
-	// Constructor: Sets up this hourly employee using the specified
-	// information.
-	// -----------------------------------------------------------------
+	/**
+	 * @param eName employee name
+	 * @param eAddress employee address
+	 * @param ePhone employee phone number
+	 * @param socSecNumber employee ss number
+	 * @param rate employee hourly pay rate
+	 * @param overtimeRate hourly overtime pay rate
+	 */
 	public Hourly(String eName, String eAddress, String ePhone,
 			String socSecNumber, double rate, double overtimeRate)
 	{
@@ -39,23 +44,25 @@ public class Hourly extends Employee
 		this.hoursWorked = 0;
 	}
 
-	// -----------------------------------------------------------------
-	// Adds the specified number of hours to this employee's
-	// accumulated hours.
-	// -----------------------------------------------------------------
+	/**
+	 * @param moreHours the hours worked
+	 */
 	public void addHours(int moreHours)
 	{
 		this.hoursWorked += moreHours;
 	}
 
+	/**
+	 * @param hours the overtime worked
+	 */
 	public void addOvertime(int hours)
 	{
 		this.overtimeWorked += hours;
 	}
 
-	// -----------------------------------------------------------------
-	// Computes and returns the pay for this hourly employee.
-	// -----------------------------------------------------------------
+	/* (non-Javadoc)
+	 * @see xyz.voxio.csc112.firm.Employee#pay()
+	 */
 	@Override
 	public double pay()
 	{
@@ -66,9 +73,9 @@ public class Hourly extends Employee
 		return payment;
 	}
 
-	// -----------------------------------------------------------------
-	// Returns information about this hourly employee as a string.
-	// -----------------------------------------------------------------
+	/* (non-Javadoc)
+	 * @see xyz.voxio.csc112.firm.Employee#toString()
+	 */
 	@Override
 	public String toString()
 	{
@@ -79,6 +86,9 @@ public class Hourly extends Employee
 		return result;
 	}
 
+	/* (non-Javadoc)
+	 * @see xyz.voxio.csc112.firm.Employee#vacation()
+	 */
 	@Override
 	public int vacation()
 	{

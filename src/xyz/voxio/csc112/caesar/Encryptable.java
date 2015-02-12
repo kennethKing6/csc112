@@ -1,15 +1,19 @@
 package xyz.voxio.csc112.caesar;
 
-// ********************************************************************
-// Encryptable.java Java Foundations
-//
-// Represents the interface for an object that can be encrypted
-// and decrypted.
-// ********************************************************************
-
+/**
+ * @author Tim Miller - Feb 12, 2015
+ * 
+ * interface representing an encryptable object
+ */
 public interface Encryptable
 {
+	/**
+	 * @return the decrypted string
+	 */
 	public String decrypt();
 
+	/**
+	 * Encrypt the string
+	 */
 	public void encrypt();
 }

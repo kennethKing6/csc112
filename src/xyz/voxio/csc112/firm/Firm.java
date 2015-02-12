@@ -1,17 +1,12 @@
 package xyz.voxio.csc112.firm;
 
-// ********************************************************************
-// Firm.java Author: Lewis/Loftus
-//
-// Demonstrates polymorphism via inheritance.
-// ********************************************************************
-
-// +vacation()
+/**
+ * A firm, with employees and a payroll
+ * @author Tim Miller - Feb 12, 2015
+ * 
+ */
 public class Firm
 {
-	// -----------------------------------------------------------------
-	// Creates a staff of employees for a firm and pays them.
-	// -----------------------------------------------------------------
 	public static void main(String[] args)
 	{
 		final Staff personnel = new Staff();
