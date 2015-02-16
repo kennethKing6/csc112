@@ -24,29 +24,29 @@ public final class MovieManager
 	 * The default endline for the system
 	 */
 	public static final String	END_LINE	= System.getProperty("line.separator");
-	
+
 	/**
 	 * The file to write and read to and from
 	 */
 	public static final File	FILE		= new File("dvds.txt");
-	
+
 	private static MovieManager	instance;
-	
+
 	/**
 	 * The prompt
 	 */
 	public static final String	PROMPT		= ">>";
-	
+
 	/**
 	 * The scanner
 	 */
 	public static final Scanner	scan		= new Scanner(System.in);
-	
+
 	static
 	{
 		MovieManager.scan.useDelimiter("\n");
 	}
-	
+
 	/**
 	 * @return the instance of the class
 	 */
@@ -59,14 +59,14 @@ public final class MovieManager
 		}
 		return MovieManager.instance;
 	}
-	
+
 	public static void main(final String[] args)
 	{
 		MovieManager.instance = new MovieManager();
 		MovieManager.instance().initialize();
 		MovieManager.instance().start();
 	}
-	
+
 	public static void openWebpage(final String string)
 	{
 		try
@@ -78,7 +78,7 @@ public final class MovieManager
 			e.printStackTrace();
 		}
 	}
-	
+
 	public static void openWebpage(final URI uri)
 	{
 		final Desktop desktop = Desktop.isDesktopSupported() ? Desktop
@@ -95,7 +95,7 @@ public final class MovieManager
 			}
 		}
 	}
-	
+
 	public static void openWebpage(final URL url)
 	{
 		try
@@ -107,7 +107,7 @@ public final class MovieManager
 			e.printStackTrace();
 		}
 	}
-	
+
 	public static String stripNewline(String string)
 	{
 		if (string.endsWith("\n") || string.endsWith("\r"))
@@ -120,11 +120,11 @@ public final class MovieManager
 			return string;
 		}
 	}
-	
+
 	public DVDCollection	col		= new DVDCollection();
-	
+
 	private final Set<Task>	taskSet	= new HashSet<Task>();
-	
+
 	/**
 	 * @param i
 	 *            exit code
@@ -134,7 +134,7 @@ public final class MovieManager
 		System.out.println("Goodbye!");
 		System.exit(0);
 	}
-	
+
 	/**
 	 * @return the input
 	 */
@@ -158,7 +158,7 @@ public final class MovieManager
 		str = MovieManager.stripNewline(str);
 		return str;
 	}
-	
+
 	/**
 	 * Initialize the array
 	 */
@@ -200,7 +200,7 @@ public final class MovieManager
 			@Override
 			public void run(final String... args)
 			{
-				
+
 				MovieManager.this.exit(0);
 			}
 		}));
@@ -408,7 +408,7 @@ public final class MovieManager
 			}
 		}));
 	}
-	
+
 	/**
 	 * @param name
 	 *            the name of the task
@@ -431,7 +431,7 @@ public final class MovieManager
 			System.out.println("The command " + name + " could not be found");
 		}
 	}
-	
+
 	/**
 	 * Start the program
 	 */

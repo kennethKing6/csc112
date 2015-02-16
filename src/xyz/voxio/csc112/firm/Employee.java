@@ -2,7 +2,7 @@ package xyz.voxio.csc112.firm;
 
 /**
  * Class for an employee of a firm
- * 
+ *
  * @author Tim Miller - Feb 12, 2015
  */
 /**
@@ -12,10 +12,10 @@ public class Employee extends StaffMember
 {
 	protected double	payRate;
 	protected String	socialSecurityNumber;
-	
+
 	/**
 	 * Default constructor
-	 * 
+	 *
 	 * @param eName
 	 *            employee name
 	 * @param eAddress
@@ -31,11 +31,11 @@ public class Employee extends StaffMember
 			String socSecNumber, double rate)
 	{
 		super(eName, eAddress, ePhone);
-		
+
 		this.socialSecurityNumber = socSecNumber;
 		this.payRate = rate;
 	}
-	
+
 	/*
 	 * (non-Javadoc)
 	 * @see xyz.voxio.csc112.firm.StaffMember#pay()
@@ -45,7 +45,7 @@ public class Employee extends StaffMember
 	{
 		return this.payRate;
 	}
-	
+
 	/*
 	 * (non-Javadoc)
 	 * @see xyz.voxio.csc112.firm.StaffMember#toString()
@@ -54,12 +54,12 @@ public class Employee extends StaffMember
 	public String toString()
 	{
 		String result = super.toString();
-		
+
 		result += "\nSocial Security Number: " + this.socialSecurityNumber;
-		
+
 		return result;
 	}
-	
+
 	/*
 	 * (non-Javadoc)
 	 * @see xyz.voxio.csc112.firm.StaffMember#vacation()

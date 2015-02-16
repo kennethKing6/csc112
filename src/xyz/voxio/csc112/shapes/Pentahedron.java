@@ -9,7 +9,7 @@ package xyz.voxio.csc112.shapes;
 public class Pentahedron extends Rectangle
 {
 	private final double	height;
-	
+
 	// ---------------------------------------------------------------------------
 	// Sets up the pyramid by entering its width, height and length.
 	// ---------------------------------------------------------------------------
@@ -18,7 +18,7 @@ public class Pentahedron extends Rectangle
 		super(wid, len);
 		this.height = hei;
 	}
-	
+
 	// ---------------------------------------------------------------------------
 	// Returns the calculated value of the surface area.
 	// ---------------------------------------------------------------------------
@@ -28,7 +28,7 @@ public class Pentahedron extends Rectangle
 		return (2 * this.lengthFaceArea()) + (2 * this.widthFaceArea())
 				+ super.computeArea();
 	}
-	
+
 	// ---------------------------------------------------------------------------
 	// Returns the calculated value of the volume.
 	// ---------------------------------------------------------------------------
@@ -36,7 +36,7 @@ public class Pentahedron extends Rectangle
 	{
 		return (super.computeArea() * this.height) / 3;
 	}
-	
+
 	// ---------------------------------------------------------------------------
 	// Returns the double value of the height.
 	// ---------------------------------------------------------------------------
@@ -44,7 +44,7 @@ public class Pentahedron extends Rectangle
 	{
 		return this.height;
 	}
-	
+
 	// ---------------------------------------------------------------------------
 	// Returns the calculated value of the long face area.
 	// ---------------------------------------------------------------------------
@@ -52,7 +52,7 @@ public class Pentahedron extends Rectangle
 	{
 		return (this.lengthFaceHeight() * this.length) / 2;
 	}
-	
+
 	// ---------------------------------------------------------------------------
 	// Returns the calculated value of the long face height.
 	// ---------------------------------------------------------------------------
@@ -61,7 +61,7 @@ public class Pentahedron extends Rectangle
 		return Math
 				.sqrt(Math.pow(this.height, 2) + Math.pow(this.width / 2, 2));
 	}
-	
+
 	// ---------------------------------------------------------------------------
 	// Returns pertinent information about the pyramid.
 	// ---------------------------------------------------------------------------
@@ -76,7 +76,7 @@ public class Pentahedron extends Rectangle
 				+ Rectangle.form.format(this.computeArea()) + "\nvolume is "
 				+ Rectangle.form.format(this.computeVolume()) + "\n";
 	}
-	
+
 	// ---------------------------------------------------------------------------
 	// Returns the calculated value of the wide face area.
 	// ---------------------------------------------------------------------------
@@ -84,7 +84,7 @@ public class Pentahedron extends Rectangle
 	{
 		return (this.widthFaceHeight() * this.width) / 2;
 	}
-	
+
 	// ---------------------------------------------------------------------------
 	// Returns the calculated value of the wide face height.
 	// ---------------------------------------------------------------------------

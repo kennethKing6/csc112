@@ -2,7 +2,7 @@ package xyz.voxio.csc112.firm;
 
 /**
  * A class for a volunteer staff member
- * 
+ *
  * @author Tim Miller - Feb 12, 2015
  */
 public class Volunteer extends StaffMember
@@ -19,7 +19,7 @@ public class Volunteer extends StaffMember
 	{
 		super(eName, eAddress, ePhone);
 	}
-	
+
 	/*
 	 * (non-Javadoc)
 	 * @see xyz.voxio.csc112.firm.StaffMember#pay()
@@ -29,7 +29,7 @@ public class Volunteer extends StaffMember
 	{
 		return 0.0;
 	}
-	
+
 	/*
 	 * (non-Javadoc)
 	 * @see xyz.voxio.csc112.firm.StaffMember#vacation()

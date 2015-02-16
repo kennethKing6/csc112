@@ -12,7 +12,7 @@ public class Triangle extends Shape
 {
 	protected static DecimalFormat	form	= new DecimalFormat("0.##");
 	protected double				side;
-	
+
 	// ---------------------------------------------------------------------------
 	// Sets up the triangle by entering the length of a side.
 	// ---------------------------------------------------------------------------
@@ -20,7 +20,7 @@ public class Triangle extends Shape
 	{
 		this.side = sid;
 	}
-	
+
 	// ---------------------------------------------------------------------------
 	// Returns the calculated value of the area.
 	// ---------------------------------------------------------------------------
@@ -29,7 +29,7 @@ public class Triangle extends Shape
 	{
 		return (this.side * this.getHeight()) / 2;
 	}
-	
+
 	// ---------------------------------------------------------------------------
 	// Returns the calculated value of the perimeter.
 	// ---------------------------------------------------------------------------
@@ -38,7 +38,7 @@ public class Triangle extends Shape
 	{
 		return this.side * 3;
 	}
-	
+
 	// ---------------------------------------------------------------------------
 	// Returns the double value of the height of the triangle.
 	// ---------------------------------------------------------------------------
@@ -46,7 +46,7 @@ public class Triangle extends Shape
 	{
 		return Math.sqrt(Math.pow(this.side, 2) - Math.pow(this.side / 2, 2));
 	}
-	
+
 	// ---------------------------------------------------------------------------
 	// Returns the double value of the side.
 	// ---------------------------------------------------------------------------
@@ -54,7 +54,7 @@ public class Triangle extends Shape
 	{
 		return this.side;
 	}
-	
+
 	// ---------------------------------------------------------------------------
 	// Returns pertinent information about the triangle.
 	// ---------------------------------------------------------------------------

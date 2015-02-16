@@ -2,13 +2,13 @@ package xyz.voxio.csc112.firm;
 
 /**
  * Class for executive of a firm
- * 
+ *
  * @author Tim Miller - Feb 12, 2015
  */
 public class Executive extends Employee
 {
 	private double	bonus;
-	
+
 	/**
 	 * @param eName
 	 *            exec name
@@ -25,10 +25,10 @@ public class Executive extends Employee
 			String socSecNumber, double rate)
 	{
 		super(eName, eAddress, ePhone, socSecNumber, rate);
-		
+
 		this.bonus = 0;  // bonus has yet to be awarded
 	}
-	
+
 	/**
 	 * @param execBonus
 	 *            the bonus to be awarded
@@ -37,7 +37,7 @@ public class Executive extends Employee
 	{
 		this.bonus += execBonus;		// I changed = to +=
 	}
-	
+
 	/*
 	 * (non-Javadoc)
 	 * @see xyz.voxio.csc112.firm.Employee#pay()
@@ -46,12 +46,12 @@ public class Executive extends Employee
 	public double pay()
 	{
 		final double payment = super.pay() + this.bonus;
-		
+
 		this.bonus = 0;
-		
+
 		return payment;
 	}
-	
+
 	/*
 	 * (non-Javadoc)
 	 * @see xyz.voxio.csc112.firm.Employee#vacation()

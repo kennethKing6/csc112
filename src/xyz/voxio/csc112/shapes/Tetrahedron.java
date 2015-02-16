@@ -9,7 +9,7 @@ package xyz.voxio.csc112.shapes;
 public class Tetrahedron extends Triangle
 {
 	private final double	height;
-	
+
 	// ---------------------------------------------------------------------------
 	// Sets up the pyramid by entering its base side length and height.
 	// ---------------------------------------------------------------------------
@@ -18,7 +18,7 @@ public class Tetrahedron extends Triangle
 		super(sid);
 		this.height = hei;
 	}
-	
+
 	// ---------------------------------------------------------------------------
 	// Returns the calculated value of the surface area.
 	// ---------------------------------------------------------------------------
@@ -27,7 +27,7 @@ public class Tetrahedron extends Triangle
 	{
 		return (3 * this.faceArea()) + super.computeArea();
 	}
-	
+
 	// ---------------------------------------------------------------------------
 	// Returns the calculated value of the volume.
 	// ---------------------------------------------------------------------------
@@ -35,7 +35,7 @@ public class Tetrahedron extends Triangle
 	{
 		return (super.computeArea() * this.height) / 3;
 	}
-	
+
 	// ---------------------------------------------------------------------------
 	// Returns the calculated value of a face area.
 	// ---------------------------------------------------------------------------
@@ -43,7 +43,7 @@ public class Tetrahedron extends Triangle
 	{
 		return (this.faceHeight() * this.side) / 2;
 	}
-	
+
 	// ---------------------------------------------------------------------------
 	// Returns the calculated value of a face height.
 	// ---------------------------------------------------------------------------
@@ -52,7 +52,7 @@ public class Tetrahedron extends Triangle
 		return Math.sqrt(Math.pow(this.height, 2)
 				+ Math.pow(this.getHeight() / 2, 2));
 	}
-	
+
 	// ---------------------------------------------------------------------------
 	// Returns the double value of the height.
 	// ---------------------------------------------------------------------------
@@ -60,7 +60,7 @@ public class Tetrahedron extends Triangle
 	{
 		return this.height;
 	}
-	
+
 	// ---------------------------------------------------------------------------
 	// Returns pertinent information about the pyramid.
 	// ---------------------------------------------------------------------------
