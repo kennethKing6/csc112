@@ -400,7 +400,7 @@ public final class MovieManager
 				}
 				catch (final Exception e)
 				{
-					e.printStackTrace();
+					//e.printStackTrace();
 					System.out.println("DVD was not updated successfully");
 					return;
 				}
