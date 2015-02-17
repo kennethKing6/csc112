@@ -511,20 +511,17 @@ public class DVDCollection implements Collection<DVD>
 				this.totalCost -= this.collection[i].cost();
 				this.totalCost += cost;
 				flag = 1;
-
 			}
 			else
 			{
-
 				temp[i] = this.collection[i];
 			}
 		}
-
 		if (flag == 1)
 		{
-			this.collection = temp;
+			throw new Exception("DVD not found");
 		}
-		throw new Exception("DVD not found");
+		else this.collection = temp;
 	}
 
 	/**
