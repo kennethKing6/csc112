@@ -3,6 +3,7 @@ package shapes;
 import java.text.DecimalFormat;
 
 /**
+ * Class representing a cylinder object
  * Cylinder.java<br>
  * Feb 5, 2015<br>
  *
@@ -11,12 +12,23 @@ import java.text.DecimalFormat;
 public class Cylinder extends Circle
 {
 
-	protected static DecimalFormat	form	= new DecimalFormat("0.##");
+	/**
+	 * Formatter for the decimal format
+	 */
+	private static DecimalFormat	form	= new DecimalFormat("0.##");
 
+	/**
+	 * The height
+	 */
 	private final double			height;
+	/**
+	 * The radius
+	 */
 	private final double			radius;
 
 	/**
+	 * The default constructor for the cylinder
+	 *
 	 * @param radius
 	 *            the radius
 	 * @param height
@@ -29,6 +41,10 @@ public class Cylinder extends Circle
 		this.height = height;
 	}
 
+	/*
+	 * (non-Javadoc)
+	 * @see shapes.Circle#computeArea()
+	 */
 	@Override
 	public double computeArea()
 	{
@@ -47,17 +63,28 @@ public class Cylinder extends Circle
 				+ (2 * Math.PI * this.radius * this.height);
 	}
 
+	/**
+	 * @return the height of the figure
+	 */
 	public double getHeight()
 	{
 		return this.height;
 	}
 
+	/*
+	 * (non-Javadoc)
+	 * @see shapes.Circle#getRadius()
+	 */
 	@Override
 	public double getRadius()
 	{
 		return this.radius;
 	}
 
+	/*
+	 * (non-Javadoc)
+	 * @see shapes.Circle#toString()
+	 */
 	@Override
 	public String toString()
 	{

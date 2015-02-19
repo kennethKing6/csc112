@@ -1,27 +1,39 @@
 package shapes;
 
-// ******************************************************************************
-// Prism.java Java Foundations
-//
-// Solution to Programming Project 8.6
-// ******************************************************************************
-
+/**
+ * Class representing a prism object
+ * Prism.java<br>
+ * Feb 19, 2015
+ * 
+ * @author Tim Miller
+ */
 public class Prism extends Rectangle
 {
+	/**
+	 * The height
+	 */
 	private final double	height;
 
-	// ---------------------------------------------------------------------------
-	// Sets up the prism by entering its width, height and length.
-	// ---------------------------------------------------------------------------
+	/**
+	 * Default constructor for a prism object
+	 *
+	 * @param wid
+	 *            the width
+	 * @param len
+	 *            the length
+	 * @param hei
+	 *            the height
+	 */
 	public Prism(double wid, double len, double hei)
 	{
 		super(wid, len);
 		this.height = hei;
 	}
 
-	// ---------------------------------------------------------------------------
-	// Returns the calculated value of the surface area.
-	// ---------------------------------------------------------------------------
+	/*
+	 * (non-Javadoc)
+	 * @see shapes.Rectangle#computeArea()
+	 */
 	@Override
 	public double computeArea()
 	{
@@ -29,25 +41,26 @@ public class Prism extends Rectangle
 				+ (2 * this.length * this.height);
 	}
 
-	// ---------------------------------------------------------------------------
-	// Returns the calculated value of the volume.
-	// ---------------------------------------------------------------------------
+	/**
+	 * @return the volume
+	 */
 	public double computeVolume()
 	{
 		return super.computeArea() * this.height;
 	}
 
-	// ---------------------------------------------------------------------------
-	// Returns the double value of the length.
-	// ---------------------------------------------------------------------------
+	/**
+	 * @return the height
+	 */
 	public double getHeight()
 	{
 		return this.height;
 	}
 
-	// ---------------------------------------------------------------------------
-	// Returns pertinent information about the prism.
-	// ---------------------------------------------------------------------------
+	/*
+	 * (non-Javadoc)
+	 * @see shapes.Rectangle#toString()
+	 */
 	@Override
 	public String toString()
 	{

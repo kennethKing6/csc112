@@ -1,69 +1,80 @@
 package shapes;
 
-// ******************************************************************************
-// Tetrahedron.java Java Foundations
-//
-// Solution to Programming Project 8.6
-// ******************************************************************************
-
+/**
+ * Class representing a 3D tetrahedron
+ * Tetrahedron.java<br>
+ * Feb 19, 2015
+ * 
+ * @author Tim Miller
+ */
 public class Tetrahedron extends Triangle
 {
+	/**
+	 * The height of the tetrahedron
+	 */
 	private final double	height;
 
-	// ---------------------------------------------------------------------------
-	// Sets up the pyramid by entering its base side length and height.
-	// ---------------------------------------------------------------------------
+	/**
+	 * Default constructor for a tetrahedron object.
+	 *
+	 * @param sid
+	 *            the side length
+	 * @param hei
+	 *            the height
+	 */
 	public Tetrahedron(double sid, double hei)
 	{
 		super(sid);
 		this.height = hei;
 	}
 
-	// ---------------------------------------------------------------------------
-	// Returns the calculated value of the surface area.
-	// ---------------------------------------------------------------------------
+	/*
+	 * (non-Javadoc)
+	 * @see shapes.Triangle#computeArea()
+	 */
 	@Override
 	public double computeArea()
 	{
 		return (3 * this.faceArea()) + super.computeArea();
 	}
 
-	// ---------------------------------------------------------------------------
-	// Returns the calculated value of the volume.
-	// ---------------------------------------------------------------------------
+	/**
+	 * @return the volume of the figure
+	 */
 	public double computeVolume()
 	{
 		return (super.computeArea() * this.height) / 3;
 	}
 
-	// ---------------------------------------------------------------------------
-	// Returns the calculated value of a face area.
-	// ---------------------------------------------------------------------------
+	/**
+	 * @return the area of a single face
+	 */
 	public double faceArea()
 	{
 		return (this.faceHeight() * this.side) / 2;
 	}
 
-	// ---------------------------------------------------------------------------
-	// Returns the calculated value of a face height.
-	// ---------------------------------------------------------------------------
+	/**
+	 * @return the height of a single face of the figure
+	 */
 	public double faceHeight()
 	{
 		return Math.sqrt(Math.pow(this.height, 2)
 				+ Math.pow(this.getHeight() / 2, 2));
 	}
 
-	// ---------------------------------------------------------------------------
-	// Returns the double value of the height.
-	// ---------------------------------------------------------------------------
+	/**
+	 * @return the height of the figure
+	 */
 	public double getPyramidHeight()
 	{
 		return this.height;
 	}
 
-	// ---------------------------------------------------------------------------
-	// Returns pertinent information about the pyramid.
-	// ---------------------------------------------------------------------------
+	/*
+	 * (non-Javadoc)
+	 * @see shapes.Triangle#toString()
+	 */
 	@Override
 	public String toString()
 	{

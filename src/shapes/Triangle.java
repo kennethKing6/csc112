@@ -1,63 +1,74 @@
 package shapes;
 
-// ******************************************************************************
-// Triangle.java Java Foundations
-//
-// Solution to Programming Project 8.6
-// ******************************************************************************
-
 import java.text.DecimalFormat;
 
+/**
+ * Class representing a triangle object
+ * Triangle.java<br>
+ * Feb 19, 2015
+ * 
+ * @author Tim Miller
+ */
 public class Triangle extends Shape
 {
+	/**
+	 * The decimal formatter (I should move this to Shape but I won't)
+	 */
 	protected static DecimalFormat	form	= new DecimalFormat("0.##");
+	/**
+	 * The side
+	 */
 	protected double				side;
 
-	// ---------------------------------------------------------------------------
-	// Sets up the triangle by entering the length of a side.
-	// ---------------------------------------------------------------------------
+	/**
+	 * @param sid
+	 *            the side length
+	 */
 	public Triangle(double sid)
 	{
 		this.side = sid;
 	}
 
-	// ---------------------------------------------------------------------------
-	// Returns the calculated value of the area.
-	// ---------------------------------------------------------------------------
+	/*
+	 * (non-Javadoc)
+	 * @see shapes.Shape#computeArea()
+	 */
 	@Override
 	public double computeArea()
 	{
 		return (this.side * this.getHeight()) / 2;
 	}
 
-	// ---------------------------------------------------------------------------
-	// Returns the calculated value of the perimeter.
-	// ---------------------------------------------------------------------------
+	/*
+	 * (non-Javadoc)
+	 * @see shapes.Shape#computePerimeter()
+	 */
 	@Override
 	public double computePerimeter()
 	{
 		return this.side * 3;
 	}
 
-	// ---------------------------------------------------------------------------
-	// Returns the double value of the height of the triangle.
-	// ---------------------------------------------------------------------------
+	/**
+	 * @return the height
+	 */
 	public double getHeight()
 	{
 		return Math.sqrt(Math.pow(this.side, 2) - Math.pow(this.side / 2, 2));
 	}
 
-	// ---------------------------------------------------------------------------
-	// Returns the double value of the side.
-	// ---------------------------------------------------------------------------
+	/**
+	 * @return the side length
+	 */
 	public double getSide()
 	{
 		return this.side;
 	}
 
-	// ---------------------------------------------------------------------------
-	// Returns pertinent information about the triangle.
-	// ---------------------------------------------------------------------------
+	/*
+	 * (non-Javadoc)
+	 * @see java.lang.Object#toString()
+	 */
 	@Override
 	public String toString()
 	{

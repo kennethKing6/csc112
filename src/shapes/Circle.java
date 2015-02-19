@@ -3,6 +3,7 @@ package shapes;
 import java.text.DecimalFormat;
 
 /**
+ * Class representing a circle object
  * Circle.java<br>
  * Feb 5, 2015<br>
  *
@@ -10,8 +11,14 @@ import java.text.DecimalFormat;
  */
 public class Circle extends Shape
 {
-	protected static DecimalFormat	form	= new DecimalFormat("0.##");
+	/**
+	 * Formatter for the decimal format
+	 */
+	private static DecimalFormat	form	= new DecimalFormat("0.##");
 
+	/**
+	 * The radius of a circle
+	 */
 	private final double			radius;
 
 	/**
@@ -23,12 +30,20 @@ public class Circle extends Shape
 		this.radius = rad;
 	}
 
+	/*
+	 * (non-Javadoc)
+	 * @see shapes.Shape#computeArea()
+	 */
 	@Override
 	public double computeArea()
 	{
 		return Math.PI * Math.pow(this.radius, 2);
 	}
 
+	/*
+	 * (non-Javadoc)
+	 * @see shapes.Shape#computePerimeter()
+	 */
 	@Override
 	public double computePerimeter()
 	{
@@ -43,6 +58,10 @@ public class Circle extends Shape
 		return this.radius;
 	}
 
+	/*
+	 * (non-Javadoc)
+	 * @see java.lang.Object#toString()
+	 */
 	@Override
 	public String toString()
 	{

@@ -1,27 +1,39 @@
 package shapes;
 
-// ******************************************************************************
-// Pentahedron.java Java Foundations
-//
-// Solution to Programming Project 8.6
-// ******************************************************************************
-
+/**
+ * Class representing a pentahedron object
+ * Pentahedron.java<br>
+ * Feb 19, 2015
+ * 
+ * @author Tim Miller
+ */
 public class Pentahedron extends Rectangle
 {
+	/**
+	 * The height
+	 */
 	private final double	height;
 
-	// ---------------------------------------------------------------------------
-	// Sets up the pyramid by entering its width, height and length.
-	// ---------------------------------------------------------------------------
+	/**
+	 * Default constructor for a pentahedron object
+	 *
+	 * @param wid
+	 *            the width
+	 * @param len
+	 *            the length
+	 * @param hei
+	 *            the height
+	 */
 	public Pentahedron(double wid, double len, double hei)
 	{
 		super(wid, len);
 		this.height = hei;
 	}
 
-	// ---------------------------------------------------------------------------
-	// Returns the calculated value of the surface area.
-	// ---------------------------------------------------------------------------
+	/*
+	 * (non-Javadoc)
+	 * @see shapes.Rectangle#computeArea()
+	 */
 	@Override
 	public double computeArea()
 	{
@@ -29,42 +41,43 @@ public class Pentahedron extends Rectangle
 				+ super.computeArea();
 	}
 
-	// ---------------------------------------------------------------------------
-	// Returns the calculated value of the volume.
-	// ---------------------------------------------------------------------------
+	/**
+	 * @return the volume of the figure
+	 */
 	public double computeVolume()
 	{
 		return (super.computeArea() * this.height) / 3;
 	}
 
-	// ---------------------------------------------------------------------------
-	// Returns the double value of the height.
-	// ---------------------------------------------------------------------------
+	/**
+	 * @return the height of the figure
+	 */
 	public double getHeight()
 	{
 		return this.height;
 	}
 
-	// ---------------------------------------------------------------------------
-	// Returns the calculated value of the long face area.
-	// ---------------------------------------------------------------------------
+	/**
+	 * @return the length face area
+	 */
 	public double lengthFaceArea()
 	{
 		return (this.lengthFaceHeight() * this.length) / 2;
 	}
 
-	// ---------------------------------------------------------------------------
-	// Returns the calculated value of the long face height.
-	// ---------------------------------------------------------------------------
+	/**
+	 * @return the length face height
+	 */
 	public double lengthFaceHeight()
 	{
 		return Math
 				.sqrt(Math.pow(this.height, 2) + Math.pow(this.width / 2, 2));
 	}
 
-	// ---------------------------------------------------------------------------
-	// Returns pertinent information about the pyramid.
-	// ---------------------------------------------------------------------------
+	/*
+	 * (non-Javadoc)
+	 * @see shapes.Rectangle#toString()
+	 */
 	@Override
 	public String toString()
 	{
@@ -77,17 +90,17 @@ public class Pentahedron extends Rectangle
 				+ Rectangle.form.format(this.computeVolume()) + "\n";
 	}
 
-	// ---------------------------------------------------------------------------
-	// Returns the calculated value of the wide face area.
-	// ---------------------------------------------------------------------------
+	/**
+	 * @return the wide face area
+	 */
 	public double widthFaceArea()
 	{
 		return (this.widthFaceHeight() * this.width) / 2;
 	}
 
-	// ---------------------------------------------------------------------------
-	// Returns the calculated value of the wide face height.
-	// ---------------------------------------------------------------------------
+	/**
+	 * @return the wide face height
+	 */
 	public double widthFaceHeight()
 	{
 		return Math.sqrt(Math.pow(this.height, 2)

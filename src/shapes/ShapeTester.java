@@ -1,27 +1,34 @@
 package shapes;
 
-// ******************************************************************************
-// ShapeTester.java Java Foundations
-//
-// Solution to Programming Project 8.6
-// ******************************************************************************
-
 import java.io.File;
 import java.io.IOException;
 import java.util.Scanner;
 
+/**
+ * The UML diagram for the program is located in uml_diagram.bmp, and the program logic is located in logic.md
+ * 
+ * Application class for the shapes package.
+ * Program logic is located in "logic.txt"
+ * ShapeTester.java<br>
+ * Feb 19, 2015
+ * 
+ * @author Tim Miller
+ */
 public class ShapeTester
 {
-	// ---------------------------------------------------------------------------
-	// Read the dimensions of various 3-D shapes from an input file, then
-	// displays pertinent information about each shape.
-	// ---------------------------------------------------------------------------
+	/**
+	 * Main method for the application
+	 *
+	 * @param args
+	 *            args
+	 * @throws IOException if the file io dies
+	 *             
+	 */
 	public static void main(String[] args) throws IOException
 	{
 		final Scanner scan = new Scanner(new File("shapes.dat"));
 		double width, length, height, side, radius;
 
-		// Read the data from the input file
 		while (scan.hasNext())
 		{
 			final String shapeType = scan.next();
@@ -60,7 +67,7 @@ public class ShapeTester
 								radius = scan.nextDouble();
 								height = scan.nextDouble();
 								System.out
-								.println(new Cylinder(radius, height));
+										.println(new Cylinder(radius, height));
 							}
 		}
 		scan.close();
