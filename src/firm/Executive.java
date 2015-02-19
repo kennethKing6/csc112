@@ -1,4 +1,4 @@
-package xyz.voxio.csc112.firm;
+package firm;
 
 /**
  * Class for executive of a firm

@@ -1,72 +1,62 @@
-package xyz.voxio.csc112.shapes;
+package shapes;
 
 // ******************************************************************************
-// Rectangle.java Java Foundations
+// Prism.java Java Foundations
 //
 // Solution to Programming Project 8.6
 // ******************************************************************************
 
-import java.text.DecimalFormat;
-
-public class Rectangle extends Shape
+public class Prism extends Rectangle
 {
-	protected static DecimalFormat	form	= new DecimalFormat("0.##");
-	protected double				length;
-	protected double				width;
+	private final double	height;
 
 	// ---------------------------------------------------------------------------
-	// Sets up the rectangle by entering its width and length.
+	// Sets up the prism by entering its width, height and length.
 	// ---------------------------------------------------------------------------
-	public Rectangle(double wid, double len)
+	public Prism(double wid, double len, double hei)
 	{
-		this.width = wid;
-		this.length = len;
+		super(wid, len);
+		this.height = hei;
 	}
 
 	// ---------------------------------------------------------------------------
-	// Returns the calculated value of the area.
+	// Returns the calculated value of the surface area.
 	// ---------------------------------------------------------------------------
 	@Override
 	public double computeArea()
 	{
-		return this.length * this.width;
+		return (2 * super.computeArea()) + (2 * this.width * this.height)
+				+ (2 * this.length * this.height);
 	}
 
 	// ---------------------------------------------------------------------------
-	// Returns the calculated value of the perimeter.
+	// Returns the calculated value of the volume.
 	// ---------------------------------------------------------------------------
-	@Override
-	public double computePerimeter()
+	public double computeVolume()
 	{
-		return 2 * (this.length + this.width);
+		return super.computeArea() * this.height;
 	}
 
 	// ---------------------------------------------------------------------------
 	// Returns the double value of the length.
 	// ---------------------------------------------------------------------------
-	public double getLength()
+	public double getHeight()
 	{
-		return this.length;
+		return this.height;
 	}
 
 	// ---------------------------------------------------------------------------
-	// Returns the double value of the width.
-	// ---------------------------------------------------------------------------
-	public double getWidth()
-	{
-		return this.width;
-	}
-
-	// ---------------------------------------------------------------------------
-	// Returns pertinent information about the rectangle.
+	// Returns pertinent information about the prism.
 	// ---------------------------------------------------------------------------
 	@Override
 	public String toString()
 	{
-		return "Rectangle: width is " + Rectangle.form.format(this.width)
+		return "Prism: width is " + Rectangle.form.format(this.width)
 				+ ", length is " + Rectangle.form.format(this.length)
-				+ "\nperimeter is "
+				+ ", height is " + Rectangle.form.format(this.height)
+				+ "\nperimeter of base is "
 				+ Rectangle.form.format(this.computePerimeter()) + ", area is "
-				+ Rectangle.form.format(this.computeArea());
+				+ Rectangle.form.format(this.computeArea()) + "\nvolume is "
+				+ Rectangle.form.format(this.computeVolume()) + "\n";
 	}
 }

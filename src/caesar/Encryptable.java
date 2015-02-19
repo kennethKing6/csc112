@@ -1,4 +1,4 @@
-package xyz.voxio.csc112.caesar;
+package caesar;
 
 /**
  * @author Tim Miller - Feb 12, 2015

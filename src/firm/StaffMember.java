@@ -1,4 +1,4 @@
-package xyz.voxio.csc112.firm;
+package firm;
 
 /**
  * Abstract class for a staffmember at a firm

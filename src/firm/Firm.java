@@ -1,4 +1,4 @@
-package xyz.voxio.csc112.firm;
+package firm;
 
 /**
  * A firm, with employees and a payroll

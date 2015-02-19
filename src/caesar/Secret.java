@@ -1,4 +1,4 @@
-package xyz.voxio.csc112.caesar;
+package caesar;
 
 import java.util.Random;
 

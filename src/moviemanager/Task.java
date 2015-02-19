@@ -1,4 +1,4 @@
-package xyz.voxio.csc112.moviemanager;
+package moviemanager;
 
 /**
  * Task.java<br>

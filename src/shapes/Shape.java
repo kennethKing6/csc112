@@ -1,4 +1,4 @@
-package xyz.voxio.csc112.shapes;
+package shapes;
 
 // ******************************************************************************
 // Shape.java Java Foundations

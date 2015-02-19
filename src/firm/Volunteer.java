@@ -1,4 +1,4 @@
-package xyz.voxio.csc112.firm;
+package firm;
 
 /**
  * A class for a volunteer staff member

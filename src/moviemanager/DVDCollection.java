@@ -1,4 +1,4 @@
-package xyz.voxio.csc112.moviemanager;
+package moviemanager;
 
 import java.io.BufferedWriter;
 import java.io.File;

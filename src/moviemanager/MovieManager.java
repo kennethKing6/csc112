@@ -1,4 +1,4 @@
-package xyz.voxio.csc112.moviemanager;
+package moviemanager;
 
 import java.awt.Desktop;
 import java.io.File;
@@ -10,7 +10,7 @@ import java.util.HashSet;
 import java.util.Scanner;
 import java.util.Set;
 
-import xyz.voxio.csc112.moviemanager.Task.TaskRunnable;
+import moviemanager.Task.TaskRunnable;
 
 /**
  * MovieManager.java<br>

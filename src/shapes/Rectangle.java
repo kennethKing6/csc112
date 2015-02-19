@@ -1,24 +1,26 @@
-package xyz.voxio.csc112.shapes;
+package shapes;
 
 // ******************************************************************************
-// Triangle.java Java Foundations
+// Rectangle.java Java Foundations
 //
 // Solution to Programming Project 8.6
 // ******************************************************************************
 
 import java.text.DecimalFormat;
 
-public class Triangle extends Shape
+public class Rectangle extends Shape
 {
 	protected static DecimalFormat	form	= new DecimalFormat("0.##");
-	protected double				side;
+	protected double				length;
+	protected double				width;
 
 	// ---------------------------------------------------------------------------
-	// Sets up the triangle by entering the length of a side.
+	// Sets up the rectangle by entering its width and length.
 	// ---------------------------------------------------------------------------
-	public Triangle(double sid)
+	public Rectangle(double wid, double len)
 	{
-		this.side = sid;
+		this.width = wid;
+		this.length = len;
 	}
 
 	// ---------------------------------------------------------------------------
@@ -27,7 +29,7 @@ public class Triangle extends Shape
 	@Override
 	public double computeArea()
 	{
-		return (this.side * this.getHeight()) / 2;
+		return this.length * this.width;
 	}
 
 	// ---------------------------------------------------------------------------
@@ -36,34 +38,35 @@ public class Triangle extends Shape
 	@Override
 	public double computePerimeter()
 	{
-		return this.side * 3;
+		return 2 * (this.length + this.width);
 	}
 
 	// ---------------------------------------------------------------------------
-	// Returns the double value of the height of the triangle.
+	// Returns the double value of the length.
 	// ---------------------------------------------------------------------------
-	public double getHeight()
+	public double getLength()
 	{
-		return Math.sqrt(Math.pow(this.side, 2) - Math.pow(this.side / 2, 2));
+		return this.length;
 	}
 
 	// ---------------------------------------------------------------------------
-	// Returns the double value of the side.
+	// Returns the double value of the width.
 	// ---------------------------------------------------------------------------
-	public double getSide()
+	public double getWidth()
 	{
-		return this.side;
+		return this.width;
 	}
 
 	// ---------------------------------------------------------------------------
-	// Returns pertinent information about the triangle.
+	// Returns pertinent information about the rectangle.
 	// ---------------------------------------------------------------------------
 	@Override
 	public String toString()
 	{
-		return "Triangle: side length is " + Triangle.form.format(this.side)
+		return "Rectangle: width is " + Rectangle.form.format(this.width)
+				+ ", length is " + Rectangle.form.format(this.length)
 				+ "\nperimeter is "
-				+ Triangle.form.format(this.computePerimeter()) + ", area is "
-				+ Triangle.form.format(this.computeArea());
+				+ Rectangle.form.format(this.computePerimeter()) + ", area is "
+				+ Rectangle.form.format(this.computeArea());
 	}
 }
