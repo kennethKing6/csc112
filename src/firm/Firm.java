@@ -1,6 +1,8 @@
 package firm;
 
 /**
+ * The UML diagram is located in uml_diagram.bmp, and the program logic is in logic.md
+ * 
  * A firm, with employees and a payroll
  *
  * @author Tim Miller - Feb 12, 2015
