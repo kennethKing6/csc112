@@ -2,6 +2,7 @@ package shapes;
 
 import java.io.File;
 import java.io.IOException;
+import java.net.URISyntaxException;
 import java.util.Scanner;
 
 /**
@@ -23,10 +24,11 @@ public class ShapeTester
 	 *            args
 	 * @throws IOException
 	 *             if the file io dies
+	 * @throws URISyntaxException if the file io dies
 	 */
-	public static void main(String[] args) throws IOException
+	public static void main(String[] args) throws IOException, URISyntaxException
 	{
-		final Scanner scan = new Scanner(new File("shapes.dat"));
+		final Scanner scan = new Scanner(new File(ShapeTester.class.getResource("shapes.dat").toURI()));
 		double width, length, height, side, radius;
 
 		while (scan.hasNext())

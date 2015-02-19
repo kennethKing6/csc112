@@ -39,5 +39,6 @@ public class PostfixTester
 			System.out.println();
 		}
 		while (again.equalsIgnoreCase("y"));
+		in.close();
 	}
 }

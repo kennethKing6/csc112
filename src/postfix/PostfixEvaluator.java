@@ -59,7 +59,7 @@ public class PostfixEvaluator
 				this.stack.push(new Integer(Integer.parseInt(token)));
 			}
 		}
-
+		parser.close();
 		return result;
 	}
 
