@@ -4,7 +4,7 @@ package shapes;
  * Class representing a pentahedron object
  * Pentahedron.java<br>
  * Feb 19, 2015
- * 
+ *
  * @author Tim Miller
  */
 public class Pentahedron extends Rectangle

@@ -4,7 +4,7 @@ package shapes;
  * Abstract class for a 2d or 3d shape
  * Shape.java<br>
  * Feb 19, 2015
- * 
+ *
  * @author Tim Miller
  */
 public abstract class Shape

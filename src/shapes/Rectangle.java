@@ -6,7 +6,7 @@ import java.text.DecimalFormat;
  * Class for a simple rectangle object
  * Rectangle.java<br>
  * Feb 19, 2015
- * 
+ *
  * @author Tim Miller
  */
 public class Rectangle extends Shape

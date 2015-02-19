@@ -4,7 +4,7 @@ package shapes;
  * Class representing a 3D tetrahedron
  * Tetrahedron.java<br>
  * Feb 19, 2015
- * 
+ *
  * @author Tim Miller
  */
 public class Tetrahedron extends Triangle

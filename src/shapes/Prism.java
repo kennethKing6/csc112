@@ -4,7 +4,7 @@ package shapes;
  * Class representing a prism object
  * Prism.java<br>
  * Feb 19, 2015
- * 
+ *
  * @author Tim Miller
  */
 public class Prism extends Rectangle

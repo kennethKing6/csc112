@@ -497,7 +497,7 @@ public class DVDCollection implements Collection<DVD>
 	 */
 	public void updDVD(final String title, final String director,
 			final int year, final double cost, final boolean bluRay)
-					throws Exception
+			throws Exception
 	{
 		int i;
 		int flag = 0;
@@ -521,7 +521,10 @@ public class DVDCollection implements Collection<DVD>
 		{
 			throw new Exception("DVD not found");
 		}
-		else this.collection = temp;
+		else
+		{
+			this.collection = temp;
+		}
 	}
 
 	/**
@@ -540,7 +543,7 @@ public class DVDCollection implements Collection<DVD>
 	 */
 	public void updDVD(final String title, final String director,
 			final String year, final String cost, final String bluRay)
-					throws Exception
+			throws Exception
 	{
 		this.updDVD(title, director, Integer.parseInt(year),
 				Double.parseDouble(cost), Boolean.parseBoolean(bluRay));

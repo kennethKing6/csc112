@@ -5,13 +5,13 @@ import java.io.IOException;
 import java.util.Scanner;
 
 /**
- * The UML diagram for the program is located in uml_diagram.bmp, and the program logic is located in logic.md
- * 
+ * The UML diagram for the program is located in uml_diagram.bmp, and the
+ * program logic is located in logic.md
  * Application class for the shapes package.
  * Program logic is located in "logic.txt"
  * ShapeTester.java<br>
  * Feb 19, 2015
- * 
+ *
  * @author Tim Miller
  */
 public class ShapeTester
@@ -21,8 +21,8 @@ public class ShapeTester
 	 *
 	 * @param args
 	 *            args
-	 * @throws IOException if the file io dies
-	 *             
+	 * @throws IOException
+	 *             if the file io dies
 	 */
 	public static void main(String[] args) throws IOException
 	{
@@ -67,7 +67,7 @@ public class ShapeTester
 								radius = scan.nextDouble();
 								height = scan.nextDouble();
 								System.out
-										.println(new Cylinder(radius, height));
+								.println(new Cylinder(radius, height));
 							}
 		}
 		scan.close();

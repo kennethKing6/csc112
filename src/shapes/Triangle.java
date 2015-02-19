@@ -6,7 +6,7 @@ import java.text.DecimalFormat;
  * Class representing a triangle object
  * Triangle.java<br>
  * Feb 19, 2015
- * 
+ *
  * @author Tim Miller
  */
 public class Triangle extends Shape

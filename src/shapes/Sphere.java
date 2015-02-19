@@ -6,7 +6,7 @@ import java.text.DecimalFormat;
  * Class for a 3d sphere object
  * Sphere.java<br>
  * Feb 19, 2015
- * 
+ *
  * @author Tim Miller
  */
 public class Sphere extends Circle

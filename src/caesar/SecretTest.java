@@ -29,7 +29,7 @@ public class SecretTest
 			System.out.println(hush);
 
 			System.out
-			.println("Would you like to encrypt another message? (Enter 'y' for yes, press any other key to exit");
+					.println("Would you like to encrypt another message? (Enter 'y' for yes, press any other key to exit");
 			again = scan.nextLine();
 		}
 		while (again.equalsIgnoreCase("y"));
