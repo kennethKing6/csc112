@@ -34,9 +34,9 @@ public class UPCEvaluator
 		{
 			length = true;
 		}
-		else
-			if ((code.charAt(0) != 'U') && (code.charAt(0) != 'P')
-					&& (code.charAt(0) != 'C'))
+		char firstc = code.charAt(0);
+		if ((firstc != 'U') && (firstc != 'P')
+					&& (firstc != 'C'))
 			{
 				first = true;
 			}

@@ -1,7 +1,8 @@
 package postfix2;
 
 import java.util.Scanner;
-import java.util.Stack;
+
+import postfix2.jsjf.ArrayStack;
 
 /**
  * Represents an integer evaluator of postfix expressions. Assumes
@@ -17,14 +18,14 @@ public class PostfixEvaluator2
 	private final static char		MULTIPLY	= '*';
 	private final static char		SUBTRACT	= '-';
 
-	private final Stack<Integer>	stack;
+	private final ArrayStack<Integer>	stack;
 
 	/**
 	 * Sets up this evalutor by creating a new stack.
 	 */
 	public PostfixEvaluator2()
 	{
-		this.stack = new Stack<Integer>();
+		this.stack = new ArrayStack<Integer>();
 	}
 
 	/**
