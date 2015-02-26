@@ -1,0 +1,6 @@
+1.) Initialize objects
+2.) Prompt for input
+3.) Check for input validity
+4.) Print response
+5.) Prompt for try again
+6.) Depending on input, exit or go back to 2

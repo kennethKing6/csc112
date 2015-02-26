@@ -1,4 +1,4 @@
-package postfix;
+package postfix2;
 
 import java.util.Scanner;
 import java.util.Stack;
@@ -10,7 +10,7 @@ import java.util.Stack;
  * @author Java Foundations
  * @version 4.0
  */
-public class PostfixEvaluator
+public class PostfixEvaluator2
 {
 	private final static char		ADD			= '+';
 	private final static char		DIVIDE		= '/';
@@ -22,7 +22,7 @@ public class PostfixEvaluator
 	/**
 	 * Sets up this evalutor by creating a new stack.
 	 */
-	public PostfixEvaluator()
+	public PostfixEvaluator2()
 	{
 		this.stack = new Stack<Integer>();
 	}
