@@ -1,4 +1,4 @@
-package postfix2.jsjf;
+package jsjf;
 
 /**
  * Defines the interface to a stack collection.

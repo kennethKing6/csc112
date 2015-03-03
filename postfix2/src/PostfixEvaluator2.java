@@ -1,8 +1,7 @@
-package postfix2;
 
 import java.util.Scanner;
 
-import postfix2.jsjf.ArrayStack;
+import jsjf.ArrayStack;
 
 /**
  * Represents an integer evaluator of postfix expressions. Assumes

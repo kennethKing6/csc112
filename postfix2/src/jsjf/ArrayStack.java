@@ -1,8 +1,8 @@
-package postfix2.jsjf;
+package jsjf;
 
 import java.util.Arrays;
 
-import postfix2.jsjf.exceptions.EmptyCollectionException;
+import jsjf.exceptions.EmptyCollectionException;
 
 /**
  * An array implementation of a stack in which the bottom of the

@@ -1,4 +1,4 @@
-package postfix2.jsjf.exceptions;
+package jsjf.exceptions;
 
 /**
  * Represents the situation in which a collection is empty.

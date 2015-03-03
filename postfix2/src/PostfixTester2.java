@@ -1,4 +1,3 @@
-package postfix2;
 
 import java.util.Scanner;
 
