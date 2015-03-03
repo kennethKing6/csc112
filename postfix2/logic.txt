@@ -1,0 +1,5 @@
+1.) Initialize objects
+2.) get Input
+3.) Evaluate expression
+4.) Prompt for 'again'
+5.) if Y goto 2, else quit

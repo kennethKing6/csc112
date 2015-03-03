@@ -1,0 +1,20 @@
+Enter a valid post-fix expression one token at a time with a space between each token (e.g. 5 4 + 3 2 1 - + *)
+Each token must be an integer or an operator (+,-,*,/)
+1 2 3 4 5 6 7 8 9 + - * /
+
+That expression equals 0
+Evaluate another expression [Y/N]? Y
+
+Enter a valid post-fix expression one token at a time with a space between each token (e.g. 5 4 + 3 2 1 - + *)
+Each token must be an integer or an operator (+,-,*,/)
+2 4 +
+
+That expression equals 6
+Evaluate another expression [Y/N]? Y
+
+Enter a valid post-fix expression one token at a time with a space between each token (e.g. 5 4 + 3 2 1 - + *)
+Each token must be an integer or an operator (+,-,*,/)
+50 5 /
+
+That expression equals 10
+Evaluate another expression [Y/N]? n
