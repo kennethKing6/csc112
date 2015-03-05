@@ -1,0 +1,16 @@
+Please enter a string
+This is a String
+gnirtS a si sihT 
+Enter 'Y' to do another, press any other key to exit
+Y
+Please enter a string
+Programming is fun
+nuf si gnimmargorP 
+Enter 'Y' to do another, press any other key to exit
+Y
+Please enter a string
+You lost the game
+emag eht tsol uoY 
+Enter 'Y' to do another, press any other key to exit
+
+Goodbye

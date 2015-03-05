@@ -4,6 +4,11 @@ import java.util.Scanner;
 
 import jsjf.ArrayStack;
 
+/**
+ * Reverse.java<br>
+ * Mar 5, 2015
+ * @author Tim Miller
+ */
 public class Reverse
 {
 	public static void main(String[] args)
