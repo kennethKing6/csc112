@@ -1,0 +1,8 @@
+        1.  Create an ArrayStack of characters called reverseStack.
+        2.  Ask for and enter a sentence using a Scanner object called in.
+        3.  Create another Scanner object called scan to scan the sentence.
+        4.  Use an outside while loop which peels each word from the sentence and continues
+            as long as there are words in the sentence.  This while loop encompasses steps 5-7.
+        5.  Use an inside for loop to push each character in the peeled word onto the stack.
+        6.  Use an inside while loop to pop each character off the stack and display it.
+        7.  Make sure to skip a space after each word.
