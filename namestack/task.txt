@@ -10,10 +10,3 @@
         10. Display the size of the stack
         11. List the remaining stack  
         12. Make sure this program can be repeated by placing it in a loop.
-        13. Grading ruberic.
-            a)  5%  Information at top of the listing: Name of Class, Name of Author, Description
-            b)  5%  UML Diagram
-            c) 10%  Program Logic or pseudocode
-            d) 10%  Comments throughout the class listing
-            e) 10%  Sample Output at the end of the listing
-            f) 60%  Working program         

@@ -1,0 +1,60 @@
+Creating new stack
+The stack is empty
+Peeking...
+Please enter 6 full names
+Name 1: This is a name
+Name 2: V A P O R W A V E
+Name 3: Timothy Robert Miller
+Name 4: T1m0thy R063rt M1113r
+Name 5: I <3 THE NSA
+Name 6: programmingisnotfun
+The size of the stack is 6
+The stack is not empty
+[6]programmingisnotfun
+[6]I <3 THE NSA
+[6]T1m0thy R063rt M1113r
+[6]Timothy Robert Miller
+[6]V A P O R W A V E
+[6]This is a name
+
+The top entry of the stack is programmingisnotfun
+programmingisnotfun
+I <3 THE NSA
+T1m0thy R063rt M1113r
+Size = 3
+[3]Timothy Robert Miller
+[3]V A P O R W A V E
+[3]This is a name
+
+Would you like to run the tests again? (Enter 'Y' to continue, or enter anything else to quit)
+Y
+Creating new stack
+The stack is empty
+Peeking...
+Please enter 6 full names
+Name 1: thisisanothername
+Name 2: names
+Name 3: namesarenamesarenames
+Name 4: Black Moth Super Rainbow
+Name 5: Dance Legend Kevin Bacon
+Name 6: Other things
+The size of the stack is 6
+The stack is not empty
+[6]Other things
+[6]Dance Legend Kevin Bacon
+[6]Black Moth Super Rainbow
+[6]namesarenamesarenames
+[6]names
+[6]thisisanothername
+
+The top entry of the stack is Other things
+Other things
+Dance Legend Kevin Bacon
+Black Moth Super Rainbow
+Size = 3
+[3]namesarenamesarenames
+[3]names
+[3]thisisanothername
+
+Would you like to run the tests again? (Enter 'Y' to continue, or enter anything else to quit)
+n

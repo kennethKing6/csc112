@@ -30,7 +30,14 @@ public class LinkedStack<T> implements StackADT<T>
 	@Override
 	public boolean isEmpty()
 	{
-		return (this.top.getElement() == null) || (this.count == 0);
+		try
+		{
+			return (this.top.getElement() == null) || (this.count == 0);
+		}
+		catch (NullPointerException e)
+		{
+			return true;
+		}
 	}
 
 	/**
