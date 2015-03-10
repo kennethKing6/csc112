@@ -1,16 +1,16 @@
 Please enter a string
-This is a String
-gnirtS a si sihT 
+This is a string
+gnirts a si sihT
 Enter 'Y' to do another, press any other key to exit
 Y
 Please enter a string
-Programming is fun
-nuf si gnimmargorP 
+This is also a string
+gnirts a osla si sihT
 Enter 'Y' to do another, press any other key to exit
 Y
 Please enter a string
-You lost the game
-emag eht tsol uoY 
+Im So Meta Even This Acronym
+mynorcA sihT nevE ateM oS mI
 Enter 'Y' to do another, press any other key to exit
 
 Goodbye
