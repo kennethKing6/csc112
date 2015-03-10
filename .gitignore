@@ -1,7 +1,9 @@
 /bin/
 .classpath
 .project
-/.settings
+.settings/
 *.class
-/.metadata/
-/.recommenders/
+.metadata/
+.recommenders/
+.settings/
+.gradle/
