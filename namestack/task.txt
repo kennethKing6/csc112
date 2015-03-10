@@ -1,0 +1,19 @@
+        1.  Create a linkedStack of strings called nameStack.
+        2.  Check to see if nameStack is empty (it should be).
+        3.  Try to peek the stack and throw an EmptyCollectionException if it is empty. (it will be thrown).
+        4.  Enter the full names (first middle last) of 6 of your friends into nameStack using a loop.
+        5.  Display the size of nameStack.
+        6.  Check to see if nameStack is empty (it should NOT be empty).
+        7.  Display nameStack.
+        8.  Peek at the top entry in the stack and display it.
+        9.  Pop 3 names off the stack, listing them as they are poped.
+        10. Display the size of the stack
+        11. List the remaining stack  
+        12. Make sure this program can be repeated by placing it in a loop.
+        13. Grading ruberic.
+            a)  5%  Information at top of the listing: Name of Class, Name of Author, Description
+            b)  5%  UML Diagram
+            c) 10%  Program Logic or pseudocode
+            d) 10%  Comments throughout the class listing
+            e) 10%  Sample Output at the end of the listing
+            f) 60%  Working program         
