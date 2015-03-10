@@ -1,0 +1,6 @@
+1.) Initialize objects
+2.) Get inputs
+3.) Encode message
+4.) Decode message
+5.) get "again"
+6.) If again == 'Y', goto 1

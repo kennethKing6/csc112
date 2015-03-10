@@ -1,0 +1,79 @@
+Please enter a message: 
+V A P O R W A V E
+Please enter the length of the key
+3
+Please enter key index 1: 
+4
+Please enter key index 2: 
+2
+Please enter key index 3: 
+0
+
+Original Message: 
+V A P O R W A V E
+
+Encoded Message:
+Z"A$R S"R$Y E"V$G
+
+Decoded Message:
+V A P O R W A V E
+Go again? (Enter 'Y' to run again, enter any other character to exit)
+Y
+Please enter a message: 
+A E S T H E T I C
+Please enter the length of the key
+4
+Please enter key index 1: 
+1
+Please enter key index 2: 
+3
+Please enter key index 3: 
+3
+Please enter key index 4: 
+7
+
+Original Message: 
+A E S T H E T I C
+
+Encoded Message:
+B#H'T#W'I#H'U#L'D
+
+Decoded Message:
+A E S T H E T I C
+Go again? (Enter 'Y' to run again, enter any other character to exit)
+Y
+Please enter a message: 
+M E M E M U S I C
+Please enter the length of the key
+10
+Please enter key index 1: 
+1
+Please enter key index 2: 
+2
+Please enter key index 3: 
+3
+Please enter key index 4: 
+4
+Please enter key index 5: 
+5
+Please enter key index 6: 
+6
+Please enter key index 7: 
+7
+Please enter key index 8: 
+8
+Please enter key index 9: 
+9
+Please enter key index 10: 
+10
+
+Original Message: 
+M E M E M U S I C
+
+Encoded Message:
+N"H$R&L(V*V"V$N&J
+
+Decoded Message:
+M E M E M U S I C
+Go again? (Enter 'Y' to run again, enter any other character to exit)
+
