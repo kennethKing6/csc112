@@ -3,7 +3,6 @@ import java.util.Scanner;
 import jsjf.LinkedStack;
 import jsjf.exceptions.EmptyCollectionException;
 
-
 /**
  * NameStack.java<br>
  * Mar 10, 2015
@@ -11,8 +10,14 @@ import jsjf.exceptions.EmptyCollectionException;
  */
 public class NameStack
 {
+	/**
+	 * The number of names to be used
+	 */
 	public static final int QUANT = 6;
 	
+	/**
+	 * The entry point of the program
+	 */
 	@SuppressWarnings("resource")
 	public static void main(String[] args)
 	{
