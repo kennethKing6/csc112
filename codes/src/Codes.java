@@ -1,12 +1,12 @@
-import java.util.LinkedList;
-import java.util.Queue;
 import java.util.Scanner;
 
+import jsjf.LinkedQueue;
+import jsjf.QueueADT;
+
 /**
- * Codes demonstrates the use of queues to encrypt and decrypt messages.
- *
- * @author Java Foundations
- * @version 4.0
+ * Codes.java<br>
+ * Mar 25, 2015
+ * @author Tim Miller
  */
 public class Codes
 {
@@ -37,30 +37,30 @@ public class Codes
 				key[index] = scan.nextInt();
 			}
 			System.out.println("\nOriginal Message: \n" + message + "\n");
-			final Queue<Integer> encodingQueue = new LinkedList<Integer>();
-			final Queue<Integer> decodingQueue = new LinkedList<Integer>();
+			final QueueADT<Integer> encodingQueue = new LinkedQueue<Integer>();
+			final QueueADT<Integer> decodingQueue = new LinkedQueue<Integer>();
 			// load key queues
 			for (final int element : key)
 			{
-				encodingQueue.add(element);
-				decodingQueue.add(element);
+				encodingQueue.enqueue(element);
+				decodingQueue.enqueue(element);
 			}
 			
 			// encode message
 			for (int index = 0; index < message.length(); index++)
 			{
-				keyValue = encodingQueue.remove();
+				keyValue = encodingQueue.dequeue();
 				encoded += (char) (message.charAt(index) + keyValue);
-				encodingQueue.add(keyValue);
+				encodingQueue.enqueue(keyValue);
 			}
 			System.out.println("Encoded Message:\n" + encoded + "\n");
 			
 			// decode message
 			for (int index = 0; index < encoded.length(); index++)
 			{
-				keyValue = decodingQueue.remove();
+				keyValue = decodingQueue.dequeue();
 				decoded += (char) (encoded.charAt(index) - keyValue);
-				decodingQueue.add(keyValue);
+				decodingQueue.enqueue(keyValue);
 			}
 			System.out.println("Decoded Message:\n" + decoded);
 			
