@@ -1,0 +1,30 @@
+Number of cashiers: 1
+Average time: 5317
+
+Number of cashiers: 2
+Average time: 2325
+
+Number of cashiers: 3
+Average time: 1332
+
+Number of cashiers: 4
+Average time: 840
+
+Number of cashiers: 5
+Average time: 547
+
+Number of cashiers: 6
+Average time: 355
+
+Number of cashiers: 7
+Average time: 219
+
+Number of cashiers: 8
+Average time: 120
+
+Number of cashiers: 9
+Average time: 120
+
+Number of cashiers: 10
+Average time: 120
+

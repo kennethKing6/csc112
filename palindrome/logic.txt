@@ -1,0 +1,5 @@
+Get input
+Parse reverse string
+Check if reverse string and input are the same
+Print output
+Prompt again

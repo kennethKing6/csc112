@@ -1,0 +1,12 @@
+Please enter a string: racecar
+The string is a palindrome
+Enter 'Y' to go again, enter another character to quit
+Y
+Please enter a string: mom
+The string is a palindrome
+Enter 'Y' to go again, enter another character to quit
+Y
+Please enter a string: iamnotapalindrome
+The string is not a palindrome
+Enter 'Y' to go again, enter another character to quit
+
