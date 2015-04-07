@@ -1,0 +1,2 @@
+Set information
+Print output
