@@ -1,107 +1,161 @@
-
 import java.awt.EventQueue;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
-import javax.swing.JFrame;
 import javax.swing.JButton;
-import java.awt.event.ActionListener;
-import java.awt.event.ActionEvent;
-import javax.swing.JTextArea;
-import javax.swing.JMenuBar;
+import javax.swing.JFrame;
 import javax.swing.JMenu;
+import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 import javax.swing.JSeparator;
 
 public class AppWindow
 {
 
-	private JFrame	frame;
-	private ProgramOfStudy	pos;
-
 	/**
-	 * Create the application.
-	 * @param pos 
+	 * Launch the application.
 	 */
-	public AppWindow(ProgramOfStudy pos)
+	public static void main(String[] args)
 	{
-		this.pos = pos;
 		EventQueue.invokeLater(new Runnable()
 		{
 			@Override
 			public void run()
 			{
-				AppWindow.this.initialize();
-
+				try
+				{
+					final AppWindow window = new AppWindow();
+					window.frame.setVisible(true);
+				}
+				catch (final Exception e)
+				{
+					e.printStackTrace();
+				}
 			}
 		});
 	}
 
+	private JFrame			frame;
+
+	private ProgramOfStudy	pos;
+
+	/**
+	 * Create the application.
+	 */
+	public AppWindow()
+	{
+		this.initialize();
+	}
+
+	protected void find()
+	{
+
+	}
+
+	protected void guiAbout()
+	{
+
+	}
+
+	protected void guiLoad()
+	{
+
+	}
+
+	protected void guiQuit()
+	{
+		logger.log(Level.INFO, "Shutting down!");
+		System.exit(0);
+	}
+
+	protected void guiSave()
+	{
+		
+	}
+
+	public static Logger logger = Logger.getLogger(AppWindow.class.getCanonicalName());
+	
 	/**
 	 * Initialize the contents of the frame.
 	 */
 	private void initialize()
 	{
+		this.pos = new ProgramOfStudy();
+
 		this.frame = new JFrame();
-		frame.setResizable(false);
-		this.frame.setBounds(100, 100, 450, 300);
+		this.frame.setResizable(false);
+		this.frame.setBounds(100, 100, 277, 171);
 		this.frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		frame.getContentPane().setLayout(null);
-		
-		JButton btnLoad = new JButton("Load");
-		btnLoad.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-			}
-		});
-		btnLoad.setBounds(12, 123, 117, 25);
-		frame.getContentPane().add(btnLoad);
-		
-		JButton btnList = new JButton("List");
-		btnList.setBounds(12, 49, 117, 25);
-		frame.getContentPane().add(btnList);
-		
-		JButton btnAdd = new JButton("Add");
-		btnAdd.setBounds(12, 86, 117, 25);
-		frame.getContentPane().add(btnAdd);
-		
-		JButton btnRemove = new JButton("Remove");
-		btnRemove.setBounds(12, 151, 117, 25);
-		frame.getContentPane().add(btnRemove);
-		
-		JButton btnUpdate = new JButton("Update");
-		btnUpdate.setBounds(141, 151, 117, 25);
-		frame.getContentPane().add(btnUpdate);
-		
-		JButton btnFind = new JButton("Find");
-		btnFind.setBounds(141, 12, 117, 25);
-		frame.getContentPane().add(btnFind);
-		
-		JButton btnSize = new JButton("Size");
-		btnSize.setBounds(141, 49, 117, 25);
-		frame.getContentPane().add(btnSize);
-		
-		JButton btnSave = new JButton("Save");
-		btnSave.setBounds(141, 188, 117, 25);
-		frame.getContentPane().add(btnSave);
-		
-		JMenuBar menuBar = new JMenuBar();
-		menuBar.setBounds(0, 0, 129, 21);
-		frame.getContentPane().add(menuBar);
-		
-		JMenu mnPosmenu = new JMenu("POSMenu");
+		this.frame.getContentPane().setLayout(null);
+
+		final JButton btnList = new JButton("List");
+		btnList.setBounds(12, 33, 117, 25);
+		this.frame.getContentPane().add(btnList);
+
+		final JButton btnAdd = new JButton("Add");
+		btnAdd.setBounds(12, 70, 117, 25);
+		this.frame.getContentPane().add(btnAdd);
+
+		final JButton btnRemove = new JButton("Remove");
+		btnRemove.setBounds(12, 107, 117, 25);
+		this.frame.getContentPane().add(btnRemove);
+
+		final JButton btnUpdate = new JButton("Update");
+		btnUpdate.setBounds(141, 107, 117, 25);
+		this.frame.getContentPane().add(btnUpdate);
+
+		final JButton btnFind = new JButton("Find");
+		btnFind.setBounds(141, 70, 117, 25);
+		this.frame.getContentPane().add(btnFind);
+
+		final JButton btnSize = new JButton("Size");
+		btnSize.setBounds(141, 33, 117, 25);
+		this.frame.getContentPane().add(btnSize);
+
+		final JMenuBar menuBar = new JMenuBar();
+		menuBar.setBounds(0, 0, 269, 21);
+		this.frame.getContentPane().add(menuBar);
+
+		final JMenu mnPosmenu = new JMenu("POSMenu");
 		menuBar.add(mnPosmenu);
-		
-		JSeparator separator_1 = new JSeparator();
+
+		final JMenuItem mntmAbout = new JMenuItem("About");
+		mnPosmenu.add(mntmAbout);
+
+		final JSeparator separator_1 = new JSeparator();
 		mnPosmenu.add(separator_1);
-		
-		JMenuItem mntmSave = new JMenuItem("Save");
+
+		final JMenuItem mntmSave = new JMenuItem("Save");
 		mnPosmenu.add(mntmSave);
-		
-		JMenuItem mntmLoad = new JMenuItem("Load");
+
+		final JMenuItem mntmLoad = new JMenuItem("Load");
 		mnPosmenu.add(mntmLoad);
-		
-		JSeparator separator = new JSeparator();
+
+		final JSeparator separator = new JSeparator();
 		mnPosmenu.add(separator);
-		
-		JMenuItem mntmQuit = new JMenuItem("Quit");
+
+		final JMenuItem mntmQuit = new JMenuItem("Quit");
 		mnPosmenu.add(mntmQuit);
 	}
+
+	protected void guiList()
+	{
+
+	}
+
+	protected void guiRemove()
+	{
+
+	}
+
+	protected void guiSize()
+	{
+
+	}
+
+	protected void guiUpdate()
+	{
+
+	}
+
 }

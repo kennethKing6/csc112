@@ -29,7 +29,7 @@ public class ProgramOfStudy implements Iterable<Course>, Serializable
 	 * @throws ClassNotFoundException
 	 */
 	public static ProgramOfStudy load(String fileName) throws IOException,
-			ClassNotFoundException
+	ClassNotFoundException
 	{
 		final FileInputStream fis = new FileInputStream(fileName);
 		final ObjectInputStream ois = new ObjectInputStream(fis);
@@ -143,9 +143,9 @@ public class ProgramOfStudy implements Iterable<Course>, Serializable
 		for (final Course course : this.list)
 		{
 			result += course + "\n";
-			
+
 		}
-		
+
 		return result;
 	}
 }
