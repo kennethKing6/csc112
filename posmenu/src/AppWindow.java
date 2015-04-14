@@ -3,8 +3,10 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.File;
 import java.io.IOException;
+import java.util.logging.FileHandler;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import java.util.logging.SimpleFormatter;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -46,6 +48,24 @@ public class AppWindow
 			}
 		});
 	}
+	
+	static
+	{
+	    FileHandler fh;  
+
+	    try {  
+
+	        fh = new FileHandler("./logfile.log");  
+	        logger.addHandler(fh);
+	        SimpleFormatter formatter = new SimpleFormatter();  
+	        fh.setFormatter(formatter);  
+
+	    } catch (SecurityException e) {  
+	        e.printStackTrace();  
+	    } catch (IOException e) {  
+	        e.printStackTrace();  
+	    }  
+	}
 
 	private JFrame			frame;
 
@@ -58,15 +78,36 @@ public class AppWindow
 	{
 		this.initialize();
 	}
-
-	protected void guiAbout()
-	{
-		// TODO
-	}
-
+	
 	protected void guiAdd()
 	{
-		// TODO
+		logger.log(Level.INFO, "Adding");
+		try
+		{
+			Course c = new Course(getClassPrefix(), getClassNum(), getClassTitle());
+			pos.addCourse(c);
+			JOptionPane.showMessageDialog(null, "The course was added successfully", "", JOptionPane.PLAIN_MESSAGE);
+		}
+		catch (Exception e)
+		{
+			logger.log(Level.INFO, e.getMessage());
+			JOptionPane.showMessageDialog(null, "The course was not added successfully\nPlease see the log for more details", "", JOptionPane.PLAIN_MESSAGE);
+		}
+	}
+	
+	public static String getClassPrefix()
+	{
+		return JOptionPane.showInputDialog(null, "Please enter the class prefix", "", JOptionPane.PLAIN_MESSAGE);
+	}
+	
+	public static int getClassNum()
+	{
+		return Integer.valueOf(JOptionPane.showInputDialog(null, "Please enter the class number","", JOptionPane.PLAIN_MESSAGE));
+	}
+		
+	public static String getClassTitle()
+	{
+		return JOptionPane.showInputDialog(null, "Please enter the class title", "", JOptionPane.PLAIN_MESSAGE);
 	}
 
 	protected void guiError(String task, Throwable e)
@@ -88,6 +129,11 @@ public class AppWindow
 	protected void guiLoad()
 	{
 		// TODO
+	}
+	
+	public ProgramOfStudy getProgram()
+	{
+		return pos;
 	}
 
 	protected void guiQuit()
@@ -138,6 +184,7 @@ public class AppWindow
 		this.pos = new ProgramOfStudy();
 
 		this.frame = new JFrame();
+		this.frame.setTitle("Program of Study 2015");
 		this.frame.setResizable(false);
 		this.frame.setBounds(100, 100, 277, 171);
 		this.frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -222,20 +269,6 @@ public class AppWindow
 		final JMenu mnPosmenu = new JMenu("POSMenu");
 		menuBar.add(mnPosmenu);
 
-		final JMenuItem mntmAbout = new JMenuItem("About");
-		mntmAbout.addActionListener(new ActionListener()
-		{
-			@Override
-			public void actionPerformed(ActionEvent e)
-			{
-				AppWindow.this.guiAbout();
-			}
-		});
-		mnPosmenu.add(mntmAbout);
-
-		final JSeparator separator_1 = new JSeparator();
-		mnPosmenu.add(separator_1);
-
 		final JMenuItem mntmSave = new JMenuItem("Save");
 		mntmSave.addActionListener(new ActionListener()
 		{
@@ -273,5 +306,4 @@ public class AppWindow
 		mnPosmenu.add(mntmQuit);
 
 	}
-
 }

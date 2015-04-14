@@ -38,6 +38,11 @@ public class ProgramOfStudy implements Iterable<Course>, Serializable
 
 		return pos;
 	}
+	
+	public ArrayOrderedList<Course> getList()
+	{
+		return list;
+	}
 
 	private final ArrayOrderedList<Course>	list;
 
@@ -148,4 +153,6 @@ public class ProgramOfStudy implements Iterable<Course>, Serializable
 
 		return result;
 	}
+	
+	
 }
