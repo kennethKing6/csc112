@@ -29,6 +29,21 @@ public class AppWindow
 
 	public static final File	POS_DAT		= new File("pos.dat");
 
+	private static void logError(Throwable t)
+	{
+		String st = "";
+		for (StackTraceElement e:t.getStackTrace())
+		{
+			st += e.toString() + "\n";
+		}
+		logger.log(Level.INFO, t.getMessage() + "\n" + st);
+	}
+	
+	private static void logError(String msg, Throwable t)
+	{
+		logger.log(Level.INFO, msg + "\n" + t.getMessage(), t);
+	}
+	
 	static
 	{
 		FileHandler fh;
@@ -104,7 +119,7 @@ public class AppWindow
 
 	private JFrame			frame;
 
-	private ProgramOfStudy	pos;
+	private ProgramOfStudy2	pos;
 
 	/**
 	 * Create the application.
@@ -114,7 +129,7 @@ public class AppWindow
 		this.initialize();
 	}
 
-	public ProgramOfStudy getProgram()
+	public ProgramOfStudy2 getProgram()
 	{
 		return this.pos;
 	}
@@ -124,7 +139,7 @@ public class AppWindow
 		AppWindow.logger.log(Level.INFO, "Adding");
 		try
 		{
-			final Course c = new Course(AppWindow.getClassPrefix(),
+			final Course2 c = new Course2(AppWindow.getClassPrefix(),
 					AppWindow.getClassNum(), AppWindow.getClassTitle());
 			this.pos.addCourse(c);
 			JOptionPane.showMessageDialog(null,
@@ -133,7 +148,7 @@ public class AppWindow
 		}
 		catch (final Exception e)
 		{
-			AppWindow.logger.log(Level.INFO, e.getMessage());
+			logError(e);
 			JOptionPane
 			.showMessageDialog(
 					null,
@@ -142,18 +157,16 @@ public class AppWindow
 		}
 	}
 
-	protected void guiError(String task, Throwable e)
-	{
-		e.printStackTrace();
-		JOptionPane.showMessageDialog(null,
-				"An error has occurred and the task " + task
-				+ " could not be completed", "Error",
-				JOptionPane.WARNING_MESSAGE);
-	}
-
 	protected void guiFind()
 	{
-		// TODO
+		Course2 c = pos.find(AppWindow.getClassPrefix(),
+				AppWindow.getClassNum());
+		if(c==null)
+		{
+			JOptionPane.showMessageDialog(null, "Course not found");
+		}
+		else
+		JOptionPane.showMessageDialog(null, c.toString());
 	}
 
 	protected void guiList()
@@ -170,14 +183,14 @@ public class AppWindow
 
 	protected void guiLoad()
 	{
-		final ProgramOfStudy backup = this.pos;
+		final ProgramOfStudy2 backup = this.pos;
 		AppWindow.logger.log(Level.INFO, "Loading");
 		try
 		{
 			final String s = AppWindow.readFile(
 					AppWindow.POS_DAT.getAbsolutePath(),
 					Charset.defaultCharset());
-			this.pos = ProgramOfStudy.load(s);
+			this.pos = ProgramOfStudy2.load(s);
 		}
 		catch (final Exception e)
 		{
@@ -187,7 +200,7 @@ public class AppWindow
 							null,
 							"An error has occurred, and the data was not loaded successfully\nPlease see the log for more details",
 							"", JOptionPane.ERROR_MESSAGE);
-			AppWindow.logger.log(Level.INFO, e.getMessage(), e);
+			logError(e);
 		}
 	}
 
@@ -199,7 +212,10 @@ public class AppWindow
 
 	protected void guiRemove()
 	{
-		// TODO
+		logger.log(Level.INFO, "Removing...");
+		Course2 c = pos.find(AppWindow.getClassPrefix(),
+				AppWindow.getClassNum());
+		pos.removeCourse(c);
 	}
 
 	protected void guiSave()
@@ -209,13 +225,9 @@ public class AppWindow
 		{
 			this.pos.save(AppWindow.POS_DAT.getAbsolutePath());
 		}
-		catch (final IOException e)
-		{
-			this.guiError("'save'", e);
-		}
 		catch (final Exception e)
 		{
-			this.guiError("'save'", e);
+			logError("An error occurred during saving", e);
 		}
 	}
 
@@ -229,7 +241,10 @@ public class AppWindow
 	protected void guiUpdate()
 	{
 		AppWindow.logger.log(Level.INFO, "Updating");
-		// TODO
+		Course2 c = pos.find(AppWindow.getClassPrefix(),
+				AppWindow.getClassNum());
+		String grade = JOptionPane.showInputDialog("Please enter the letter grade");
+		c.setGrade(grade);
 	}
 
 	/**
@@ -237,7 +252,7 @@ public class AppWindow
 	 */
 	private void initialize()
 	{
-		this.pos = new ProgramOfStudy();
+		this.pos = new ProgramOfStudy2();
 
 		this.frame = new JFrame();
 		this.frame.setTitle("Program of Study 2015");

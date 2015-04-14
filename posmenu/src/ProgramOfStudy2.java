@@ -84,7 +84,7 @@ public class ProgramOfStudy2 implements Iterable<Course2>, Serializable
 	 * @throws IOException
 	 * @throws ClassNotFoundException
 	 */
-	public ProgramOfStudy2 load(String fileName) throws IOException,
+	public static ProgramOfStudy2 load(String fileName) throws IOException,
 			ClassNotFoundException
 	{
 		/*

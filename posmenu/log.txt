@@ -1,6 +1,2 @@
-Apr 14, 2015 12:27:53 PM AppWindow guiList
-INFO: Listing
-Apr 14, 2015 12:27:55 PM AppWindow guiAdd
+Apr 14, 2015 12:54:25 PM AppWindow guiAdd
 INFO: Adding
-Apr 14, 2015 12:27:59 PM AppWindow guiAdd
-INFO: The OrderedList requires comparable elements.

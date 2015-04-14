@@ -145,10 +145,11 @@ public class ProgramOfStudy implements Iterable<Course>, Serializable
 	public String toString()
 	{
 		String result = "";
+		int count = 1;
 		for (final Course course : this.list)
 		{
-			result += course + "\n";
-
+			result += "" + count + ". " + course + "\n";
+			count++;
 		}
 
 		return result;
