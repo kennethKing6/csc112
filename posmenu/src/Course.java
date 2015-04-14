@@ -6,7 +6,7 @@ import java.io.Serializable;
  * @author Java Foundations
  * @version 4.0
  */
-public class Course implements Serializable
+public class Course implements Serializable, Comparable<Course2>
 {
 	private static final long	serialVersionUID	= -3414076556011163077L;
 
@@ -58,22 +58,13 @@ public class Course implements Serializable
 		}
 	}
 
-	/* (non-Javadoc)
-	 * @see java.lang.Object#hashCode()
-	 */
-	@Override
-	public int hashCode()
+	public int compareTo(Course2 o)
 	{
-		final int prime = 31;
-		int result = 1;
-		result = prime * result + ((grade == null) ? 0 : grade.hashCode());
-		result = prime * result + number;
-		result = prime * result + ((prefix == null) ? 0 : prefix.hashCode());
-		result = prime * result + ((title == null) ? 0 : title.hashCode());
-		return result;
+		return 0;
 	}
 
-	/* (non-Javadoc)
+	/*
+	 * (non-Javadoc)
 	 * @see java.lang.Object#equals(java.lang.Object)
 	 */
 	@Override
@@ -82,23 +73,23 @@ public class Course implements Serializable
 		if (this == obj) { return true; }
 		if (obj == null) { return false; }
 		if (!(obj instanceof Course)) { return false; }
-		Course other = (Course) obj;
-		if (grade == null)
+		final Course other = (Course) obj;
+		if (this.grade == null)
 		{
 			if (other.grade != null) { return false; }
 		}
-		else if (!grade.equals(other.grade)) { return false; }
-		if (number != other.number) { return false; }
-		if (prefix == null)
+		else if (!this.grade.equals(other.grade)) { return false; }
+		if (this.number != other.number) { return false; }
+		if (this.prefix == null)
 		{
 			if (other.prefix != null) { return false; }
 		}
-		else if (!prefix.equals(other.prefix)) { return false; }
-		if (title == null)
+		else if (!this.prefix.equals(other.prefix)) { return false; }
+		if (this.title == null)
 		{
 			if (other.title != null) { return false; }
 		}
-		else if (!title.equals(other.title)) { return false; }
+		else if (!this.title.equals(other.title)) { return false; }
 		return true;
 	}
 
@@ -140,6 +131,25 @@ public class Course implements Serializable
 	public String getTitle()
 	{
 		return this.title;
+	}
+
+	/*
+	 * (non-Javadoc)
+	 * @see java.lang.Object#hashCode()
+	 */
+	@Override
+	public int hashCode()
+	{
+		final int prime = 31;
+		int result = 1;
+		result = (prime * result)
+				+ ((this.grade == null) ? 0 : this.grade.hashCode());
+		result = (prime * result) + this.number;
+		result = (prime * result)
+				+ ((this.prefix == null) ? 0 : this.prefix.hashCode());
+		result = (prime * result)
+				+ ((this.title == null) ? 0 : this.title.hashCode());
+		return result;
 	}
 
 	/**

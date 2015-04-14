@@ -3,6 +3,9 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.File;
 import java.io.IOException;
+import java.nio.charset.Charset;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.util.logging.FileHandler;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -16,15 +19,58 @@ import javax.swing.JMenuItem;
 import javax.swing.JOptionPane;
 import javax.swing.JSeparator;
 
-import static java.util.logging.Level.*;
-
 public class AppWindow
 {
 
-	public static Logger		logger	= Logger.getLogger(AppWindow.class
-												.getCanonicalName());
+	public static final File	LOG_FILE	= new File("./log.txt");
 
-	public static final File	POS_DAT	= new File("pos.dat");
+	public static Logger		logger		= Logger.getLogger(AppWindow.class
+			.getCanonicalName());
+
+	public static final File	POS_DAT		= new File("pos.dat");
+
+	static
+	{
+		FileHandler fh;
+
+		try
+		{
+
+			fh = new FileHandler(AppWindow.LOG_FILE.getAbsolutePath());
+			AppWindow.logger.addHandler(fh);
+			final SimpleFormatter formatter = new SimpleFormatter();
+			fh.setFormatter(formatter);
+
+		}
+		catch (final SecurityException e)
+		{
+			e.printStackTrace();
+		}
+		catch (final IOException e)
+		{
+			e.printStackTrace();
+		}
+	}
+
+	public static int getClassNum()
+	{
+		return Integer
+				.valueOf(JOptionPane.showInputDialog(null,
+						"Please enter the class number", "",
+						JOptionPane.PLAIN_MESSAGE));
+	}
+
+	public static String getClassPrefix()
+	{
+		return JOptionPane.showInputDialog(null,
+				"Please enter the class prefix", "", JOptionPane.PLAIN_MESSAGE);
+	}
+
+	public static String getClassTitle()
+	{
+		return JOptionPane.showInputDialog(null,
+				"Please enter the class title", "", JOptionPane.PLAIN_MESSAGE);
+	}
 
 	/**
 	 * Launch the application.
@@ -48,23 +94,12 @@ public class AppWindow
 			}
 		});
 	}
-	
-	static
+
+	public static String readFile(String path, Charset encoding)
+			throws IOException
 	{
-	    FileHandler fh;  
-
-	    try {  
-
-	        fh = new FileHandler("./logfile.log");  
-	        logger.addHandler(fh);
-	        SimpleFormatter formatter = new SimpleFormatter();  
-	        fh.setFormatter(formatter);  
-
-	    } catch (SecurityException e) {  
-	        e.printStackTrace();  
-	    } catch (IOException e) {  
-	        e.printStackTrace();  
-	    }  
+		final byte[] encoded = Files.readAllBytes(Paths.get(path));
+		return new String(encoded, encoding);
 	}
 
 	private JFrame			frame;
@@ -78,42 +113,42 @@ public class AppWindow
 	{
 		this.initialize();
 	}
-	
+
+	public ProgramOfStudy getProgram()
+	{
+		return this.pos;
+	}
+
 	protected void guiAdd()
 	{
-		logger.log(Level.INFO, "Adding");
+		AppWindow.logger.log(Level.INFO, "Adding");
 		try
 		{
-			Course c = new Course(getClassPrefix(), getClassNum(), getClassTitle());
-			pos.addCourse(c);
-			JOptionPane.showMessageDialog(null, "The course was added successfully", "", JOptionPane.PLAIN_MESSAGE);
+			final Course c = new Course(AppWindow.getClassPrefix(),
+					AppWindow.getClassNum(), AppWindow.getClassTitle());
+			this.pos.addCourse(c);
+			JOptionPane.showMessageDialog(null,
+					"The course was added successfully", "",
+					JOptionPane.PLAIN_MESSAGE);
 		}
-		catch (Exception e)
+		catch (final Exception e)
 		{
-			logger.log(Level.INFO, e.getMessage());
-			JOptionPane.showMessageDialog(null, "The course was not added successfully\nPlease see the log for more details", "", JOptionPane.PLAIN_MESSAGE);
+			AppWindow.logger.log(Level.INFO, e.getMessage());
+			JOptionPane
+			.showMessageDialog(
+					null,
+					"The course was not added successfully\nPlease see the log for more details",
+					"", JOptionPane.PLAIN_MESSAGE);
 		}
-	}
-	
-	public static String getClassPrefix()
-	{
-		return JOptionPane.showInputDialog(null, "Please enter the class prefix", "", JOptionPane.PLAIN_MESSAGE);
-	}
-	
-	public static int getClassNum()
-	{
-		return Integer.valueOf(JOptionPane.showInputDialog(null, "Please enter the class number","", JOptionPane.PLAIN_MESSAGE));
-	}
-		
-	public static String getClassTitle()
-	{
-		return JOptionPane.showInputDialog(null, "Please enter the class title", "", JOptionPane.PLAIN_MESSAGE);
 	}
 
 	protected void guiError(String task, Throwable e)
 	{
 		e.printStackTrace();
-		JOptionPane.showMessageDialog(null, "An error has occurred and the task " + task + " could not be completed", "Error", JOptionPane.WARNING_MESSAGE);
+		JOptionPane.showMessageDialog(null,
+				"An error has occurred and the task " + task
+				+ " could not be completed", "Error",
+				JOptionPane.WARNING_MESSAGE);
 	}
 
 	protected void guiFind()
@@ -123,17 +158,37 @@ public class AppWindow
 
 	protected void guiList()
 	{
-		// TODO
+		AppWindow.logger.log(Level.INFO, "Listing");
+		String msg = this.pos.toString();
+		if (msg.isEmpty())
+		{
+			msg = "Nothing to display!";
+		}
+		JOptionPane.showMessageDialog(null, msg, "",
+				JOptionPane.INFORMATION_MESSAGE);
 	}
 
 	protected void guiLoad()
 	{
-		// TODO
-	}
-	
-	public ProgramOfStudy getProgram()
-	{
-		return pos;
+		final ProgramOfStudy backup = this.pos;
+		AppWindow.logger.log(Level.INFO, "Loading");
+		try
+		{
+			final String s = AppWindow.readFile(
+					AppWindow.POS_DAT.getAbsolutePath(),
+					Charset.defaultCharset());
+			this.pos = ProgramOfStudy.load(s);
+		}
+		catch (final Exception e)
+		{
+			this.pos = backup;
+			JOptionPane
+					.showMessageDialog(
+							null,
+							"An error has occurred, and the data was not loaded successfully\nPlease see the log for more details",
+							"", JOptionPane.ERROR_MESSAGE);
+			AppWindow.logger.log(Level.INFO, e.getMessage(), e);
+		}
 	}
 
 	protected void guiQuit()
@@ -158,7 +213,7 @@ public class AppWindow
 		{
 			this.guiError("'save'", e);
 		}
-		catch (Exception e)
+		catch (final Exception e)
 		{
 			this.guiError("'save'", e);
 		}
@@ -166,14 +221,15 @@ public class AppWindow
 
 	protected void guiSize()
 	{
-		logger.log(INFO, "size");
-		JOptionPane.showMessageDialog(null, "The Program of Study size is " + pos.getSize(),"Size", JOptionPane.INFORMATION_MESSAGE);
+		AppWindow.logger.log(Level.INFO, "size");
+		JOptionPane.showMessageDialog(null, "The Program of Study size is "
+				+ this.pos.getSize(), "Size", JOptionPane.INFORMATION_MESSAGE);
 	}
 
 	protected void guiUpdate()
 	{
-		logger.log(Level.INFO, "Updating");
-		//TODO
+		AppWindow.logger.log(Level.INFO, "Updating");
+		// TODO
 	}
 
 	/**

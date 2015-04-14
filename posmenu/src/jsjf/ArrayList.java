@@ -224,7 +224,7 @@ public abstract class ArrayList<T> implements ListADT<T>, Iterable<T>
 
 	/**
 	 * Returns an iterator for the elements currently in this list.
-	 * 
+	 *
 	 * @return an iterator for the elements in the list
 	 */
 	@Override
@@ -353,7 +353,7 @@ public abstract class ArrayList<T> implements ListADT<T>, Iterable<T>
 
 	/**
 	 * Returns a string representation of this list.
-	 * 
+	 *
 	 * @return the string representation of the list
 	 */
 	@Override
