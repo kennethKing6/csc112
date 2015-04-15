@@ -70,25 +70,36 @@ public class Course2 implements Serializable, Comparable<Course2>
 		return result;
 	}
 
-	/**
-	 * Determines if this course is equal to the one specified, based on the
-	 * course designation (prefix and number).
-	 *
-	 * @return true if this course is equal to the parameter
+	/* (non-Javadoc)
+	 * @see java.lang.Object#hashCode()
 	 */
-	public boolean equals(Object other)
+	@Override
+	public int hashCode()
 	{
-		boolean result = false;
-		if (other instanceof Course2)
-		{
-			final Course2 otherCourse = (Course2) other;
-			if (this.prefix.equals(otherCourse.getPrefix())
-					&& (this.number == otherCourse.getNumber()))
-			{
-				result = true;
-			}
-		}
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + number;
+		result = prime * result + ((prefix == null) ? 0 : prefix.hashCode());
 		return result;
+	}
+
+	/* (non-Javadoc)
+	 * @see java.lang.Object#equals(java.lang.Object)
+	 */
+	@Override
+	public boolean equals(Object obj)
+	{
+		if (this == obj) return true;
+		if (obj == null) return false;
+		if (!(obj instanceof Course2)) return false;
+		Course2 other = (Course2) obj;
+		if (number != other.number) return false;
+		if (prefix == null)
+		{
+			if (other.prefix != null) return false;
+		}
+		else if (!prefix.equals(other.prefix)) return false;
+		return true;
 	}
 
 	/**
