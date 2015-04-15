@@ -9,13 +9,66 @@ import java.util.Scanner;
 
 import jsjf.ArrayOrderedList;
 
+/**
+ * ProgramOfStudy2.java<br>
+ * Apr 14, 2015
+ * 
+ * @author Tim Miller
+ */
 public class ProgramOfStudy2 implements Iterable<Course2>, Serializable
 {
 	/**
 	 *
 	 */
-	private static final long				serialVersionUID	= 6351403329122962471L;
-	private final ArrayOrderedList<Course2>	list				= new ArrayOrderedList<Course2>();
+	private static final long	serialVersionUID	= 6351403329122962471L;
+
+	/**
+	 * Loads a serialized Program of Study from the specified file.
+	 *
+	 * @param fileName
+	 *            the file from which the POS is read
+	 * @return the loaded Program of Study
+	 * @throws IOException
+	 * @throws ClassNotFoundException
+	 */
+	public static ProgramOfStudy2 load(String fileName) throws IOException,
+	ClassNotFoundException
+	{
+		/*
+		 * FileInputStream fis = new FileInputStream(fileName);
+		 * ObjectInputStream ois = new ObjectInputStream(fis);
+		 * ProgramOfStudy pos = (ProgramOfStudy) ois.readObject();
+		 * ois.close();
+		 */
+		final ProgramOfStudy2 pos = new ProgramOfStudy2();
+		final Scanner fileScan = new Scanner(new File(fileName));
+		Scanner stringScan;
+
+		String record = "";
+		String prefix = "";
+		int number = 0;
+		String courseName = "";
+		String grade = "";
+
+		while (fileScan.hasNext())
+		{
+			record = fileScan.nextLine();
+			stringScan = new Scanner(record);
+			stringScan.useDelimiter("  ");
+			prefix = stringScan.next();
+			number = stringScan.nextInt();
+			courseName = stringScan.next();
+			grade = stringScan.next();
+			pos.addCourse(new Course2(prefix, number, courseName, grade));
+			stringScan.close();
+
+		}
+		System.out.println("\nFile " + fileName + " is loaded\n");
+		fileScan.close();
+		return pos;
+	}
+
+	private final ArrayOrderedList<Course2>	list	= new ArrayOrderedList<Course2>();
 
 	/**
 	 * Constructs an initially empty Program of Study.
@@ -73,52 +126,6 @@ public class ProgramOfStudy2 implements Iterable<Course2>, Serializable
 	public Iterator<Course2> iterator()
 	{
 		return this.list.iterator();
-	}
-
-	/**
-	 * Loads a serialized Program of Study from the specified file.
-	 *
-	 * @param fileName
-	 *            the file from which the POS is read
-	 * @return the loaded Program of Study
-	 * @throws IOException
-	 * @throws ClassNotFoundException
-	 */
-	public static ProgramOfStudy2 load(String fileName) throws IOException,
-			ClassNotFoundException
-	{
-		/*
-		 * FileInputStream fis = new FileInputStream(fileName);
-		 * ObjectInputStream ois = new ObjectInputStream(fis);
-		 * ProgramOfStudy pos = (ProgramOfStudy) ois.readObject();
-		 * ois.close();
-		 */
-		final ProgramOfStudy2 pos = new ProgramOfStudy2();
-		final Scanner fileScan = new Scanner(new File(fileName));
-		Scanner stringScan;
-
-		String record = "";
-		String prefix = "";
-		int number = 0;
-		String courseName = "";
-		String grade = "";
-
-		while (fileScan.hasNext())
-		{
-			record = fileScan.nextLine();
-			stringScan = new Scanner(record);
-			stringScan.useDelimiter("  ");
-			prefix = stringScan.next();
-			number = stringScan.nextInt();
-			courseName = stringScan.next();
-			grade = stringScan.next();
-			pos.addCourse(new Course2(prefix, number, courseName, grade));
-			stringScan.close();
-
-		}
-		System.out.println("\nFile " + fileName + " is loaded\n");
-		fileScan.close();
-		return pos;
 	}
 
 	public void removeCourse(Course2 course)

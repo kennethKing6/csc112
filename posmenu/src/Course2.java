@@ -1,5 +1,11 @@
 import java.io.Serializable;
 
+/**
+ * Course2.java<br>
+ * Apr 14, 2015
+ * 
+ * @author Tim Miller
+ */
 public class Course2 implements Serializable, Comparable<Course2>
 {
 	/**

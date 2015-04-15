@@ -19,31 +19,30 @@ import javax.swing.JMenuItem;
 import javax.swing.JOptionPane;
 import javax.swing.JSeparator;
 
+/**
+ * AppWindow.java<br>
+ * Apr 14, 2015
+ * 
+ * @author Tim Miller
+ */
 public class AppWindow
 {
+	/**
+	 * Log file for this session (depending on file system, filename will change to posmenu.log.n
+	 */
+	public static final File	LOG_FILE	= new File("./posmenu.log");
 
-	public static final File	LOG_FILE	= new File("./log.txt");
-
+	/**
+	 * System logger, writing to {@link System.out} and to {@link LOG_FILE}
+	 */
 	public static Logger		logger		= Logger.getLogger(AppWindow.class
-			.getCanonicalName());
+													.getCanonicalName());
 
+	/**
+	 * File to be saved to and loaded from
+	 */
 	public static final File	POS_DAT		= new File("pos.dat");
 
-	private static void logError(Throwable t)
-	{
-		String st = "";
-		for (StackTraceElement e:t.getStackTrace())
-		{
-			st += e.toString() + "\n";
-		}
-		logger.log(Level.INFO, t.getMessage() + "\n" + st);
-	}
-	
-	private static void logError(String msg, Throwable t)
-	{
-		logger.log(Level.INFO, msg + "\n" + t.getMessage(), t);
-	}
-	
 	static
 	{
 		FileHandler fh;
@@ -67,6 +66,9 @@ public class AppWindow
 		}
 	}
 
+	/**
+	 * @return a class number, entered by a user
+	 */
 	public static int getClassNum()
 	{
 		return Integer
@@ -75,6 +77,9 @@ public class AppWindow
 						JOptionPane.PLAIN_MESSAGE));
 	}
 
+	/**
+	 * @return a class prefix, entered by a user
+	 */
 	public static String getClassPrefix()
 	{
 		return JOptionPane.showInputDialog(null,
@@ -85,6 +90,35 @@ public class AppWindow
 	{
 		return JOptionPane.showInputDialog(null,
 				"Please enter the class title", "", JOptionPane.PLAIN_MESSAGE);
+	}
+
+	/**
+	 * Log an error in a semi-coherent way
+	 *
+	 * @param msg
+	 *            the message to be displayed
+	 * @param t
+	 *            the error to be displayed
+	 */
+	private static void logError(String msg, Throwable t)
+	{
+		AppWindow.logger.log(Level.INFO, msg + "\n" + t.getMessage(), t);
+	}
+
+	/**
+	 * Log an error in a semi-coherent way
+	 *
+	 * @param t
+	 *            the error
+	 */
+	private static void logError(Throwable t)
+	{
+		String st = "";
+		for (final StackTraceElement e : t.getStackTrace())
+		{
+			st += e.toString() + "\n";
+		}
+		AppWindow.logger.log(Level.INFO, t.getMessage() + "\n" + st);
 	}
 
 	/**
@@ -110,6 +144,15 @@ public class AppWindow
 		});
 	}
 
+	/**
+	 * @param path
+	 *            the absolute path of the file
+	 * @param encoding
+	 *            the encoding to be used (UTF-8 or nothing)
+	 * @return the file as a string
+	 * @throws IOException
+	 *             if the file system shits the bed
+	 */
 	public static String readFile(String path, Charset encoding)
 			throws IOException
 	{
@@ -117,8 +160,14 @@ public class AppWindow
 		return new String(encoded, encoding);
 	}
 
+	/**
+	 * The application frame
+	 */
 	private JFrame			frame;
 
+	/**
+	 * The program of study
+	 */
 	private ProgramOfStudy2	pos;
 
 	/**
@@ -129,11 +178,9 @@ public class AppWindow
 		this.initialize();
 	}
 
-	public ProgramOfStudy2 getProgram()
-	{
-		return this.pos;
-	}
-
+	/**
+	 * Add a course
+	 */
 	protected void guiAdd()
 	{
 		AppWindow.logger.log(Level.INFO, "Adding");
@@ -148,27 +195,35 @@ public class AppWindow
 		}
 		catch (final Exception e)
 		{
-			logError(e);
+			AppWindow.logError(e);
 			JOptionPane
-			.showMessageDialog(
-					null,
-					"The course was not added successfully\nPlease see the log for more details",
-					"", JOptionPane.PLAIN_MESSAGE);
+					.showMessageDialog(
+							null,
+							"The course was not added successfully\nPlease see the log for more details",
+							"", JOptionPane.PLAIN_MESSAGE);
 		}
 	}
 
+	/**
+	 * find a course
+	 */
 	protected void guiFind()
 	{
-		Course2 c = pos.find(AppWindow.getClassPrefix(),
+		final Course2 c = this.pos.find(AppWindow.getClassPrefix(),
 				AppWindow.getClassNum());
-		if(c==null)
+		if (c == null)
 		{
 			JOptionPane.showMessageDialog(null, "Course not found");
 		}
 		else
-		JOptionPane.showMessageDialog(null, c.toString());
+		{
+			JOptionPane.showMessageDialog(null, c.toString());
+		}
 	}
 
+	/**
+	 * List the courses
+	 */
 	protected void guiList()
 	{
 		AppWindow.logger.log(Level.INFO, "Listing");
@@ -181,6 +236,9 @@ public class AppWindow
 				JOptionPane.INFORMATION_MESSAGE);
 	}
 
+	/**
+	 * Load the courses from {@link POS_DAT}
+	 */
 	protected void guiLoad()
 	{
 		final ProgramOfStudy2 backup = this.pos;
@@ -196,28 +254,37 @@ public class AppWindow
 		{
 			this.pos = backup;
 			JOptionPane
-					.showMessageDialog(
-							null,
-							"An error has occurred, and the data was not loaded successfully\nPlease see the log for more details",
-							"", JOptionPane.ERROR_MESSAGE);
-			logError(e);
+			.showMessageDialog(
+					null,
+					"An error has occurred, and the data was not loaded successfully\nPlease see the log for more details",
+					"", JOptionPane.ERROR_MESSAGE);
+			AppWindow.logError(e);
 		}
 	}
 
+	/**
+	 * Quit :)
+	 */
 	protected void guiQuit()
 	{
 		AppWindow.logger.log(Level.INFO, "Shutting down!");
 		System.exit(0);
 	}
 
+	/**
+	 * Remove a class
+	 */
 	protected void guiRemove()
 	{
-		logger.log(Level.INFO, "Removing...");
-		Course2 c = pos.find(AppWindow.getClassPrefix(),
+		AppWindow.logger.log(Level.INFO, "Removing...");
+		final Course2 c = this.pos.find(AppWindow.getClassPrefix(),
 				AppWindow.getClassNum());
-		pos.removeCourse(c);
+		this.pos.removeCourse(c);
 	}
 
+	/**
+	 * Save the pos to {@link POS_DAT}
+	 */
 	protected void guiSave()
 	{
 		AppWindow.logger.log(Level.INFO, "Saving");
@@ -227,10 +294,13 @@ public class AppWindow
 		}
 		catch (final Exception e)
 		{
-			logError("An error occurred during saving", e);
+			AppWindow.logError("An error occurred during saving", e);
 		}
 	}
 
+	/**
+	 * Display the size of the pos
+	 */
 	protected void guiSize()
 	{
 		AppWindow.logger.log(Level.INFO, "size");
@@ -238,12 +308,16 @@ public class AppWindow
 				+ this.pos.getSize(), "Size", JOptionPane.INFORMATION_MESSAGE);
 	}
 
+	/**
+	 * Update the grade for the given course
+	 */
 	protected void guiUpdate()
 	{
 		AppWindow.logger.log(Level.INFO, "Updating");
-		Course2 c = pos.find(AppWindow.getClassPrefix(),
+		final Course2 c = this.pos.find(AppWindow.getClassPrefix(),
 				AppWindow.getClassNum());
-		String grade = JOptionPane.showInputDialog("Please enter the letter grade");
+		final String grade = JOptionPane
+				.showInputDialog("Please enter the letter grade");
 		c.setGrade(grade);
 	}
 
