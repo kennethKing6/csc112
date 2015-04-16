@@ -1,0 +1,9 @@
+1. Get input
+1.5 Start workingTotal at 0, neg at false
+2. neg = x < 0 xor y < 0 || neg
+3. x = |x|
+4. y = |y|
+5. if x == 0, output result, goto 8
+6. else increase workingtotal by y, decrement x
+7. goto 2
+8. Prompt to go again, if yes goto 1, else quit

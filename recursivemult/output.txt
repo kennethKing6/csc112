@@ -1,0 +1,16 @@
+Please enter a number: 0
+Please enter a second number: 10
+0
+Go again? ('q' to quit, else enter anything to go again): 
+Please enter a number: -1
+Please enter a second number: 4
+-4
+Go again? ('q' to quit, else enter anything to go again): 
+Please enter a number: 11
+Please enter a second number: 11
+121
+Go again? ('q' to quit, else enter anything to go again): 
+Please enter a number: -5
+Please enter a second number: -6
+30
+Go again? ('q' to quit, else enter anything to go again): q
