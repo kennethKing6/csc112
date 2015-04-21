@@ -1,0 +1,36 @@
+Please enter a dividend
+1
+Please enter a divisor
+2
+0
+Would you like to go again ('q' to  quit, else continue)
+
+Please enter a dividend
+2
+Please enter a divisor
+1
+2
+Would you like to go again ('q' to  quit, else continue)
+
+Please enter a dividend
+30
+Please enter a divisor
+2
+15
+Would you like to go again ('q' to  quit, else continue)
+
+Please enter a dividend
+0
+Please enter a divisor
+0
+1
+Would you like to go again ('q' to  quit, else continue)
+101
+Please enter a dividend
+1
+Please enter a divisor
+101
+0
+Would you like to go again ('q' to  quit, else continue)
+q
+Goodbye!
