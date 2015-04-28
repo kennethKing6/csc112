@@ -1,0 +1,25 @@
+Please enter two values, x and y respectively, to calculate x ^ y
+x: 1
+y: 1
+1 ^ 1 = 1
+Enter 'q' to quit, enter anything else to go again
+> 
+Please enter two values, x and y respectively, to calculate x ^ y
+x: 2
+y: 2
+2 ^ 2 = 4
+Enter 'q' to quit, enter anything else to go again
+> 
+Please enter two values, x and y respectively, to calculate x ^ y
+x: 3
+y: 3
+3 ^ 3 = 27
+Enter 'q' to quit, enter anything else to go again
+> 
+Please enter two values, x and y respectively, to calculate x ^ y
+x: 4
+y: 4
+4 ^ 4 = 256
+Enter 'q' to quit, enter anything else to go again
+> q
+Goodbye

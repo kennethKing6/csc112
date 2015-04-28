@@ -1,0 +1,7 @@
+1. get input
+2. output exp(x, y)
+3. Loop!
+
+exp(x, y)
+1. if y == 0 return 1
+2. return x * exp(x, y-1)
