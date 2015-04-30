@@ -1,3 +1,16 @@
+Due to the non-linear nature of this program, I've simply written out what each threaded event handler does
+
 1. Initialize window
 2. When user selects button, fire given event handler
-3. Goto 2
+3. Goto 2 :)
+
+EventHandlers:
+List - Displays window with ProgramOfStudy.toString();
+Save - Write ProgramOfStudy to pos.dat
+Load - Read ProgramOfStudy from pos.dat
+Quit - Quit the program
+Add - Add a course to the pos
+Size - Print the size of the pos
+Find - Search for a course
+Remove - remove a course by name
+Update - update the grade for the course
