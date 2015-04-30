@@ -3,7 +3,7 @@ import java.io.Serializable;
 /**
  * Course2.java<br>
  * Apr 14, 2015
- * 
+ *
  * @author Tim Miller
  */
 public class Course2 implements Serializable, Comparable<Course2>
@@ -70,35 +70,23 @@ public class Course2 implements Serializable, Comparable<Course2>
 		return result;
 	}
 
-	/* (non-Javadoc)
-	 * @see java.lang.Object#hashCode()
-	 */
-	@Override
-	public int hashCode()
-	{
-		final int prime = 31;
-		int result = 1;
-		result = prime * result + number;
-		result = prime * result + ((prefix == null) ? 0 : prefix.hashCode());
-		return result;
-	}
-
-	/* (non-Javadoc)
+	/*
+	 * (non-Javadoc)
 	 * @see java.lang.Object#equals(java.lang.Object)
 	 */
 	@Override
 	public boolean equals(Object obj)
 	{
-		if (this == obj) return true;
-		if (obj == null) return false;
-		if (!(obj instanceof Course2)) return false;
-		Course2 other = (Course2) obj;
-		if (number != other.number) return false;
-		if (prefix == null)
+		if (this == obj) { return true; }
+		if (obj == null) { return false; }
+		if (!(obj instanceof Course2)) { return false; }
+		final Course2 other = (Course2) obj;
+		if (this.number != other.number) { return false; }
+		if (this.prefix == null)
 		{
-			if (other.prefix != null) return false;
+			if (other.prefix != null) { return false; }
 		}
-		else if (!prefix.equals(other.prefix)) return false;
+		else if (!this.prefix.equals(other.prefix)) { return false; }
 		return true;
 	}
 
@@ -140,6 +128,21 @@ public class Course2 implements Serializable, Comparable<Course2>
 	public String getTitle()
 	{
 		return this.title;
+	}
+
+	/*
+	 * (non-Javadoc)
+	 * @see java.lang.Object#hashCode()
+	 */
+	@Override
+	public int hashCode()
+	{
+		final int prime = 31;
+		int result = 1;
+		result = (prime * result) + this.number;
+		result = (prime * result)
+				+ ((this.prefix == null) ? 0 : this.prefix.hashCode());
+		return result;
 	}
 
 	/**

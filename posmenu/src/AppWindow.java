@@ -3,9 +3,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.File;
 import java.io.IOException;
-import java.nio.charset.Charset;
-import java.nio.file.Files;
-import java.nio.file.Paths;
+import java.util.Scanner;
 import java.util.logging.FileHandler;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -22,7 +20,7 @@ import javax.swing.JSeparator;
 /**
  * AppWindow.java<br>
  * Apr 14, 2015
- * 
+ *
  * @author Tim Miller
  */
 public class AppWindow
@@ -36,7 +34,7 @@ public class AppWindow
 	 * System logger, writing to {@link System.out} and to {@link LOG_FILE}
 	 */
 	public static Logger		logger		= Logger.getLogger(AppWindow.class
-													.getCanonicalName());
+			.getCanonicalName());
 
 	/**
 	 * File to be saved to and loaded from
@@ -147,17 +145,13 @@ public class AppWindow
 	/**
 	 * @param path
 	 *            the absolute path of the file
-	 * @param encoding
-	 *            the encoding to be used (UTF-8 or nothing)
 	 * @return the file as a string
 	 * @throws IOException
 	 *             if the file system shits the bed
 	 */
-	public static String readFile(String path, Charset encoding)
-			throws IOException
+	public static String readFile(String path) throws IOException
 	{
-		final byte[] encoded = Files.readAllBytes(Paths.get(path));
-		return new String(encoded, encoding);
+		return new Scanner(new File("poem.txt")).useDelimiter("\\A").next();
 	}
 
 	/**
@@ -197,10 +191,10 @@ public class AppWindow
 		{
 			AppWindow.logError(e);
 			JOptionPane
-					.showMessageDialog(
-							null,
-							"The course was not added successfully\nPlease see the log for more details",
-							"", JOptionPane.PLAIN_MESSAGE);
+			.showMessageDialog(
+					null,
+					"The course was not added successfully\nPlease see the log for more details",
+					"", JOptionPane.PLAIN_MESSAGE);
 		}
 	}
 
@@ -245,19 +239,18 @@ public class AppWindow
 		AppWindow.logger.log(Level.INFO, "Loading");
 		try
 		{
-			final String s = AppWindow.readFile(
-					AppWindow.POS_DAT.getAbsolutePath(),
-					Charset.defaultCharset());
+			final String s = AppWindow.readFile(AppWindow.POS_DAT
+					.getAbsolutePath());
 			this.pos = ProgramOfStudy2.load(s);
 		}
 		catch (final Exception e)
 		{
 			this.pos = backup;
 			JOptionPane
-			.showMessageDialog(
-					null,
-					"An error has occurred, and the data was not loaded successfully\nPlease see the log for more details",
-					"", JOptionPane.ERROR_MESSAGE);
+					.showMessageDialog(
+							null,
+							"An error has occurred, and the data was not loaded successfully\nPlease see the log for more details",
+							"", JOptionPane.ERROR_MESSAGE);
 			AppWindow.logError(e);
 		}
 	}

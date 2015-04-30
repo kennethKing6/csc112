@@ -10,7 +10,7 @@ import jsjf.exceptions.NonComparableElementException;
  * @version 4.0
  */
 public class ArrayOrderedList<T> extends ArrayList<T> implements
-		OrderedListADT<T>
+OrderedListADT<T>
 {
 	/**
 	 * Creates an empty list using the default capacity.

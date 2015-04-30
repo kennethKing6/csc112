@@ -12,7 +12,7 @@ import jsjf.ArrayOrderedList;
 /**
  * ProgramOfStudy2.java<br>
  * Apr 14, 2015
- * 
+ *
  * @author Tim Miller
  */
 public class ProgramOfStudy2 implements Iterable<Course2>, Serializable
@@ -32,7 +32,7 @@ public class ProgramOfStudy2 implements Iterable<Course2>, Serializable
 	 * @throws ClassNotFoundException
 	 */
 	public static ProgramOfStudy2 load(String fileName) throws IOException,
-	ClassNotFoundException
+			ClassNotFoundException
 	{
 		/*
 		 * FileInputStream fis = new FileInputStream(fileName);
