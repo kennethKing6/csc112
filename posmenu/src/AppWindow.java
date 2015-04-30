@@ -151,7 +151,7 @@ public class AppWindow
 	 */
 	public static String readFile(String path) throws IOException
 	{
-		return new Scanner(new File("poem.txt")).useDelimiter("\\A").next();
+		return new Scanner(POS_DAT).useDelimiter("\\A").next();
 	}
 
 	/**
