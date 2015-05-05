@@ -1,0 +1,173 @@
+The tree is currently empty
+How many contacts do you wish to add to the tree? 4
+
+Enter #1: 
+First name: Tim
+Last name: Miller
+
+Enter #2: 
+First name: Miller
+Last name: Tim
+
+Enter #3: 
+First name: Dood
+Last name: McFadden
+
+Enter #4: 
+First name: Cool
+Last name: Spoons
+
+InOrder Transversal
+Barnes, Sarah	215-555-3827
+Getz, Laura	663-555-3984
+Grant, Marsha	243-555-2837
+McFadden, Dood	
+Miller, Tim	
+Phelps, Frank	322-555-2284
+Riley, Mark	733-555-2969
+Smith, John	610-555-7384
+Smith, Larry	464-555-3489
+Spoons, Cool	
+Tim, Miller	
+
+PreOrder Transversal
+Smith, John	610-555-7384
+Barnes, Sarah	215-555-3827
+Riley, Mark	733-555-2969
+Getz, Laura	663-555-3984
+Phelps, Frank	322-555-2284
+Grant, Marsha	243-555-2837
+Miller, Tim	
+McFadden, Dood	
+Smith, Larry	464-555-3489
+Tim, Miller	
+Spoons, Cool	
+
+PostOrder Transversal
+McFadden, Dood	
+Miller, Tim	
+Grant, Marsha	243-555-2837
+Phelps, Frank	322-555-2284
+Getz, Laura	663-555-3984
+Riley, Mark	733-555-2969
+Barnes, Sarah	215-555-3827
+Spoons, Cool	
+Tim, Miller	
+Smith, Larry	464-555-3489
+Smith, John	610-555-7384
+
+Using toString
+Tim, Miller	
+Spoons, Cool	
+Smith, Larry	464-555-3489
+Smith, John	610-555-7384
+Riley, Mark	733-555-2969
+Phelps, Frank	322-555-2284
+Miller, Tim	
+McFadden, Dood	
+Grant, Marsha	243-555-2837
+Getz, Laura	663-555-3984
+Barnes, Sarah	215-555-3827
+
+The tree is empty
+Tree height is 7
+Size of tree is 11
+The number of leaves is 2
+
+Find which node in the tree? 
+First name: Tim Miller
+Last name: Miller
+Miller, Tim Miller	 is in this tree is false
+
+Delete which node in the tree? 
+First name: Tim
+Last name: Miller
+Miller, Tim	 has been processed, check to see if it has been removed.
+
+InOrder Transversal
+Barnes, Sarah	215-555-3827
+Getz, Laura	663-555-3984
+Grant, Marsha	243-555-2837
+McFadden, Dood	
+Phelps, Frank	322-555-2284
+Riley, Mark	733-555-2969
+Smith, John	610-555-7384
+Smith, Larry	464-555-3489
+Spoons, Cool	
+Tim, Miller	
+
+Go Again (y/n)? 
+y
+The tree is currently empty
+How many contacts do you wish to add to the tree? 1
+
+Enter #1: 
+First name: Dood
+Last name: Dooderson
+
+InOrder Transversal
+Barnes, Sarah	215-555-3827
+Dooderson, Dood	
+Getz, Laura	663-555-3984
+Grant, Marsha	243-555-2837
+Phelps, Frank	322-555-2284
+Riley, Mark	733-555-2969
+Smith, John	610-555-7384
+Smith, Larry	464-555-3489
+
+PreOrder Transversal
+Smith, John	610-555-7384
+Barnes, Sarah	215-555-3827
+Riley, Mark	733-555-2969
+Getz, Laura	663-555-3984
+Dooderson, Dood	
+Phelps, Frank	322-555-2284
+Grant, Marsha	243-555-2837
+Smith, Larry	464-555-3489
+
+PostOrder Transversal
+Dooderson, Dood	
+Grant, Marsha	243-555-2837
+Phelps, Frank	322-555-2284
+Getz, Laura	663-555-3984
+Riley, Mark	733-555-2969
+Barnes, Sarah	215-555-3827
+Smith, Larry	464-555-3489
+Smith, John	610-555-7384
+
+Using toString
+Smith, _______________________________________________________________Larry	464-555-3489
+Smith, John	610-555-7384
+Riley, Mark	733-555-2969
+Phelps, Frank	322-555-2284
+Grant, Marsha	243-555-2837
+Getz, Laura	663-555-3984
+Dooderson, Dood	
+Barnes, Sarah	215-555-3827
+
+The tree is empty
+Tree height is 5
+Size of tree is 8
+The number of leaves is 3
+
+Find which node in the tree? 
+First name: Dood
+Last name: Dooderson
+Dooderson, Dood	 is in this tree is true
+
+Delete which node in the tree? 
+First name: Dood
+Last name: Dooderson
+Dooderson, Dood	 has been processed, check to see if it has been removed.
+
+InOrder Transversal
+Barnes, Sarah	215-555-3827
+Getz, Laura	663-555-3984
+Grant, Marsha	243-555-2837
+Phelps, Frank	322-555-2284
+Riley, Mark	733-555-2969
+Smith, John	610-555-7384
+Smith, Larry	464-555-3489
+
+Go Again (y/n)? 
+n
